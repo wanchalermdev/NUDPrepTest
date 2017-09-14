@@ -1,16 +1,87 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
+import { NotFound404Component } from './not-found404/not-found404.component';
+import { AdminInfoComponent } from './admin/admin-info/admin-info.component';
+import { ExamCenterInfoComponent } from './exam-center/exam-center-info/exam-center-info.component';
+
+import { LoginService } from './service/login.service';
+import { AuthenticationGuard } from './guard/authentication.guard';
+import { Http, Headers, HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+
+
+const adminRoutes: Routes = [
+  {
+    path: '',
+    component: AdminInfoComponent
+  },
+  {
+    path: 'info',
+    component: AdminInfoComponent
+  }
+];
+
+const examCenterRoutes: Routes = [
+  {
+    path: '',
+    component: ExamCenterInfoComponent
+  },
+  {
+    path: 'info',
+    component: ExamCenterInfoComponent
+  }
+];
+
+const appRoutes:Routes = [
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full' 
+  },
+  {
+    path: 'admin',
+    canActivate: [AuthenticationGuard],
+    children: adminRoutes
+  },
+  {
+    path: 'examCenter',
+    children: examCenterRoutes
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '**',
+    component: NotFound404Component
+  }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    NavComponent,
+    FooterComponent,
+    NotFound404Component,
+    AdminInfoComponent,
+    ExamCenterInfoComponent,
   ],
   imports: [
-    BrowserModule
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    BrowserModule,
+    HttpModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [LoginService, AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
