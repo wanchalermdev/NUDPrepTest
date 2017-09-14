@@ -35,7 +35,7 @@ export class LoginService {
 
   getUserLoggedIn() {
     return this.isUserLoggedIn;
-  }
+  } ,
 
   setUserLogout() {
     this.isUserLoggedIn = false;
