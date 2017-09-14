@@ -19,7 +19,15 @@ export class LoginService {
       password: _password
     };
 
+<<<<<<< HEAD
     this._http.post('http://localhost/NUDPrepTestBackEnd/authentication/authenticationRequestLogin.php', creds,{headers: headers}).subscribe((data) => {
+=======
+<<<<<<< HEAD
+    this._http.post('http://localhost/NUDPrepTestBackEnd/authentication/authenticationRequestLogin.php', creds,{headers: headers}).subscribe((data) => {
+=======
+    this._http.put('http://localhost/NUDPrepTestBackEnd/authentication/authenticationRequestLogin.php', creds,{headers: headers}).subscribe((data) => {
+>>>>>>> c7c496da1c84d02ec283c9567390f92b5c86af29
+>>>>>>> 5d214367a4ac3c33eaf01a81422b1bd969726970
       if (data.json().success) {
         //window.localStorage.setItem('auth_key', data.json());
         console.log(data);
