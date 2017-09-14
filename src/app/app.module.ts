@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import 'hammerjs';
 //Import the component modules
-import {MdButtonModule, MdCheckboxModule,MdInputModule,MdAutocompleteModule,MdGridListModule,MdDatepickerModule} from '@angular/material';
+import {MdButtonModule, MdCheckboxModule,MdInputModule,MdAutocompleteModule,MdGridListModule,MdDatepickerModule,MdToolbarModule,MdCardModule} from '@angular/material';
 // import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -83,8 +83,7 @@ const appRoutes:Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
     BrowserModule,
     HttpModule,
-    FormsModule,
-    MdButtonModule, MdCheckboxModule
+    MdButtonModule, MdCheckboxModule,MdInputModule,MdAutocompleteModule,MdGridListModule,MdDatepickerModule,MdToolbarModule,MdCardModule
   ],
   providers: [LoginService, AuthenticationGuard],
   bootstrap: [AppComponent]
