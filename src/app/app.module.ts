@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import 'hammerjs';
 //Import the component modules
-import {MdButtonModule, MdCheckboxModule,MdInputModule,MdAutocompleteModule,MdGridListModule,MdDatepickerModule} from '@angular/material';
-// import { MaterialModule } from '@angular/material';
+//import { MaterialModule } from '@angular/material';
+import { MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdGridListModule, MdDatepickerModule,MdToolbarModule,MdCardModule  } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -18,7 +19,7 @@ import { ExamCenterInfoComponent } from './exam-center/exam-center-info/exam-cen
 import { LoginService } from './service/login.service';
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { Http, Headers, HttpModule } from '@angular/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const adminRoutes: Routes = [
@@ -43,11 +44,11 @@ const examCenterRoutes: Routes = [
   }
 ];
 
-const appRoutes:Routes = [
+const appRoutes: Routes = [
   {
     path: '',
     redirectTo: '/login',
-    pathMatch: 'full' 
+    pathMatch: 'full'
   },
   {
     path: 'admin',
@@ -77,14 +78,13 @@ const appRoutes:Routes = [
     FooterComponent,
     NotFound404Component,
     AdminInfoComponent,
-    ExamCenterInfoComponent,
+    ExamCenterInfoComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
     HttpModule,
-    FormsModule,
-    MdButtonModule, MdCheckboxModule
+    MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdGridListModule, MdDatepickerModule,MdToolbarModule,MdCardModule
   ],
   providers: [LoginService, AuthenticationGuard],
   bootstrap: [AppComponent]
