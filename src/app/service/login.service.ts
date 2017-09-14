@@ -18,8 +18,12 @@ export class LoginService {
       username: _username,
       password: _password
     };
-    alert("Hello");
-    this._http.post('http://localhost/NUDPrepTestBackEnd/authentication/authenticationRequestLogin.php', creds,{headers: headers}).subscribe((data) => {
+
+    var str = Object.keys(body).map(function(key){ 
+      return encodeURIComponent(key) + '=' + encodeURIComponent(body[key]); 
+    }).join('&');
+    
+    this._http.post('http://localhost/NUDPrepTestBackEnd/authentication/authenticationRequestLogin.php', str,{headers: headers}).subscribe((data) => {
       if (data.json().success) {
         //window.localStorage.setItem('auth_key', data.json());
         console.log(data);
