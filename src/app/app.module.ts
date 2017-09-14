@@ -84,7 +84,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
     HttpModule,
-    MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdGridListModule, MdDatepickerModule,MdToolbarModule,MdCardModule
+    MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdGridListModule, MdDatepickerModule,MdToolbarModule,MdCardModule, BrowserAnimationsModule
   ],
   providers: [LoginService, AuthenticationGuard],
   bootstrap: [AppComponent]
