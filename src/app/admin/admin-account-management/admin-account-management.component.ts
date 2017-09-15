@@ -4,6 +4,7 @@ import { MdPaginator } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
@@ -33,15 +34,6 @@ export class AdminAccountManagementComponent implements OnInit {
 
 }
 
-
-
-/** Constants used to fill up our data base. */
-const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
-
 export interface UserData {
   number: string;
   firstname: string;
@@ -62,8 +54,6 @@ export class ExampleDatabase {
     setTimeout(() => {
       var str = window.sessionStorage.getItem('body');
       this.allAcoount = JSON.parse(str);
-      console.log(str);
-      console.log("length ทั้งหมด = " + Object.keys(this.allAcoount).length);
       for (let i = 0; i < Object.keys(this.allAcoount).length; i++) { this.addUser(this.allAcoount); }
     }, 100);
   }

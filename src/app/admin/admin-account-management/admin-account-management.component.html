@@ -44,17 +44,19 @@
         <!-- Color Column -->
         <ng-container mdColumnDef="ข้อมูล">
           <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
-          <md-cell *mdCellDef="let row" [style.color]="row.color">  </md-cell>
+          <md-cell *mdCellDef="let row" >
+            
+          </md-cell>
         </ng-container>
 
         <ng-container mdColumnDef="แก้ไข">
             <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
-            <md-cell *mdCellDef="let row" [style.color]="row.color"> </md-cell>
+            <md-cell *mdCellDef="let row" > </md-cell>
           </ng-container>
 
           <ng-container mdColumnDef="ลบ">
               <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
-              <md-cell *mdCellDef="let row" [style.color]="row.color"></md-cell>
+              <md-cell *mdCellDef="let row"></md-cell>
             </ng-container>
 
         <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
