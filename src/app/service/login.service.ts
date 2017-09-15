@@ -24,7 +24,7 @@ export class LoginService {
       return encodeURIComponent(key) + '=' + encodeURIComponent(body[key]); 
     }).join('&');
     
-    return this._http.post('http://10.41.131.180/NUDPrepTestBackEnd/authentication/authenticationRequestLogin.php', str,{headers: headers}).subscribe((data) => {
+    return this._http.post('http://10.41.131.180/NUDPrepTestBackEnd/authentication/AuthenticationRequestLogin.php', str,{headers: headers}).subscribe((data) => {
   
         /*
         * แปลงค่าที่รับมาเป็น JSON string ให้อยู่ในรูปของ array
