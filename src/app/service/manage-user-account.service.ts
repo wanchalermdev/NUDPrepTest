@@ -17,7 +17,6 @@ export class ManageUserAccountService {
     
     
     this.allUserData = data.json();
-    console.log(this.allUserData);
 
     if (this.allUserData['operation'] == "success"){
       this.allUserData = this.allUserData['body'];

@@ -28,6 +28,7 @@
                     <md-cell *mdCellDef="let row"> {{row.firstname}} </md-cell>
                 </ng-container>
 
+<<<<<<< HEAD
                 <!-- Name Column -->
                 <ng-container mdColumnDef="นามสกุล">
                     <md-header-cell *mdHeaderCellDef> นามสกุล </md-header-cell>
@@ -52,6 +53,44 @@
                     <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
                     <md-cell *mdCellDef="let row" [style.color]="row.color"></md-cell>
                 </ng-container>
+=======
+        <!-- Name Column -->
+        <ng-container mdColumnDef="นามสกุล">
+          <md-header-cell *mdHeaderCellDef> นามสกุล </md-header-cell>
+          <md-cell *mdCellDef="let row"> {{row.lastname}} </md-cell>
+        </ng-container>
+        <ng-container mdColumnDef="ชื่อผู้ใช้">
+            <md-header-cell *mdHeaderCellDef> ชื่อผู้ใช้ </md-header-cell>
+            <md-cell *mdCellDef="let row"> {{row.username}} </md-cell>
+          </ng-container>
+        <!-- Color Column -->
+        <ng-container mdColumnDef="ข้อมูล">
+          <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
+          <md-cell *mdCellDef="let row" >
+            <button md-icon-button>
+              <md-icon class="md-24" aria-label="">assignment</md-icon>
+            </button>
+          </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="แก้ไข">
+            <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
+            <md-cell *mdCellDef="let row" >
+              <button md-icon-button>
+                <md-icon class="md-24" aria-label="">edit</md-icon>
+              </button>
+            </md-cell>
+          </ng-container>
+
+          <ng-container mdColumnDef="ลบ">
+              <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
+              <md-cell *mdCellDef="let row">
+                <button md-icon-button>
+                  <md-icon class="md-24" aria-label="">delete</md-icon>
+                </button>
+              </md-cell>
+            </ng-container>
+>>>>>>> 7a759c23931ab34d15cc74ba8139319dcde494e0
 
                 <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
                 <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
