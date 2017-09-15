@@ -9,21 +9,33 @@ import { LoginService } from '../service/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router, private login:LoginService) { }
+  error_message = "";
+  constructor(private router: Router, private login: LoginService) { }
 
   ngOnInit() {
   }
 
-  loginSubmit(e){
+  loginSubmit(e) {
     e.preventDefault();
     var username = e.target.elements[0].value;
     var password = e.target.elements[1].value;
 
-      //alert("Success");
-      this.login.authenRequest(username, password);
-      //this.router.navigate(['admin']);
+    if ((username != "") && (password != "")) {
+      if(this.login.authenRequest(username, password) == "1"){
+        this.login.setUserLoggedIn();
+        /*
+        * เมื่อลงชื่อเข้าใช้สำเร็จแล้วให้ตรวจสอบว่าเป็นผู้ใช้ประเภทใด
+        */
+        this.router.navigate(['admin']);
+      }else{
 
-    return false;
+      }
+      
+      //this.error_message = "success";
+      
+    }else{
+      //this.error_message = "<br /><i style=\"color: red;\">**คุณกรอกข้อมูลไม่ครบ</i>";
+    }
   }
 
 }

@@ -24,13 +24,35 @@ export class LoginService {
     }).join('&');
     
     this._http.post('http://localhost/NUDPrepTestBackEnd/authentication/authenticationRequestLogin.php', str,{headers: headers}).subscribe((data) => {
-      if (data.json().success) {
-        //window.localStorage.setItem('auth_key', data.json());
-        console.log(data);
-      }else{
-        console.log(data.json());
-      }
+  
+        
+        /*
+        * แปลงค่าที่รับมาเป็น JSON string ให้อยู่ในรูปของ array
+        */
+        var login = data.json();
+
+        /*
+        * ตรวจสอบว่าผลการลงชื่อเข้าใช้สำเร็จหรือไม่
+        */
+        if(login['login'] == 'success'){
+          // ลงชื่อเข้าใช้สำเร็จ
+          window.sessionStorage.setItem('login', 'true');
+        }else{
+          // ลงชื่อเข้าใช้ไม่สำเร็จ
+          window.sessionStorage.setItem('login', 'false');
+        }
+      
     });
+
+    /*
+    * ส่งค่ากลับไปที่จุดที่เรียกใช้
+    */
+    if(window.sessionStorage.getItem('login') == 'true'){
+      return "1";
+    }
+    else{
+      return "0";
+    }
   }
 
   setUserLoggedIn() {

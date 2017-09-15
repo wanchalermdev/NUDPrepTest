@@ -54,10 +54,6 @@
     }
   },
   "defaults": {
-    "serve": {
-      "port": 4200,
-      "host": "10.41.131.180"
-    },
     "styleExt": "css",
     "component": {}
   }
