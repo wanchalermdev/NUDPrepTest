@@ -5,7 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 import 'hammerjs';
 
 //Import the component modules
-import { MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule,MdMenuModule, MdGridListModule, MdDatepickerModule, MdToolbarModule, MdCardModule,MdTableModule,MdPaginatorModule} from '@angular/material';
+import {
+  MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdMenuModule, MdGridListModule,
+  MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule,MdTabsModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -140,9 +143,9 @@ const examCenterRoutes: Routes = [
 export const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   //app routing :: admin
-  // { path: 'admin', canActivate: [AuthenticationGuard], children: adminRoutes },
+  { path: 'admin', canActivate: [AuthenticationGuard], children: adminRoutes },
   { path: 'admin', children: adminRoutes },
-//app routing :: exam center
+  //app routing :: exam center
   { path: 'examCenter', children: examCenterRoutes },
   { path: 'login', component: LoginComponent },
   { path: '**', component: NotFound404Component }
@@ -205,8 +208,9 @@ export const appRoutes: Routes = [
     BrowserModule,
     HttpModule,
     MdButtonModule, MdCheckboxModule, MdInputModule, MdPaginatorModule,
-    MdAutocompleteModule, MdGridListModule, MdDatepickerModule, MdToolbarModule, 
-    MdCardModule, BrowserAnimationsModule,MdTableModule,MdMenuModule
+    MdAutocompleteModule, MdGridListModule, MdDatepickerModule, MdToolbarModule,
+    MdCardModule, BrowserAnimationsModule, MdTableModule, MdMenuModule,MdIconModule,
+    MdTabsModule
   ],
   providers: [LoginService, AuthenticationGuard],
   bootstrap: [AppComponent]
