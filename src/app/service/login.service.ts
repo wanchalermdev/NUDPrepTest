@@ -13,7 +13,6 @@ export class LoginService {
 
   authenRequest(_username, _password) {
     var headers = new Headers();
-    var creds = 'name=Mint&password=Ton';
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     
     const body = {

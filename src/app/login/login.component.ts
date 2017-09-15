@@ -16,31 +16,35 @@ export class LoginComponent implements OnInit {
   }
 
   loginSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); // คำสั่งไม่ให้รีเฟลชหน้าเพจ
+
     var username = e.target.elements[0].value;
     var password = e.target.elements[1].value;
 
     this.login.authenRequest(username, password);
     setTimeout(() => {
-      
-      console.log(this.login.getDataLogin());
+
+      //console.log(this.login.getDataLogin());
       if (this.login.getUserLoggedIn()) {
         /*
         * เมื่อลงชื่อเข้าใช้สำเร็จแล้วให้ตรวจสอบว่าเป็นผู้ใช้ประเภทใด
         */
         window.sessionStorage.setItem('login', 'true');
+
         var dataUser = this.login.getDataLogin();
-        if(dataUser['role'] == 'Administrator'){
+        var _name = dataUser['prename'] + dataUser['firstname'] + "   " + dataUser['lastname'];
+        window.sessionStorage.setItem('nameOfUser', _name.toString());
+        if (dataUser['role'] == 'Administrator') {
           this.router.navigateByUrl('/admin');
-        }else if(dataUser['role'] == 'coordinator_committee'){
-          this.router.navigateByUrl('/centerExam');
+        } else if (dataUser['role'] == 'coordinator_committee') {
+          this.router.navigateByUrl('/examCenter');
         }
       } else {
         this.login.setUserLogout();
         this.error_message = "*** การลงชื่อเข้าใช้ผิดพลาด";
       }
-    }, 300);
+    }, 1000);
   }
-  
+
 
 }

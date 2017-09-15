@@ -4,15 +4,12 @@
   <span class="example-fill-remaining-space"></span>
 
   <md-menu #appMenu="mdMenu">
-    <button md-menu-item> Settings </button>
-    <button md-menu-item> Help </button>
+    <button *ngIf="loggedIn" md-menu-item (click)="logout()">ลงชื่อออก</button>
   </md-menu>
 
   <button md-button [mdMenuTriggerFor]="appMenu">
-   <md-icon>more_vert</md-icon>
+    {{ nameUser }}
   </button>
-
-  <button *ngIf="loggedIn" md-button (click)="logout()">ลงชื่อออก</button>
 
 
 </md-toolbar>

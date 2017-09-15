@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   loggedIn = false;
+  nameUser = window.sessionStorage.getItem('nameOfUser');
 
   constructor(private login: LoginService, private _router: Router) {
     //this.loggedIn = this.login.getUserLoggedIn();
@@ -27,7 +28,7 @@ export class NavComponent implements OnInit {
 
   logout() {
     this.login.setUserLogout();
-    window.sessionStorage.removeItem('login');
+    window.sessionStorage.clear();
     this._router.navigateByUrl("/login");
   }
 
