@@ -19,28 +19,22 @@ export class AdminAccountManagementComponent implements OnInit {
   private allAcoount;
 
   constructor(private manageAccount: ManageUserAccountService) {
-    
-
-
   }
 
   displayedColumns = ['ลำดับ', 'ชื่อ', 'นามสกุล', 'ชื่อผู้ใช้', 'ข้อมูล', 'แก้ไข', 'ลบ'];
-  exampleDatabase = new ExampleDatabase();
+  exampleDatabase = new ExampleDatabase(this.manageAccount);
   dataSource: ExampleDataSource | null;
 
   @ViewChild(MdPaginator) paginator: MdPaginator;
 
   ngOnInit() {
-    
-    var str = window.sessionStorage.getItem('body');
-    this.allAcoount = JSON.parse(str);
-    console.log(this.allAcoount);
-    
-
     this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
   }
 
 }
+
+
+
 /** Constants used to fill up our data base. */
 const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
   'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
@@ -61,27 +55,34 @@ export class ExampleDatabase {
   /** Stream that emits whenever the data has been modified. */
   dataChange: BehaviorSubject<UserData[]> = new BehaviorSubject<UserData[]>([]);
   get data(): UserData[] { return this.dataChange.value; }
-
-  constructor() {
+  private allAcoount;
+  constructor(private manageAccount: ManageUserAccountService) {
     // Fill up the database with 100 users.
-    for (let i = 0; i < 100; i++) { this.addUser(); }
+    this.manageAccount.getAllUserAccount();
+    setTimeout(() => {
+      var str = window.sessionStorage.getItem('body');
+      this.allAcoount = JSON.parse(str);
+      console.log(str);
+      console.log("length ทั้งหมด = " + Object.keys(this.allAcoount).length);
+      for (let i = 0; i < Object.keys(this.allAcoount).length; i++) { this.addUser(this.allAcoount); }
+    }, 100);
   }
 
   /** Adds a new user to the database. */
-  addUser() {
+  addUser(acccount) {
     const copiedData = this.data.slice();
-    copiedData.push(this.createNewUser());
+    copiedData.push(this.createNewUser(acccount));
     this.dataChange.next(copiedData);
   }
 
   /** Builds and returns a new User. */
-  private createNewUser() {
-
+  private createNewUser(acccount) {
+    const name = acccount[this.data.length + 1]['prename'] + acccount[this.data.length + 1]['firstname'];
     return {
       number: (this.data.length + 1).toString(),
       firstname: name,
-      lastname: Math.round(Math.random() * 100).toString(),
-      username: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+      lastname: acccount[this.data.length + 1]['lastname'],
+      username: acccount[this.data.length + 1]['username']
     };
   }
 }
