@@ -140,8 +140,8 @@ const examCenterRoutes: Routes = [
 export const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   //app routing :: admin
-  // { path: 'admin', canActivate: [AuthenticationGuard], children: adminRoutes },
-  { path: 'admin', children: adminRoutes },
+{ path: 'admin', canActivate: [AuthenticationGuard], children: adminRoutes },
+
 //app routing :: exam center
   { path: 'examCenter', children: examCenterRoutes },
   { path: 'login', component: LoginComponent },
