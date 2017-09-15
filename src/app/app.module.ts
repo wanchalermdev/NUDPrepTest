@@ -3,9 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import 'hammerjs';
+
 //Import the component modules
-//import { MaterialModule } from '@angular/material';
-import { MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdGridListModule, MdDatepickerModule,MdToolbarModule,MdCardModule, MdMenuModule  } from '@angular/material';
+import { MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule,MdMenuModule, MdGridListModule, MdDatepickerModule, MdToolbarModule, MdCardModule,MdTableModule,MdPaginatorModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -13,60 +13,139 @@ import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
-import { AdminInfoComponent } from './admin/admin-info/admin-info.component';
-import { ExamCenterInfoComponent } from './exam-center/exam-center-info/exam-center-info.component';
 
 import { LoginService } from './service/login.service';
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { Http, Headers, HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//-------------------------------------------Admin component---------------------------------------//
+import { AdminInfoComponent } from './admin/admin-info/admin-info.component';
+import { AdminAccountManagementComponent } from './admin/admin-account-management/admin-account-management.component';
+import { AdminStudentParticipatingComponent } from './admin/admin-student-participating/admin-student-participating.component';
+import { AdminExamCenterComponent } from './admin/admin-exam-center/admin-exam-center.component';
+import { AdminSettingComponent } from './admin/admin-setting/admin-setting.component';
+//Admin component :: sub-menu admin account management component
+import { AddUserAccountComponent } from './admin/admin-account-management/add-user-account/add-user-account.component';
+import { ViewUserAccountComponent } from './admin/admin-account-management/view-user-account/view-user-account.component';
+import { EditUserAccountComponent } from './admin/admin-account-management/edit-user-account/edit-user-account.component';
+import { DeleteUserAccountComponent } from './admin/admin-account-management/delete-user-account/delete-user-account.component';
+//Admin component :: sub-menu admin student participating component
+import { RecordExamResultsComponent } from './admin/admin-student-participating/record-exam-results/record-exam-results.component';
+import { CreatePDFReportComponent } from './admin/admin-student-participating/create-pdf-report/create-pdf-report.component';
+import { ExportCSVComponent } from './admin/admin-student-participating/export-csv/export-csv.component';
+import { ExportPDFComponent } from './admin/admin-student-participating/export-pdf/export-pdf.component';
+//Admin component :: sub-menu admin exam center component
+import { AddExamCenterComponent } from './admin/admin-exam-center/add-exam-center/add-exam-center.component';
+import { ViewExamCenterComponent } from './admin/admin-exam-center/view-exam-center/view-exam-center.component';
+import { EditExamCenterComponent } from './admin/admin-exam-center/edit-exam-center/edit-exam-center.component';
+import { DeleteExamCenterComponent } from './admin/admin-exam-center/delete-exam-center/delete-exam-center.component';
+import { ExportPDFExamCenterComponent } from './admin/admin-exam-center/export-pdf-exam-center/export-pdf-exam-center.component';
+import { ExportCSVExamCenterComponent } from './admin/admin-exam-center/export-csv-exam-center/export-csv-exam-center.component';
 
+//-------------------------------------Exam center component------------------------------//
+import { ExamCenterInfoComponent } from './exam-center/exam-center-info/exam-center-info.component';
+import { ExamCenterCandidateAccountComponent } from './exam-center/exam-center-candidate-account/exam-center-candidate-account.component';
+import { ExamCenterBuildingComponent } from './exam-center/exam-center-building/exam-center-building.component';
+import { ExamCenterRoomComponent } from './exam-center/exam-center-room/exam-center-room.component';
+import { ExamCenterCommitteeComponent } from './exam-center/exam-center-committee/exam-center-committee.component';
+//Exam center component :: Exam Center Candidate Account Component
+import { AddCandidateComponent } from './exam-center/exam-center-candidate-account/add-candidate/add-candidate.component';
+import { ViewCandidateComponent } from './exam-center/exam-center-candidate-account/view-candidate/view-candidate.component';
+import { EditCandidateComponent } from './exam-center/exam-center-candidate-account/edit-candidate/edit-candidate.component';
+import { DeleteCandidateComponent } from './exam-center/exam-center-candidate-account/delete-candidate/delete-candidate.component';
+//Exam center component :: Exam Center Building Component
+import { AddBuildingComponent } from './exam-center/exam-center-building/add-building/add-building.component';
+import { ViewBuildingComponent } from './exam-center/exam-center-building/view-building/view-building.component';
+import { EditBuildingComponent } from './exam-center/exam-center-building/edit-building/edit-building.component';
+import { DeleteBuildingComponent } from './exam-center/exam-center-building/delete-building/delete-building.component';
+import { PDFReportBuildingComponent } from './exam-center/exam-center-building/pdf-report-building/pdf-report-building.component';
+//Exam center component :: Exam Center Room Component
+import { AddRoomComponent } from './exam-center/exam-center-room/add-room/add-room.component';
+import { ViewRoomComponent } from './exam-center/exam-center-room/view-room/view-room.component';
+import { EditRoomComponent } from './exam-center/exam-center-room/edit-room/edit-room.component';
+import { DeleteRoomComponent } from './exam-center/exam-center-room/delete-room/delete-room.component';
+import { PDFReportRoomComponent } from './exam-center/exam-center-room/pdf-report-room/pdf-report-room.component';
+//Exam center component :: Exam Center Committee Component
+import { AddCommitteeComponent } from './exam-center/exam-center-committee/add-committee/add-committee.component';
+import { ViewCommitteeComponent } from './exam-center/exam-center-committee/view-committee/view-committee.component';
+import { EditCommitteeComponent } from './exam-center/exam-center-committee/edit-committee/edit-committee.component';
+import { DeleteCommitteeComponent } from './exam-center/exam-center-committee/delete-committee/delete-committee.component';
+import { PDFReportCommitteeComponent } from './exam-center/exam-center-committee/pdf-report-committee/pdf-report-committee.component';
 
+//constructor admin routing
 const adminRoutes: Routes = [
-  {
-    path: '',
-    component: AdminInfoComponent
-  },
-  {
-    path: 'info',
-    component: AdminInfoComponent
-  }
-];
 
+  //constructor admin routing :: admin info 
+  { path: '', component: AdminInfoComponent },
+  { path: 'admin-info', component: AdminInfoComponent },
+  //constructor admin routing :: admin account management 
+  { path: 'account-management', component: AdminAccountManagementComponent },
+  { path: 'add-user-account', component: AddUserAccountComponent },
+  { path: 'view-user-account', component: ViewUserAccountComponent },
+  { path: 'edit-user-account', component: EditUserAccountComponent },
+  { path: 'delete-user-account', component: DeleteUserAccountComponent },
+  //constructor admin routing :: admin student participating 
+  { path: 'student-participating', component: AdminStudentParticipatingComponent },
+  { path: 'record-exam-results', component: RecordExamResultsComponent },
+  { path: 'create-pdf-report', component: CreatePDFReportComponent },
+  { path: 'export-csv', component: ExportCSVComponent },
+  { path: 'export-pdf', component: ExportPDFComponent },
+  //constructor admin routing :: admin exam center
+  { path: 'exam-center', component: AdminExamCenterComponent },
+  { path: 'add-exam-center', component: AddExamCenterComponent },
+  { path: 'view-exam-center', component: ViewExamCenterComponent },
+  { path: 'edit-exam-center', component: EditExamCenterComponent },
+  { path: 'delete-exam-center', component: DeleteExamCenterComponent },
+  { path: 'export-pdf-exam-center', component: ExportPDFExamCenterComponent },
+  { path: 'export-csv-exam-center', component: ExportCSVExamCenterComponent },
+  //constructor admin routing :: admin setting
+  { path: 'setting', component: AdminSettingComponent }
+
+];
+//constructor exam center routing
 const examCenterRoutes: Routes = [
-  {
-    path: '',
-    component: ExamCenterInfoComponent
-  },
-  {
-    path: 'info',
-    component: ExamCenterInfoComponent
-  }
-];
+  //constructor exam center routing :: Exam Center info 
+  { path: '', component: ExamCenterInfoComponent },
+  { path: 'exam-center-info', component: ExamCenterInfoComponent },
+  //constructor exam center routing :: Exam Center Candidate Account 
+  { path: 'candidate', component: ExamCenterCandidateAccountComponent },
+  { path: 'add-candidate', component: AddCandidateComponent },
+  { path: 'view-candidate', component: ViewCandidateComponent },
+  { path: 'edit-candidate', component: EditCandidateComponent },
+  { path: 'delete-candidate', component: DeleteCandidateComponent },
+  //constructor exam center routing :: Exam Center Building
+  { path: 'building', component: ExamCenterBuildingComponent },
+  { path: 'add-building', component: AddBuildingComponent },
+  { path: 'view-building', component: ViewBuildingComponent },
+  { path: 'edit-building', component: EditBuildingComponent },
+  { path: 'delete-building', component: DeleteBuildingComponent },
+  { path: 'pdf-report-building', component: PDFReportBuildingComponent },
+  //constructor exam center routing :: Exam Center Room
+  { path: 'room', component: ExamCenterRoomComponent },
+  { path: 'add-room', component: AddRoomComponent },
+  { path: 'view-room', component: ViewRoomComponent },
+  { path: 'edit-room', component: EditRoomComponent },
+  { path: 'delete-room', component: DeleteRoomComponent },
+  { path: 'pdf-report-room', component: PDFReportRoomComponent },
+  //constructor exam center routing :: Exam Center Committee
+  { path: 'committee', component: ExamCenterCommitteeComponent },
+  { path: 'add-committee', component: AddCommitteeComponent },
+  { path: 'view-committee', component: ViewCommitteeComponent },
+  { path: 'edit-committee', component: EditCommitteeComponent },
+  { path: 'delete-committee', component: DeleteCommitteeComponent },
+  { path: 'pdf-report-committee', component: PDFReportCommitteeComponent }
 
-const appRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'admin',
-    canActivate: [AuthenticationGuard],
-    children: adminRoutes
-  },
-  {
-    path: 'examCenter',
-    children: examCenterRoutes
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: '**',
-    component: NotFound404Component
-  }
+];
+//constructor app routing
+export const appRoutes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  //app routing :: admin
+  // { path: 'admin', canActivate: [AuthenticationGuard], children: adminRoutes },
+  { path: 'admin', children: adminRoutes },
+//app routing :: exam center
+  { path: 'examCenter', children: examCenterRoutes },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: NotFound404Component }
 ];
 
 @NgModule({
@@ -78,13 +157,56 @@ const appRoutes: Routes = [
     FooterComponent,
     NotFound404Component,
     AdminInfoComponent,
-    ExamCenterInfoComponent
+    ExamCenterInfoComponent,
+    AdminAccountManagementComponent,
+    AdminStudentParticipatingComponent,
+    AdminExamCenterComponent,
+    AdminSettingComponent,
+    AddUserAccountComponent,
+    ViewUserAccountComponent,
+    EditUserAccountComponent,
+    DeleteUserAccountComponent,
+    RecordExamResultsComponent,
+    CreatePDFReportComponent,
+    ExportCSVComponent,
+    ExportPDFComponent,
+    AddExamCenterComponent,
+    ViewExamCenterComponent,
+    EditExamCenterComponent,
+    DeleteExamCenterComponent,
+    ExportPDFExamCenterComponent,
+    ExportCSVExamCenterComponent,
+    ExamCenterCandidateAccountComponent,
+    ExamCenterBuildingComponent,
+    ExamCenterRoomComponent,
+    ExamCenterCommitteeComponent,
+    AddCandidateComponent,
+    ViewCandidateComponent,
+    EditCandidateComponent,
+    DeleteCandidateComponent,
+    AddBuildingComponent,
+    ViewBuildingComponent,
+    EditBuildingComponent,
+    DeleteBuildingComponent,
+    PDFReportBuildingComponent,
+    AddRoomComponent,
+    ViewRoomComponent,
+    EditRoomComponent,
+    DeleteRoomComponent,
+    PDFReportRoomComponent,
+    AddCommitteeComponent,
+    ViewCommitteeComponent,
+    EditCommitteeComponent,
+    DeleteCommitteeComponent,
+    PDFReportCommitteeComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
     HttpModule,
-    MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdGridListModule, MdDatepickerModule,MdToolbarModule,MdCardModule, BrowserAnimationsModule,MdMenuModule
+    MdButtonModule, MdCheckboxModule, MdInputModule, MdPaginatorModule,
+    MdAutocompleteModule, MdGridListModule, MdDatepickerModule, MdToolbarModule, 
+    MdCardModule, BrowserAnimationsModule,MdTableModule,MdMenuModule
   ],
   providers: [LoginService, AuthenticationGuard],
   bootstrap: [AppComponent]
