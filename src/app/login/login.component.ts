@@ -34,6 +34,10 @@ export class LoginComponent implements OnInit {
         var dataUser = this.login.getDataLogin();
         var _name = dataUser['prename'] + dataUser['firstname'] + "   " + dataUser['lastname'];
         window.sessionStorage.setItem('nameOfUser', _name.toString());
+
+        var _role = dataUser['role'];
+        window.sessionStorage.setItem('roleOfUser', _role.toString());
+
         if (dataUser['role'] == 'Administrator') {
           this.router.navigateByUrl('/admin');
         } else if (dataUser['role'] == 'coordinator_committee') {

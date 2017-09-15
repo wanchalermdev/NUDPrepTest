@@ -5,10 +5,45 @@
 
   <md-menu #appMenu="mdMenu">
     <button *ngIf="loggedIn" md-menu-item (click)="logout()">ลงชื่อออก</button>
-  </md-menu>
 
-  <button md-button [mdMenuTriggerFor]="appMenu">
-    {{ nameUser }}
+
+  </md-menu>
+  <!-- nav menu bar for admin -->
+  <button *ngIf="checkRoleAdmin" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">view_quilt</i> สารสนเทศโครงการ
+  </button>
+  <button *ngIf="checkRoleAdmin" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">recent_actors</i> จัดการบัญชีผู้ใช้
+  </button>
+  <button *ngIf="checkRoleAdmin" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">people</i> นักเรียนเข้าร่วมโครงการ
+  </button>
+  <button *ngIf="checkRoleAdmin" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">location_city</i> ศูนย์สอบ
+  </button>
+  <button *ngIf="checkRoleAdmin" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">view_quilt</i> ตั้งค่าระบบ
+  </button> 
+  <!-- nav menu bar for coordinator committee -->
+  <button *ngIf="checkRoleExamCenter" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">view_quilt</i> สารสนเทศโครงการ
+  </button> 
+  <button *ngIf="checkRoleExamCenter" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">recent_actors</i> จัดการบัญชีผู้สมัครสอบ
+  </button>
+  <button *ngIf="checkRoleExamCenter" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">location_city</i> อาคารสอบ
+  </button>
+  <button *ngIf="checkRoleExamCenter" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">room</i> ห้องสอบ
+  </button>
+  <button *ngIf="checkRoleExamCenter" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">settings</i> กรรมการคุมสอบ
+  </button>
+
+
+  <button *ngIf="loggedIn" md-button [mdMenuTriggerFor]="appMenu">
+    <i class="material-icons">account_circle</i> {{ nameUser }} 
   </button>
 
 
