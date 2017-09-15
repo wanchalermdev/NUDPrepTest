@@ -9,35 +9,36 @@
 
   </md-menu>
   <!-- nav menu bar for admin -->
-  <button *ngIf="checkRoleAdmin" md-button >
+
+  <button  routerLink='/admin/admin-info' *ngIf="checkRoleAdmin" md-button >
     <i class="material-icons">view_quilt</i> สารสนเทศโครงการ
   </button>
-  <button *ngIf="checkRoleAdmin" md-button >
+  <button routerLink='/admin/account-management' *ngIf="checkRoleAdmin" md-button >
     <i class="material-icons">recent_actors</i> จัดการบัญชีผู้ใช้
   </button>
-  <button *ngIf="checkRoleAdmin" md-button >
+  <button routerLink='/admin/student-participating' *ngIf="checkRoleAdmin" md-button >
     <i class="material-icons">people</i> นักเรียนเข้าร่วมโครงการ
   </button>
-  <button *ngIf="checkRoleAdmin" md-button >
+  <button routerLink='/admin/exam-center' *ngIf="checkRoleAdmin" md-button >
     <i class="material-icons">location_city</i> ศูนย์สอบ
   </button>
-  <button *ngIf="checkRoleAdmin" md-button >
+  <button routerLink='/admin/setting' *ngIf="checkRoleAdmin" md-button >
     <i class="material-icons">view_quilt</i> ตั้งค่าระบบ
   </button> 
   <!-- nav menu bar for coordinator committee -->
-  <button *ngIf="checkRoleExamCenter" md-button >
+  <button routerLink='/examCenter/exam-center-info' *ngIf="checkRoleExamCenter" md-button >
     <i class="material-icons">view_quilt</i> สารสนเทศโครงการ
   </button> 
-  <button *ngIf="checkRoleExamCenter" md-button>
+  <button routerLink='/examCenter/candidate' *ngIf="checkRoleExamCenter" md-button>
     <i class="material-icons">recent_actors</i> จัดการบัญชีผู้สมัครสอบ
   </button>
-  <button *ngIf="checkRoleExamCenter" md-button >
+  <button routerLink='/examCenter/building' *ngIf="checkRoleExamCenter" md-button >
     <i class="material-icons">location_city</i> อาคารสอบ
   </button>
-  <button *ngIf="checkRoleExamCenter" md-button>
+  <button routerLink='/examCenter/room' *ngIf="checkRoleExamCenter" md-button>
     <i class="material-icons">room</i> ห้องสอบ
   </button>
-  <button *ngIf="checkRoleExamCenter" md-button>
+  <button routerLink='/examCenter/committee' *ngIf="checkRoleExamCenter" md-button>
     <i class="material-icons">settings</i> กรรมการคุมสอบ
   </button>
 
