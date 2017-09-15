@@ -10,20 +10,21 @@
           <md-card-title>
           </md-card-title>
           <md-card-subtitle>ระบบจัดการข้อมูลโครงการ NUD PREP TEST ยินดีต้อนรับ กรุณากรอกข้อมูล username และ password ให้ถูกต้อง
-            {{ error_message }}
+            
           </md-card-subtitle>
         </md-card-header>
         <md-card-content>
           <md-input-container>
-            <input type="text" mdInput placeholder="Username" name="username">
+            <input type="text" mdInput placeholder="Username" name="username" required>
           </md-input-container>
           <md-input-container>
-            <input type="password" mdInput placeholder="Password" name="password">
+            <input type="password" mdInput placeholder="Password" name="password" required>
           </md-input-container>
         </md-card-content>
         <md-card-actions>
           <button md-raised-button color="primary">ลงชื่อเข้าใช้</button>
-          <a md-raised-button routerLink=".">ลืมรหัสผ่าน</a>
+          <a md-raised-button routerLink=".">ลืมรหัสผ่าน</a><br /><br />
+          <label id="message-error">{{ error_message }}</label>
         </md-card-actions>
       </form>
       </md-card>

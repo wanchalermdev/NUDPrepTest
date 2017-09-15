@@ -28,13 +28,12 @@ export class LoginComponent implements OnInit {
         */
         this.router.navigate(['admin']);
       }else{
-
+        this.error_message = "*** การลงชื่อเข้าใช้ผิดพลาด";
       }
-      
       //this.error_message = "success";
       
     }else{
-      //this.error_message = "<br /><i style=\"color: red;\">**คุณกรอกข้อมูลไม่ครบ</i>";
+      //
     }
   }
 

@@ -30,6 +30,7 @@ export class LoginService {
         * แปลงค่าที่รับมาเป็น JSON string ให้อยู่ในรูปของ array
         */
         var login = data.json();
+        console.log(login);
 
         /*
         * ตรวจสอบว่าผลการลงชื่อเข้าใช้สำเร็จหรือไม่
@@ -56,11 +57,15 @@ export class LoginService {
   }
 
   setUserLoggedIn() {
-    this.isUserLoggedIn = true;
+    window.sessionStorage.setItem('login', 'true');
   }
 
   getUserLoggedIn() {
-    return this.isUserLoggedIn;
+    if(window.sessionStorage.getItem('login') == 'true'){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   setUserLogout() {
