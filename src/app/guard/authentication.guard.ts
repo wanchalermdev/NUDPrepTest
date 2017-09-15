@@ -10,7 +10,10 @@ export class AuthenticationGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      //console.log(this.login.getUserLoggedIn());
-    return this.login.getUserLoggedIn();
+      if(window.sessionStorage.getItem('login') == "true"){
+        return  true;
+     }else{
+        return false;
+     }
   }
 }

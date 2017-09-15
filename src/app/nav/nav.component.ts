@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -10,12 +11,24 @@ export class NavComponent implements OnInit {
 
   loggedIn = false;
 
-  constructor(private login:LoginService) {
-    this.loggedIn = this.login.getUserLoggedIn();
-   }
+  constructor(private login: LoginService, private _router: Router) {
+    //this.loggedIn = this.login.getUserLoggedIn();
+      console.log("สถานะการลงชื่อเข้าใช้ " + window.sessionStorage.getItem('login'));
+      if(window.sessionStorage.getItem('login') == 'true'){
+         this.loggedIn = true;
+      }else{
+        this.loggedIn = false;
+      }   
+    
+  }
 
   ngOnInit() {
-    
+  }
+
+  logout() {
+    this.login.setUserLogout();
+    window.sessionStorage.removeItem('login');
+    this._router.navigateByUrl("/login");
   }
 
 }

@@ -1,7 +1,18 @@
 <md-toolbar color="primary">
-    <span>โครงการ NUD PREP TEST 2017</span>
-  </md-toolbar>
-  
-<!-- <div *ngIf="loggedIn">
-  <a>ลงชื่อออก</a>
-</div> -->
+  <span>โครงการ NUD PREP TEST 2017</span>
+
+  <span class="example-fill-remaining-space"></span>
+
+  <md-menu #appMenu="mdMenu">
+    <button md-menu-item> Settings </button>
+    <button md-menu-item> Help </button>
+  </md-menu>
+
+  <button md-button [mdMenuTriggerFor]="appMenu">
+   <md-icon>more_vert</md-icon>
+  </button>
+
+  <button *ngIf="loggedIn" md-button (click)="logout()">ลงชื่อออก</button>
+
+
+</md-toolbar>

@@ -20,21 +20,27 @@ export class LoginComponent implements OnInit {
     var username = e.target.elements[0].value;
     var password = e.target.elements[1].value;
 
-    if ((username != "") && (password != "")) {
-      if(this.login.authenRequest(username, password) == "1"){
-        this.login.setUserLoggedIn();
+    this.login.authenRequest(username, password);
+    setTimeout(() => {
+      
+      console.log(this.login.getDataLogin());
+      if (this.login.getUserLoggedIn()) {
         /*
         * เมื่อลงชื่อเข้าใช้สำเร็จแล้วให้ตรวจสอบว่าเป็นผู้ใช้ประเภทใด
         */
-        this.router.navigate(['admin']);
-      }else{
+        window.sessionStorage.setItem('login', 'true');
+        var dataUser = this.login.getDataLogin();
+        if(dataUser['role'] == 'Administrator'){
+          this.router.navigateByUrl('/admin');
+        }else if(dataUser['role'] == 'coordinator_committee'){
+          this.router.navigateByUrl('/centerExam');
+        }
+      } else {
+        this.login.setUserLogout();
         this.error_message = "*** การลงชื่อเข้าใช้ผิดพลาด";
       }
-      //this.error_message = "success";
-      
-    }else{
-      //
-    }
+    }, 300);
   }
+  
 
 }
