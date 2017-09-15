@@ -7,7 +7,7 @@ import 'hammerjs';
 //Import the component modules
 import {
   MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdMenuModule, MdGridListModule,
-  MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule, MdTabsModule
+  MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule, MdTabsModule,MdRadioModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 
 import { LoginService } from './service/login.service';
+import { ManageUserAccountService } from './service/manage-user-account.service';
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { Http, Headers, HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -210,9 +211,9 @@ export const appRoutes: Routes = [
     MdButtonModule, MdCheckboxModule, MdInputModule, MdPaginatorModule,
     MdAutocompleteModule, MdGridListModule, MdDatepickerModule, MdToolbarModule,
     MdCardModule, BrowserAnimationsModule, MdTableModule, MdMenuModule, MdIconModule,
-    MdTabsModule
+    MdTabsModule,MdRadioModule
   ],
-  providers: [LoginService, AuthenticationGuard],
+  providers: [LoginService, AuthenticationGuard,ManageUserAccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

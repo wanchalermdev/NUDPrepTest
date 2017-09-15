@@ -1,3 +1,111 @@
-<p>
-  add-candidate works!
-</p>
+<app-nav></app-nav>
+<div class="container">
+    <div class="row text-center">
+      <div class="col-md-12"></div>
+      <div class="col-md-12">
+        <h2><i class="material-icons">person_add</i> เพิ่มบัญชีผู้สมัครสอบ/แก้ไข</h2>
+        <md-card class="example-card">
+          <md-card-header>
+            <md-card-title>
+            </md-card-title>
+          </md-card-header>
+          <md-card class="card-1">
+            <md-card-content>
+              <div class="row">
+                <div class="col-lg-2" style="bottom:-13px;">
+                  <md-select placeholder="คำนำหน้านาม">
+                    <md-option *ngFor="let pre_name of pre_names" [value]="pre_name.value">
+                      {{ pre_name.viewValue }}
+                    </md-option>
+                  </md-select>
+                </div>
+                <div class="col-lg-5">
+                  <md-input-container>
+                    <input type="text" mdInput placeholder="ชื่อ" name="fistname" required>
+                  </md-input-container>
+                </div>
+                <div class="col-lg-5">
+                  <md-input-container>
+                    <input type="text" mdInput placeholder="นามสกุล" name="lastname" required>
+                  </md-input-container>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <md-input-container>
+                    <input type="text" mdInput placeholder="หมายเลขประจำตัวประชาชน" name="code_id" maxlength="13" required>
+                  </md-input-container>
+                </div>
+                <!-- <div class="col-8">
+                  <md-radio-group [(ngModel)]="favoritelevels">
+                    <md-radio-button class="example-radio-button" *ngFor="let level of levels" [value]="level">
+                      {{level}}
+                    </md-radio-button>
+                  </md-radio-group>
+                </div> -->
+              </div>
+              <br />
+            </md-card-content>
+            <md-select placeholder="เลือกโรงเรียน" [style.width]="'100%'">
+              <md-option *ngFor="let school of schools" [value]="school.value">
+                {{ school.viewValue }}
+              </md-option>
+            </md-select>
+            <br /><br />
+            <div class="row">
+              <div class="col-lg-6">
+                <md-input-container>
+                  <input type="text" mdInput placeholder="อำเภอ" name="district" required>
+                </md-input-container>
+              </div>
+              <div class="col-lg-6">
+                <md-input-container>
+                  <input type="text" mdInput placeholder="จังหวัด" name="province" required>
+                </md-input-container>
+              </div>
+            </div>
+          </md-card>
+          <br />
+          <md-card class="card-1">
+            <md-input-container [style.width]="'50%'">
+              <input type="text" mdInput placeholder="รหัสประจำตัวผู้สอบ" name="std_code" required>
+            </md-input-container>
+            <div class="row">
+              <div class="col-6">
+                <md-input-container>
+                  <input type="text" mdInput placeholder="สนามสอบ" name="place" required>
+                </md-input-container>
+              </div>
+              <div class="col-6">
+                <md-input-container>
+                  <input type="text" mdInput placeholder="อาคารสอบ" name="building_exam" required>
+                </md-input-container>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <md-input-container>
+                  <input type="text" mdInput placeholder="ห้องสอบ" name="exam_room" required>
+                </md-input-container>
+              </div>
+              <div class="col-6">
+                <md-input-container>
+                  <input type="text" mdInput placeholder="เลขที่นั่งสอบ" name="number_seat" required>
+                </md-input-container>
+              </div>
+            </div>
+          </md-card>
+          <br /><br />
+          <div class="row">
+            <div class="col-lg-6">
+              <button md-raised-button color="primary" style="width:100%"><i class="material-icons">person_add</i>    เพิ่มบัญชีผู้สมัครสอบ</button>
+            </div>
+            <div class="col-lg-6">
+              <button md-raised-button color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
+            </div>
+          </div>
+        </md-card>
+      </div>
+      <div class="col-md-12"></div>
+    </div>
+  </div>
