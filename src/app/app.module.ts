@@ -7,7 +7,7 @@ import 'hammerjs';
 //Import the component modules
 import {
   MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdMenuModule, MdGridListModule,
-  MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule,MdTabsModule
+  MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule, MdTabsModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -209,7 +209,7 @@ export const appRoutes: Routes = [
     HttpModule,
     MdButtonModule, MdCheckboxModule, MdInputModule, MdPaginatorModule,
     MdAutocompleteModule, MdGridListModule, MdDatepickerModule, MdToolbarModule,
-    MdCardModule, BrowserAnimationsModule, MdTableModule, MdMenuModule,MdIconModule,
+    MdCardModule, BrowserAnimationsModule, MdTableModule, MdMenuModule, MdIconModule,
     MdTabsModule
   ],
   providers: [LoginService, AuthenticationGuard],
