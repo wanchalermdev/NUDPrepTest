@@ -31,11 +31,11 @@ export class AdminAccountManagementComponent implements OnInit {
   @ViewChild(MdPaginator) paginator: MdPaginator;
 
   ngOnInit() {
-
-    setTimeout(() => {
-      this.allAcoount = this.manageAccount.getAllUserAccount();
-      console.log(this.allAcoount);
-    },1000);
+    
+    var str = window.sessionStorage.getItem('body');
+    this.allAcoount = JSON.parse(str);
+    console.log(this.allAcoount);
+    
 
     this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
   }

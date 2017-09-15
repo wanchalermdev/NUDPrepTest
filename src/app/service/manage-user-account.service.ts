@@ -15,12 +15,16 @@ export class ManageUserAccountService {
 
    this._http.get('http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php').subscribe((data) => {
     
-
-    this.allUserData = data.json();
     
+    this.allUserData = data.json();
+    console.log(this.allUserData);
 
     if (this.allUserData['operation'] == "success"){
-      this.setAllUserData(this.allUserData['body']);
+      this.allUserData = this.allUserData['body'];
+      //console.log(JSON.stringify(this.allUserData));
+      //this.setAllUserData(this.allUserData['body']);
+      
+      window.sessionStorage.setItem('body', JSON.stringify(this.allUserData));
     }
     
     // console.log(this.allUserData);
@@ -34,7 +38,10 @@ export class ManageUserAccountService {
     // console.log(data);
   }
   getAllUserAccount(){
-    this.getAllUserAccountFromBackEnd();
+    setTimeout(() => {
+      this.getAllUserAccountFromBackEnd();
+    }, 2000);
+    
     return this.allUserData;
   }
   
