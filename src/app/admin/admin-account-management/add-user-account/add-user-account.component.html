@@ -8,15 +8,15 @@
           <md-card class="card-content">
             <md-card-content>
               <md-input-container>
-                <input type="text" mdInput placeholder="Username" name="username" value="Tony">
+                <input type="text" mdInput placeholder="Username" name="username" required>
               </md-input-container>
               <md-input-container>
-                <input type="text" mdInput placeholder="Password" name="password" value="1234">
+                <input type="text" mdInput placeholder="Password" name="password" required>
               </md-input-container>
               <br /><br />
               <div class="row">
                 <div class="col-lg-2" style="bottom:7px;">
-                  <md-select placeholder="คำนำหน้านาม" name="prename" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectPrename" >
+                  <md-select placeholder="คำนำหน้านาม" required name="prename" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectPrename" >
                     <md-option *ngFor="let pn of prename" [value]="pn.value">
                       {{ pn.viewValue }}
                     </md-option>
@@ -24,27 +24,27 @@
                 </div>
                 <div class="col-lg-5">
                   <md-input-container>
-                    <input type="text" mdInput placeholder="ชื่อ" name="firstname" value="พิชัย">
+                    <input type="text" mdInput placeholder="ชื่อ" name="firstname" required>
                   </md-input-container>
                 </div>
                 <div class="col-lg-5">
                   <md-input-container>
-                    <input type="text" mdInput placeholder="นามสกุล" name="lastname" value="มากมี">
+                    <input type="text" mdInput placeholder="นามสกุล" name="lastname" required>
                   </md-input-container>
                 </div>
               </div>
               <md-input-container>
-                <input type="text" mdInput placeholder="ตำแหน่ง" name="position_job" value="ผู้อำนวยการ">
+                <input type="text" mdInput placeholder="ตำแหน่ง" name="position_job" value="">
               </md-input-container>
               <div class="row">
                 <div class="col-6">
                   <md-input-container>
-                    <input type="text" maxlength="10" mdInput placeholder="เบอร์โทรศัพท์" name="mobile_phone" value="081-6752065">
+                    <input type="text" maxlength="10" mdInput placeholder="เบอร์โทรศัพท์" name="mobile_phone" required>
                   </md-input-container>
                 </div>
                 <div class="col-6">
                   <md-input-container>
-                    <input type="email" mdInput placeholder="อีเมล์" name="email" value="wanchalerm.dev@gmail.com">
+                    <input type="email" mdInput placeholder="อีเมล์" name="email" value="" required>
                   </md-input-container>
                 </div>
               </div>
@@ -60,7 +60,7 @@
               <button md-raised-button color="primary" style="width:100%"><i class="material-icons">person_add</i>    เพิ่มบัญชีผู้ใช้</button>
             </div>
             <div class="col-lg-6">
-              <button md-raised-button routerLink='' color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
+              <button md-raised-button routerLink='../account-management' color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
             </div>
           </div>
         </md-card>

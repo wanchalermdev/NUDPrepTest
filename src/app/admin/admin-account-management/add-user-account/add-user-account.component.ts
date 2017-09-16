@@ -20,10 +20,8 @@ export class AddUserAccountComponent implements OnInit {
   constructor(private _router: Router, private manageUserAccount: ManageUserAccountService) { }
 
   submitCreateuser(elem){
-    elem.preventDefault(); // คำสั่งไม่ให้รีเฟลชหน้าเพจ
+    elem.preventDefault(); // คำสั่งไม่ให้รีเฟลชหน้าเพจ 
     var data = elem.target.elements;
-    
-    console.log(data);
     const param = {
       username: data.username.value,
       password: data.password.value,
@@ -36,6 +34,7 @@ export class AddUserAccountComponent implements OnInit {
       email: data.email.value
     }
     console.log(this.manageUserAccount.createUserAccount(param));
+    this._router.navigateByUrl('/admin/account-management');
   }
 
   ngOnInit() {

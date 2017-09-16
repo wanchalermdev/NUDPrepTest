@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
 import 'hammerjs';
 
 //Import the component modules
@@ -203,7 +203,8 @@ export const appRoutes: Routes = [
     ViewCommitteeComponent,
     EditCommitteeComponent,
     DeleteCommitteeComponent,
-    PDFReportCommitteeComponent
+    PDFReportCommitteeComponent,
+    
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: false }),
