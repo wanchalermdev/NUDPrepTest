@@ -22,8 +22,6 @@ export class AddUserAccountComponent implements OnInit {
   submitCreateuser(elem){
     elem.preventDefault(); // คำสั่งไม่ให้รีเฟลชหน้าเพจ
     var data = elem.target.elements;
-    
-    console.log(data);
     const param = {
       username: data.username.value,
       password: data.password.value,

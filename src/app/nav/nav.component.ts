@@ -20,13 +20,13 @@ export class NavComponent implements OnInit {
     //this.loggedIn = this.login.getUserLoggedIn();
    
 
-      console.log("สถานะการลงชื่อเข้าใช้ " + window.sessionStorage.getItem('login'));
+      //console.log("สถานะการลงชื่อเข้าใช้ " + window.sessionStorage.getItem('login'));
       if(window.sessionStorage.getItem('login') == 'true'){
          this.loggedIn = true;
       }else{
         this.loggedIn = false;
       }   
-      console.log("บทบาทของ : user " + window.sessionStorage.getItem('roleOfUser'));
+      //console.log("บทบาทของ : user " + window.sessionStorage.getItem('roleOfUser'));
       if (this.roleUser == 'Administrator') {
         this.checkRoleAdmin = true;
         this.checkRoleExamCenter = false;

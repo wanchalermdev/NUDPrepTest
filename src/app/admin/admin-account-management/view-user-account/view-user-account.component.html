@@ -6,13 +6,12 @@
         <md-card class="example-card">
           <md-card class="card-1">
             <md-card-content>
-              <label>Username :</label><br />
-              <label>Password :</label><br />
-              <label>ชื่อ - นามสกุล :</label><br />
+              <label>Username :</label> {{ userData.username }}<br />
+              <label>ชื่อ - นามสกุล :</label> {{ userData.prename }}{{ userData.firstname }}  {{ userData.lastname }}<br />
               <label>ตำแหน่ง :</label><br />
-              <label>เบอร์โทรศัพท์ :</label><br />
-              <label>อีเมล์ :</label><br />
-              <label>โรงเรียน :</label><br />
+              <label>เบอร์โทรศัพท์ :</label> {{ userData.phone }}<br />
+              <label>อีเมล์ :</label> {{ userData.email }}<br />
+              <label>โรงเรียน :</label> {{ userData.schoolname }}<br />
             </md-card-content>
           </md-card>
           <div class="row">
