@@ -36,6 +36,7 @@ export class AddUserAccountComponent implements OnInit {
       email: data.email.value
     }
     console.log(this.manageUserAccount.createUserAccount(param));
+    this._router.navigateByUrl('/admin/account-management');
   }
 
   ngOnInit() {
