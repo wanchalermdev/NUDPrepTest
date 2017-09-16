@@ -87,4 +87,29 @@ export class ManageUserAccountService {
     });
 
   }
+
+  /*
+  * แก้ไขบัญชีผู้ใช้
+  */
+  editUserAccount(userAccountData) {
+    /*
+    * ตั้งค่า Header application/x-www-form-urlencode'
+    */
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    /*
+    * pack parameter สำหรับส่งค่าไปแก้ไขบัญชีผู้ใช้
+    */
+    var _parameter = Object.keys(userAccountData).map(function (key) {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(userAccountData[key]);
+    }).join('&');
+
+    return this._http.put('http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php', _parameter, { headers: headers }).subscribe((data) => {
+      var responseJSON = data.json();
+      console.log(responseJSON);
+      return responseJSON;
+    });
+
+  }
 }

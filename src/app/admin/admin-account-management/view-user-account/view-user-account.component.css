@@ -72,3 +72,8 @@ md-input-container{
       color: #7E7D7D;
       font-weight: bold;
   }
+
+  .topic-page{
+    display: inline-block;
+    vertical-align: middle;
+  }
