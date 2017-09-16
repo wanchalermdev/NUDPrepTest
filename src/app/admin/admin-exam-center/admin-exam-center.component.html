@@ -1,3 +1,89 @@
-<p>
-  admin-exam-center works!
-</p>
+<app-nav></app-nav>
+<div class="container">
+  <div class="row topic">
+    <div class="col-9">
+      <span class="topic">จัดการศูนย์สอบ</span>
+    </div>
+    <div class="col-lg-3" align="right">
+      <button md-raised-button  color="primary" style="width:auto"><i class="material-icons">add</i> เพิ่มศูนย์สอบ</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row download">
+    <div class="col-1">
+      <button md-icon-button>
+                <md-icon class="md-36" aria-label="Example icon-button with a heart icon">print</md-icon>    พิมพ์
+              </button>
+  
+    </div>
+    <div class="col-1">
+      <button md-icon-button>
+                <md-icon class="md-36" aria-label="Example icon-button with a heart icon">insert_drive_file</md-icon>    ดาวน์โหลด CSV
+              </button>
+    </div>
+    <div class="col-10"></div>
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+    <md-table #table [dataSource]="dataSource">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- ID Column -->
+      <ng-container mdColumnDef="ลำดับ">
+        <md-header-cell *mdHeaderCellDef> ลำดับ </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.number}} </md-cell>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container mdColumnDef="ชื่อ">
+        <md-header-cell *mdHeaderCellDef> ชื่อ </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.firstname}} </md-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container mdColumnDef="นามสกุล">
+        <md-header-cell *mdHeaderCellDef> นามสกุล </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.lastname}} </md-cell>
+      </ng-container>
+      <ng-container mdColumnDef="ชื่อผู้ใช้">
+        <md-header-cell *mdHeaderCellDef> ชื่อผู้ใช้ </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.username}} </md-cell>
+      </ng-container>
+      <!-- Color Column -->
+      <ng-container mdColumnDef="ข้อมูล">
+        <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
+        <md-cell *mdCellDef="let row">
+          <button md-icon-button (click)="viewUser(row.user_id)" [id]="row.user_id">
+            <md-icon class="md-24" aria-label="">assignment</md-icon>
+          </button>
+        </md-cell>
+      </ng-container>
+
+      <ng-container mdColumnDef="แก้ไข">
+        <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
+        <md-cell *mdCellDef="let row">
+          <button md-icon-button (click)="editUser(row.user_id)" [id]="row.user_id">
+              <md-icon class="md-24" aria-label="">edit</md-icon>
+            </button>
+        </md-cell>
+      </ng-container>
+
+      <ng-container mdColumnDef="ลบ">
+        <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
+        <md-cell *mdCellDef="let row">
+          <button md-icon-button (click)="deleteUser(row.user_id)" [id]="row.user_id">
+                <md-icon class="md-24" aria-label="">delete</md-icon>
+              </button>
+        </md-cell>
+      </ng-container>
+
+      <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table>
+
+    <md-paginator #paginator [length]="exampleDatabase.data.length" [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[5, 10, 25, 100]">
+    </md-paginator>
+  </div>
+</div>

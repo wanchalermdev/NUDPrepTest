@@ -10,12 +10,12 @@
               <input type="text" mdInput placeholder="Username" name="username">
             </md-input-container>
             <md-input-container>
-              <input type="password" mdInput placeholder="Password" name="username">
+              <input type="text" mdInput placeholder="Password" name="password">
             </md-input-container>
             <br /><br />
             <div class="row">
               <div class="col-lg-2" style="bottom:7px;">
-                <md-select placeholder="คำนำหน้านาม">
+                <md-select placeholder="คำนำหน้านาม" >
                   <md-option *ngFor="let sex of sexs" [value]="sex.value">
                     {{ sex.viewValue }}
                   </md-option>
