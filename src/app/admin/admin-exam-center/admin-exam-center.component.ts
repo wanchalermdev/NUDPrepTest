@@ -30,15 +30,15 @@ export class AdminExamCenterComponent implements OnInit {
     @ViewChild(MdPaginator) paginator: MdPaginator;
   
     viewUser(userId) {
-      this._router.navigate(['admin/view-user-account/' + userId]);
+      this._router.navigate(['admin/view-exam-center/' + userId]);
     }
   
     editUser(userId) {
-      this._router.navigate(['admin/edit-user-account/' + userId]);
+      this._router.navigate(['admin/edit-exam-center/' + userId]);
     }
   
     deleteUser(userId) {
-      this._router.navigate(['admin/delete-user-account' + userId]);
+      this._router.navigate(['admin/delete-exam-center' + userId]);
     }
   
     ngOnInit() {

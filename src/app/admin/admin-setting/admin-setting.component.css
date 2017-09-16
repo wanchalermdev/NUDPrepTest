@@ -1,0 +1,68 @@
+md-input-container{
+  width: 100%;
+  font-family: SATIT
+}
+
+.example-card {
+  width: 100%;
+  padding-bottom: 2.5rem;
+}
+
+.example-header-image {
+  /*background-image: url('../../../assets/img/examples/shiba1.jpg');*/
+  background-size: cover;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+md-card-subtitle,md-form-field{
+    font-family: SATIT;
+}
+md-card-title{
+    font-family: SATIT;
+    font-weight: bold;
+}
+md-option{
+  font-family: SATIT;
+}
+md-select{
+    width: 100%;
+}
+h2{
+    font-family: SATIT;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    background-color: #F98743;
+    color: white;
+    margin-bottom: 0px;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.card-content {
+  /* background-color: #e67e22; */
+  box-shadow: 0 1px 3px rgba(173, 168, 168, 0.12), 0 1px 2px rgba(139, 132, 132, 0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-content:hover {
+  box-shadow: 0 14px 28px rgba(109, 63, 63, 0.25), 0 10px 10px rgba(197, 195, 195, 0.22);
+}
+.topic{
+  font-size: 2.0rem;
+  font-weight: bold;
+  color: #3498db;
+  padding-top: 2.0rem;
+  padding-bottom: 0.10rem;
+}
+.size-label{
+font-size: 1.45rem;
+color: #f39c12;
+}
+.style-hr{
+color: #1abc9c;
+}

@@ -8,7 +8,7 @@ import 'hammerjs';
 import {
   MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdMenuModule, MdGridListModule,
   MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule, MdTabsModule,MdRadioModule,
-  MdSelectModule
+  MdSelectModule,MdNativeDateModule
 } from '@angular/material';
 import {FormControl, Validators} from '@angular/forms';
 
@@ -98,9 +98,9 @@ const adminRoutes: Routes = [
   //constructor admin routing :: admin exam center
   { path: 'exam-center', component: AdminExamCenterComponent },
   { path: 'add-exam-center', component: AddExamCenterComponent },
-  { path: 'view-exam-center', component: ViewExamCenterComponent },
-  { path: 'edit-exam-center', component: EditExamCenterComponent },
-  { path: 'delete-exam-center', component: DeleteExamCenterComponent },
+  { path: 'view-exam-center/:id', component: ViewExamCenterComponent },
+  { path: 'edit-exam-center/:id', component: EditExamCenterComponent },
+  { path: 'delete-exam-center/:id', component: DeleteExamCenterComponent },
   { path: 'export-pdf-exam-center', component: ExportPDFExamCenterComponent },
   { path: 'export-csv-exam-center', component: ExportCSVExamCenterComponent },
   //constructor admin routing :: admin setting
@@ -213,7 +213,7 @@ export const appRoutes: Routes = [
     MdButtonModule, MdCheckboxModule, MdInputModule, MdPaginatorModule,
     MdAutocompleteModule, MdGridListModule, MdDatepickerModule, MdToolbarModule,
     MdCardModule, BrowserAnimationsModule, MdTableModule, MdMenuModule, MdIconModule,
-    MdTabsModule,MdRadioModule,MdSelectModule,FormsModule
+    MdTabsModule,MdRadioModule,MdSelectModule,FormsModule,MdNativeDateModule
   ],
   providers: [LoginService, AuthenticationGuard,ManageUserAccountService],
   bootstrap: [AppComponent]

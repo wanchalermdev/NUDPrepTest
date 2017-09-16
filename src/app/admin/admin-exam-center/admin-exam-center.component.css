@@ -19,7 +19,10 @@
     overflow: auto;
     max-height: 500px;
   }
-  md-card,md-table,md-paginator{
+  md-card,md-table,md-paginator,md-paginator,md-header-row,md-row{
+    font-family: SATIT;
+  }
+  #paginator{
     font-family: SATIT;
   }
   md-header-cell{

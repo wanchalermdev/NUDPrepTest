@@ -1,3 +1,48 @@
-<p>
-  edit-exam-center works!
-</p>
+<app-nav></app-nav>
+<form action="">
+        <div class="container">
+          <div class="row topic">
+            <div class="col-9">
+                <i class="material-icons" style="font-size: 48px;">location_city </i> ศูนย์สอบ : <label class="size-label"> แก้ไขศูนย์สอบ</label>
+            </div>
+            <div class="col-3">
+            </div>
+          </div>
+          <hr class="style-hr">
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <md-card-content>
+                  <md-input-container>
+                    <input type="text" mdInput placeholder="ชื่อโรงเรียน" name="school" required>
+                  </md-input-container>
+                  <md-input-container>
+                    <input type="text" mdInput placeholder="ที่อยู่" name="address" required>
+                  </md-input-container>
+                  <md-input-container>
+                    <input type="text" mdInput placeholder="อำเภอ" name="district" required>
+                  </md-input-container>
+                  <br />
+                  <md-select placeholder="เลือกจังหวัด" [style.width]="'100%'" required>
+                    <md-option *ngFor="let province of provinces" [value]="province.value">
+                      {{ province.viewValue }}
+                    </md-option>
+                  </md-select>
+                </md-card-content>
+                <md-input-container>
+                  <input type="text" maxlength="5" mdInput placeholder="รหัสไปรษณีย์" name="postcode" required>
+                </md-input-container>
+                <br /><br />
+                <div class="row">
+                  <div class="col-6">
+                    <button md-raised-button color="primary" style="width:100%"><i class="material-icons">edit</i>    บันทึก</button>
+                  </div>
+                  <div class="col-6">
+                    <button routerLink='../../exam-center' md-raised-button color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+        </form>

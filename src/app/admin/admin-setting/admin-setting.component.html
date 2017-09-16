@@ -1,1 +1,43 @@
 <app-nav></app-nav>
+
+<div class="container">
+    <div class="row topic">
+        <div class="col-9">
+            <span class="topic"><i class="material-icons" style="font-size: 48px;">settings</i>  ตั้งค่าระบบ</span>
+        </div>
+        <div class="col-lg-3">
+
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <md-card-content>
+                <md-input-container>
+                    <input type="text" mdInput placeholder="ปีการศึกษา" name="year" required>
+                </md-input-container>
+                <md-input-container>
+                    <input mdInput [mdDatepicker]="picker" placeholder="เลือกวันที่เปิดระบบ" name="date_open" required>
+                    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+                    <md-datepicker #picker></md-datepicker>
+                </md-input-container>
+                <md-input-container>
+                    <input mdInput [mdDatepicker]="picker2" placeholder="เลือกวันที่ปิดระบบ" name="date_close" required>
+                    <md-datepicker-toggle mdSuffix [for]="picker2"></md-datepicker-toggle>
+                    <md-datepicker #picker2></md-datepicker>
+                </md-input-container>
+            </md-card-content>
+            <br /><br />
+            <div class="row">
+                <div class="col-6">
+                    <button md-raised-button color="primary" style="width:100%"><i class="material-icons">save</i>    บันทึก</button>
+                </div>
+                <div class="col-6">
+                    <button routerLink='../admin-info' md-raised-button color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
