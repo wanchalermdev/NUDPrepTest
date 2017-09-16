@@ -5,6 +5,12 @@ md-toolbar{
   .example-fill-remaining-space {
     flex: 1 1 auto;
   }
+  .navbar {
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
   label{
     font-size: 1rem;
     vertical-align: middle;
