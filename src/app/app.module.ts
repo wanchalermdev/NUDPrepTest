@@ -85,7 +85,7 @@ const adminRoutes: Routes = [
   //constructor admin routing :: admin account management 
   { path: 'account-management', component: AdminAccountManagementComponent },
   { path: 'add-user-account', component: AddUserAccountComponent },
-  { path: 'view-user-account', component: ViewUserAccountComponent },
+  { path: 'view-user-account/:id', component: ViewUserAccountComponent },
   { path: 'edit-user-account', component: EditUserAccountComponent },
   { path: 'delete-user-account', component: DeleteUserAccountComponent },
   //constructor admin routing :: admin student participating 
@@ -202,10 +202,10 @@ export const appRoutes: Routes = [
     ViewCommitteeComponent,
     EditCommitteeComponent,
     DeleteCommitteeComponent,
-    PDFReportCommitteeComponent,
+    PDFReportCommitteeComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    RouterModule.forRoot(appRoutes, { enableTracing: false }),
     BrowserModule,
     HttpModule,
     MdButtonModule, MdCheckboxModule, MdInputModule, MdPaginatorModule,

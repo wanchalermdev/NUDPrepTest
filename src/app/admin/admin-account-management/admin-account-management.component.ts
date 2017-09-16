@@ -4,7 +4,7 @@ import { MdPaginator } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { ViewChild } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
@@ -19,7 +19,7 @@ export class AdminAccountManagementComponent implements OnInit {
 
   private allAcoount;
 
-  constructor(private manageAccount: ManageUserAccountService) {
+  constructor(private manageAccount: ManageUserAccountService, private _router: Router) {
   }
 
   displayedColumns = ['ลำดับ', 'ชื่อ', 'นามสกุล', 'ชื่อผู้ใช้', 'ข้อมูล', 'แก้ไข', 'ลบ'];
@@ -28,6 +28,10 @@ export class AdminAccountManagementComponent implements OnInit {
 
   @ViewChild(MdPaginator) paginator: MdPaginator;
 
+  viewUser(e) {
+    console.log(e);
+    this._router.navigateByUrl('admin/view-user-account/' + e);
+  }
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
   }
@@ -39,7 +43,7 @@ export interface UserData {
   firstname: string;
   lastname: string;
   username: string;
-
+  user_id: string
 }
 
 /** An example database that the data source uses to retrieve data for the table. */
@@ -72,7 +76,8 @@ export class ExampleDatabase {
       number: (this.data.length + 1).toString(),
       firstname: name,
       lastname: acccount[this.data.length + 1]['lastname'],
-      username: acccount[this.data.length + 1]['username']
+      username: acccount[this.data.length + 1]['username'],
+      user_id: acccount[this.data.length + 1]['user_id']
     };
   }
 }
