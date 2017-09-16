@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgModel } from '@angular/forms';
+import {MdSelectModule} from '@angular/material';
+import { ManageUserAccountService } from '../../../service/manage-user-account.service';
 
 
 @Component({
@@ -9,7 +13,30 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class AddUserAccountComponent implements OnInit {
 
-  constructor() { }
+  selectPrename: String;
+  selectSchool: String;
+  _email: String;
+
+  constructor(private _router: Router, private manageUserAccount: ManageUserAccountService) { }
+
+  submitCreateuser(elem){
+    elem.preventDefault(); // คำสั่งไม่ให้รีเฟลชหน้าเพจ
+    var data = elem.target.elements;
+    
+    console.log(data);
+    const param = {
+      username: data.username.value,
+      password: data.password.value,
+      personal_id: '',
+      school_id: this.selectSchool,
+      prename: this.selectPrename,
+      firstname: data.firstname.value,
+      lastname: data.lastname.value,
+      phone: data.mobile_phone.value,
+      email: data.email.value
+    }
+    console.log(this.manageUserAccount.createUserAccount(param));
+  }
 
   ngOnInit() {
   }
@@ -19,7 +46,7 @@ export class AddUserAccountComponent implements OnInit {
     { value: 'school-2', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร-3' }
   ];
 
-  sexs = [
+  prename = [
     { value: 'นาย', viewValue: 'นาย' },
     { value: 'นางสาว', viewValue: 'นางสาว' },
     { value: 'นาง', viewValue: 'นาง' },

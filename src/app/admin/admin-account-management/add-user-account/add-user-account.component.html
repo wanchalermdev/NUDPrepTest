@@ -1,69 +1,71 @@
 <app-nav></app-nav>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 topic">
-      <h2 align="center"> จัดการบัญชีผู้สมัครสอบ : <i class="material-icons">person_add</i> เพิ่มบัญชีผู้ใช้</h2>
-      <md-card class="example-card">
-        <md-card class="card-content">
-          <md-card-content>
-            <md-input-container>
-              <input type="text" mdInput placeholder="Username" name="username">
-            </md-input-container>
-            <md-input-container>
-              <input type="password" mdInput placeholder="Password" name="username">
-            </md-input-container>
-            <br /><br />
-            <div class="row">
-              <div class="col-lg-2" style="bottom:7px;">
-                <md-select placeholder="คำนำหน้านาม">
-                  <md-option *ngFor="let sex of sexs" [value]="sex.value">
-                    {{ sex.viewValue }}
-                  </md-option>
-                </md-select>
+<form (submit)="submitCreateuser($event)">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 topic">
+        <h2 align="center"> จัดการบัญชีผู้สมัครสอบ : <i class="material-icons">person_add</i> เพิ่มบัญชีผู้ใช้</h2>
+        <md-card class="example-card">
+          <md-card class="card-content">
+            <md-card-content>
+              <md-input-container>
+                <input type="text" mdInput placeholder="Username" name="username" value="Tony">
+              </md-input-container>
+              <md-input-container>
+                <input type="text" mdInput placeholder="Password" name="password" value="1234">
+              </md-input-container>
+              <br /><br />
+              <div class="row">
+                <div class="col-lg-2" style="bottom:7px;">
+                  <md-select placeholder="คำนำหน้านาม" name="prename" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectPrename" >
+                    <md-option *ngFor="let pn of prename" [value]="pn.value">
+                      {{ pn.viewValue }}
+                    </md-option>
+                  </md-select>
+                </div>
+                <div class="col-lg-5">
+                  <md-input-container>
+                    <input type="text" mdInput placeholder="ชื่อ" name="firstname" value="พิชัย">
+                  </md-input-container>
+                </div>
+                <div class="col-lg-5">
+                  <md-input-container>
+                    <input type="text" mdInput placeholder="นามสกุล" name="lastname" value="มากมี">
+                  </md-input-container>
+                </div>
               </div>
-              <div class="col-lg-5">
-                <md-input-container>
-                  <input type="text" mdInput placeholder="ชื่อ" name="fistname">
-                </md-input-container>
+              <md-input-container>
+                <input type="text" mdInput placeholder="ตำแหน่ง" name="position_job" value="ผู้อำนวยการ">
+              </md-input-container>
+              <div class="row">
+                <div class="col-6">
+                  <md-input-container>
+                    <input type="text" maxlength="10" mdInput placeholder="เบอร์โทรศัพท์" name="mobile_phone" value="081-6752065">
+                  </md-input-container>
+                </div>
+                <div class="col-6">
+                  <md-input-container>
+                    <input type="email" mdInput placeholder="อีเมล์" name="email" value="wanchalerm.dev@gmail.com">
+                  </md-input-container>
+                </div>
               </div>
-              <div class="col-lg-5">
-                <md-input-container>
-                  <input type="text" mdInput placeholder="นามสกุล" name="lastname">
-                </md-input-container>
-              </div>
+            </md-card-content>
+            <md-select placeholder="เลือกโรงเรียน" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+              <md-option *ngFor="let school of schools" [value]="school.value">
+                {{ school.viewValue }}
+              </md-option>
+            </md-select>
+          </md-card>
+          <div class="row">
+            <div class="col-lg-6">
+              <button md-raised-button color="primary" style="width:100%"><i class="material-icons">person_add</i>    เพิ่มบัญชีผู้ใช้</button>
             </div>
-            <md-input-container>
-              <input type="text" mdInput placeholder="ตำแหน่ง" name="position_job">
-            </md-input-container>
-            <div class="row">
-              <div class="col-6">
-                <md-input-container>
-                  <input type="text" maxlength="10" mdInput placeholder="เบอร์โทรศัพท์" name="mobile_phone">
-                </md-input-container>
-              </div>
-              <div class="col-6">
-                <md-input-container>
-                  <input type="text" mdInput placeholder="อีเมล์" name="email">
-                </md-input-container>
-              </div>
+            <div class="col-lg-6">
+              <button md-raised-button routerLink='' color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
             </div>
-          </md-card-content>
-          <md-select placeholder="เลือกโรงเรียน" [style.width]="'100%'">
-            <md-option *ngFor="let school of schools" [value]="school.value">
-              {{ school.viewValue }}
-            </md-option>
-          </md-select>
+          </div>
         </md-card>
-        <div class="row">
-          <div class="col-lg-6">
-            <button md-raised-button color="primary" style="width:100%"><i class="material-icons">person_add</i>    เพิ่มบัญชีผู้ใช้</button>
-          </div>
-          <div class="col-lg-6">
-            <button md-raised-button routerLink='' color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
-          </div>
-        </div>
-      </md-card>
+      </div>
+      <div class="col-md-12"></div>
     </div>
-    <div class="col-md-12"></div>
   </div>
-</div>
+</form>
