@@ -1,31 +1,8 @@
 <app-nav></app-nav>
-<<<<<<< HEAD
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 topic">
-      <h2 align="center"> จัดการบัญชีผู้สมัครสอบ : <i class="material-icons">person_add</i> เพิ่มบัญชีผู้ใช้</h2>
-      <md-card class="example-card">
-        <md-card class="card-content">
-          <md-card-content>
-            <md-input-container>
-              <input type="text" mdInput placeholder="Username" name="username">
-            </md-input-container>
-            <md-input-container>
-              <input type="text" mdInput placeholder="Password" name="password">
-            </md-input-container>
-            <br /><br />
-            <div class="row">
-              <div class="col-lg-2" style="bottom:7px;">
-                <md-select placeholder="คำนำหน้านาม" >
-                  <md-option *ngFor="let sex of sexs" [value]="sex.value">
-                    {{ sex.viewValue }}
-                  </md-option>
-                </md-select>
-=======
 <form (submit)="submitCreateuser($event)">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 topic">
+      <div class="col-md-12">
         <h2 align="center"> จัดการบัญชีผู้สมัครสอบ : <i class="material-icons">person_add</i> เพิ่มบัญชีผู้ใช้</h2>
         <md-card class="example-card">
           <md-card class="card-content">
@@ -55,7 +32,6 @@
                     <input type="text" mdInput placeholder="นามสกุล" name="lastname" value="มากมี">
                   </md-input-container>
                 </div>
->>>>>>> 8d0658515d097945039df90f8dbb822789a9536a
               </div>
               <md-input-container>
                 <input type="text" mdInput placeholder="ตำแหน่ง" name="position_job" value="ผู้อำนวยการ">

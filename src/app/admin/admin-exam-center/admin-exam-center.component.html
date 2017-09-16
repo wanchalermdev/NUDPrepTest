@@ -2,10 +2,10 @@
 <div class="container">
   <div class="row topic">
     <div class="col-9">
-      <span class="topic">จัดการศูนย์สอบ</span>
+      <span class="topic"><i class="material-icons" >location_city</i>  ศูนย์สอบ</span>
     </div>
     <div class="col-lg-3" align="right">
-      <button md-raised-button  color="primary" style="width:auto"><i class="material-icons">add</i> เพิ่มศูนย์สอบ</button>
+      <button md-raised-button  routerLink="/admin/add-exam-center" color="primary" style="width:auto"><i class="material-icons">add</i> เพิ่มศูนย์สอบ</button>
     </div>
   </div>
   <hr>
@@ -37,19 +37,15 @@
       </ng-container>
 
       <!-- Progress Column -->
-      <ng-container mdColumnDef="ชื่อ">
-        <md-header-cell *mdHeaderCellDef> ชื่อ </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{row.firstname}} </md-cell>
+      <ng-container mdColumnDef="ศูนย์สอบ">
+        <md-header-cell *mdHeaderCellDef> ศูนย์สอบ </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.examCenter}} </md-cell>
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container mdColumnDef="นามสกุล">
-        <md-header-cell *mdHeaderCellDef> นามสกุล </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{row.lastname}} </md-cell>
-      </ng-container>
-      <ng-container mdColumnDef="ชื่อผู้ใช้">
-        <md-header-cell *mdHeaderCellDef> ชื่อผู้ใช้ </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{row.username}} </md-cell>
+      <ng-container mdColumnDef="จังหวัด">
+        <md-header-cell *mdHeaderCellDef> จังหวัด </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.provice}} </md-cell>
       </ng-container>
       <!-- Color Column -->
       <ng-container mdColumnDef="ข้อมูล">

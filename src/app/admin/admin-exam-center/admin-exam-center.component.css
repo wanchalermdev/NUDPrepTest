@@ -12,7 +12,9 @@
     padding-left: 24px;
     font-size: 20px;
   }
-  
+  hr{
+    padding-top: 0px;
+  }
   .mat-table {
     overflow: auto;
     max-height: 500px;
