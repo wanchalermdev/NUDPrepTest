@@ -31,10 +31,7 @@ export class ManageUserAccountService {
     // console.log(data);
   }
   getAllUserAccount() {
-    setTimeout(() => {
-      this.getAllUserAccountFromBackEnd();
-    }, 2000);
-
+    this.getAllUserAccountFromBackEnd();
     return this.allUserData;
   }
 
@@ -54,6 +51,7 @@ export class ManageUserAccountService {
 
     return this._http.post('http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php', _parameter, { headers: headers }).subscribe((data) => {
       var responseJSON = data.json();
+      console.log(responseJSON);
       return responseJSON;
     });
 

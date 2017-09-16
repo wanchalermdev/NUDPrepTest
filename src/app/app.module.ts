@@ -77,7 +77,6 @@ import { ViewCommitteeComponent } from './exam-center/exam-center-committee/view
 import { EditCommitteeComponent } from './exam-center/exam-center-committee/edit-committee/edit-committee.component';
 import { DeleteCommitteeComponent } from './exam-center/exam-center-committee/delete-committee/delete-committee.component';
 import { PDFReportCommitteeComponent } from './exam-center/exam-center-committee/pdf-report-committee/pdf-report-committee.component';
-
 //constructor admin routing
 const adminRoutes: Routes = [
 
@@ -213,7 +212,7 @@ export const appRoutes: Routes = [
     MdButtonModule, MdCheckboxModule, MdInputModule, MdPaginatorModule,
     MdAutocompleteModule, MdGridListModule, MdDatepickerModule, MdToolbarModule,
     MdCardModule, BrowserAnimationsModule, MdTableModule, MdMenuModule, MdIconModule,
-    MdTabsModule,MdRadioModule,MdSelectModule
+    MdTabsModule,MdRadioModule,MdSelectModule,FormsModule
   ],
   providers: [LoginService, AuthenticationGuard,ManageUserAccountService],
   bootstrap: [AppComponent]
