@@ -11,5 +11,16 @@ export class AddUserAccountComponent implements OnInit {
 
   ngOnInit() {
   }
+  schools = [
+    {value: 'school-0', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร-1'},
+    {value: 'schooาl-1', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร-2'},
+    {value: 'school-2', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร-3'}
+  ];
+
+  sexs = [
+    {value: 'นาย', viewValue: 'นาย'},
+    {value: 'นางสาว', viewValue: 'นางสาว'},
+    {value: 'นาง', viewValue: 'นาง'},
+    ];
 
 }

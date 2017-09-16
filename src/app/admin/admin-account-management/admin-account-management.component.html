@@ -1,32 +1,33 @@
 <app-nav></app-nav>
 <div class="container">
-    <md-card>
-            <md-card>
-        <md-grid-list cols="2" rowHeight="40px">
-            <md-grid-tile>จัดการบัญชีผู้สมัครสอบ</md-grid-tile>
-            <md-grid-tile><button md-raised-button color="primary">
-                        <i class="material-icons">add</i> เพิ่มผู้ใช้
-                      </button></md-grid-tile>
-        </md-grid-list>
-        </md-card>
-        <div class="example-container mat-elevation-z8">
+  <md-card>
+    <md-card class="card-topic">
+      <div class="row">
+        <div class="col-9">
+          <span class="topic">จัดการบัญชีผู้สมัครสอบ</span>
+        </div>
+        <div class="col-lg-3" align="right">
+          <button md-raised-button routerLink='/admin/add-user-account' color="primary"  style="width:auto"><i class="material-icons">add</i> เพิ่มผู้ใช้</button>
+        </div>
+      </div>
+    </md-card>
+    <div class="example-container mat-elevation-z8">
+      <md-table #table [dataSource]="dataSource">
 
-            <md-table #table [dataSource]="dataSource">
-
-                <!--- Note that these columns can be defined in any order.
+        <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
 
-                <!-- ID Column -->
-                <ng-container mdColumnDef="ลำดับ">
-                    <md-header-cell *mdHeaderCellDef> ลำดับ </md-header-cell>
-                    <md-cell *mdCellDef="let row"> {{row.number}} </md-cell>
-                </ng-container>
+        <!-- ID Column -->
+        <ng-container mdColumnDef="ลำดับ">
+          <md-header-cell *mdHeaderCellDef> ลำดับ </md-header-cell>
+          <md-cell *mdCellDef="let row"> {{row.number}} </md-cell>
+        </ng-container>
 
-                <!-- Progress Column -->
-                <ng-container mdColumnDef="ชื่อ">
-                    <md-header-cell *mdHeaderCellDef> ชื่อ </md-header-cell>
-                    <md-cell *mdCellDef="let row"> {{row.firstname}} </md-cell>
-                </ng-container>
+        <!-- Progress Column -->
+        <ng-container mdColumnDef="ชื่อ">
+          <md-header-cell *mdHeaderCellDef> ชื่อ </md-header-cell>
+          <md-cell *mdCellDef="let row"> {{row.firstname}} </md-cell>
+        </ng-container>
 
         <!-- Name Column -->
         <ng-container mdColumnDef="นามสกุล">
@@ -34,13 +35,13 @@
           <md-cell *mdCellDef="let row"> {{row.lastname}} </md-cell>
         </ng-container>
         <ng-container mdColumnDef="ชื่อผู้ใช้">
-            <md-header-cell *mdHeaderCellDef> ชื่อผู้ใช้ </md-header-cell>
-            <md-cell *mdCellDef="let row"> {{row.username}} </md-cell>
-          </ng-container>
+          <md-header-cell *mdHeaderCellDef> ชื่อผู้ใช้ </md-header-cell>
+          <md-cell *mdCellDef="let row"> {{row.username}} </md-cell>
+        </ng-container>
         <!-- Color Column -->
         <ng-container mdColumnDef="ข้อมูล">
           <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
-          <md-cell *mdCellDef="let row" >
+          <md-cell *mdCellDef="let row">
             <button md-icon-button>
               <md-icon class="md-24" aria-label="">assignment</md-icon>
             </button>
@@ -48,29 +49,29 @@
         </ng-container>
 
         <ng-container mdColumnDef="แก้ไข">
-            <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
-            <md-cell *mdCellDef="let row" >
-              <button md-icon-button>
+          <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
+          <md-cell *mdCellDef="let row">
+            <button md-icon-button>
                 <md-icon class="md-24" aria-label="">edit</md-icon>
               </button>
-            </md-cell>
-          </ng-container>
+          </md-cell>
+        </ng-container>
 
-          <ng-container mdColumnDef="ลบ">
-              <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
-              <md-cell *mdCellDef="let row">
-                <button md-icon-button>
+        <ng-container mdColumnDef="ลบ">
+          <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
+          <md-cell *mdCellDef="let row">
+            <button md-icon-button>
                   <md-icon class="md-24" aria-label="">delete</md-icon>
                 </button>
-              </md-cell>
-            </ng-container>
+          </md-cell>
+        </ng-container>
 
-                <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-                <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
-            </md-table>
+        <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+        <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+      </md-table>
 
-            <md-paginator #paginator [length]="exampleDatabase.data.length" [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[5, 10, 25, 100]">
-            </md-paginator>
-        </div>
-    </md-card>
+      <md-paginator #paginator [length]="exampleDatabase.data.length" [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[5, 10, 25, 100]">
+      </md-paginator>
+    </div>
+  </md-card>
 </div>
