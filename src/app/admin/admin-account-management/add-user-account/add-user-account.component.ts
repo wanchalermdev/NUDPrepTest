@@ -20,7 +20,7 @@ export class AddUserAccountComponent implements OnInit {
   constructor(private _router: Router, private manageUserAccount: ManageUserAccountService) { }
 
   submitCreateuser(elem){
-    elem.preventDefault(); // คำสั่งไม่ให้รีเฟลชหน้าเพจ
+    elem.preventDefault(); // คำสั่งไม่ให้รีเฟลชหน้าเพจ 
     var data = elem.target.elements;
     const param = {
       username: data.username.value,
