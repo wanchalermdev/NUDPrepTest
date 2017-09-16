@@ -7,7 +7,7 @@
           <span class="topic">จัดการบัญชีผู้สมัครสอบ</span>
         </div>
         <div class="col-lg-3" align="right">
-          <button md-raised-button routerLink='/admin/add-user-account' color="primary"  style="width:auto"><i class="material-icons">add</i> เพิ่มผู้ใช้</button>
+          <button md-raised-button routerLink='/admin/add-user-account' color="primary" style="width:auto"><i class="material-icons">add</i> เพิ่มผู้ใช้</button>
         </div>
       </div>
     </md-card>
@@ -41,13 +41,8 @@
         <!-- Color Column -->
         <ng-container mdColumnDef="ข้อมูล">
           <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
-<<<<<<< HEAD
           <md-cell *mdCellDef="let row">
-            <button md-icon-button>
-=======
-          <md-cell *mdCellDef="let row" >
             <button md-icon-button (click)="viewUser(row.user_id)" [id]="row.user_id">
->>>>>>> 7b2bcecf15d0fddac8995201f433667e06a11372
               <md-icon class="md-24" aria-label="">assignment</md-icon>
             </button>
           </md-cell>
@@ -56,7 +51,7 @@
         <ng-container mdColumnDef="แก้ไข">
           <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
           <md-cell *mdCellDef="let row">
-            <button md-icon-button>
+            <button md-icon-button (click)="editUser(row.user_id)" [id]="row.user_id">
                 <md-icon class="md-24" aria-label="">edit</md-icon>
               </button>
           </md-cell>
@@ -65,7 +60,7 @@
         <ng-container mdColumnDef="ลบ">
           <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
           <md-cell *mdCellDef="let row">
-            <button md-icon-button>
+            <button md-icon-button (click)="deleteUser(row.user_id)" [id]="row.user_id">
                   <md-icon class="md-24" aria-label="">delete</md-icon>
                 </button>
           </md-cell>
