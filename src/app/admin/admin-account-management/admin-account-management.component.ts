@@ -37,7 +37,7 @@ export class AdminAccountManagementComponent implements OnInit {
   }
 
   deleteUser(userId) {
-    this._router.navigate(['admin/delete-user-account' + userId]);
+    this._router.navigate(['admin/delete-user-account/' + userId]);
   }
 
   ngOnInit() {
@@ -68,7 +68,7 @@ export class ExampleDatabase {
       window.sessionStorage.removeItem('body');
       this.allAcoount = JSON.parse(str);
       for (let i = 0; i < Object.keys(this.allAcoount).length; i++) { this.addUser(this.allAcoount); }
-    }, 100);
+    }, 1000);
   }
 
   /** Adds a new user to the database. */

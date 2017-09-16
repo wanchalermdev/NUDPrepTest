@@ -59,3 +59,13 @@ md-input-container{
     padding-top: 2.0rem;
     padding-bottom: 2.0rem;
 }
+
+.topic-page{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.size-label{
+  font-size: 1.45rem;
+  color: #f39c12;
+}
