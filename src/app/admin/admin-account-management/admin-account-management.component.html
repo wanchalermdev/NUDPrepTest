@@ -41,8 +41,13 @@
         <!-- Color Column -->
         <ng-container mdColumnDef="ข้อมูล">
           <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
+<<<<<<< HEAD
           <md-cell *mdCellDef="let row">
             <button md-icon-button>
+=======
+          <md-cell *mdCellDef="let row" >
+            <button md-icon-button (click)="viewUser(row.user_id)" [id]="row.user_id">
+>>>>>>> 7b2bcecf15d0fddac8995201f433667e06a11372
               <md-icon class="md-24" aria-label="">assignment</md-icon>
             </button>
           </md-cell>
