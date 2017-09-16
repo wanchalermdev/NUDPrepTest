@@ -57,5 +57,12 @@ md-input-container{
     font-weight: bold;
     color: #3498db;
     padding-top: 2.0rem;
-    padding-bottom: 2.0rem;
+    padding-bottom: 0.10rem;
+}
+.size-label{
+  font-size: 1.45rem;
+  color: #f39c12;
+}
+.style-hr{
+  color: #1abc9c;
 }

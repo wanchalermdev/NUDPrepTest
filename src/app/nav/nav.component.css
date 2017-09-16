@@ -1,6 +1,9 @@
 md-toolbar{
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
     padding-right: 3rem;
+    position: fixed;
+    z-index: 99999;
+    margin-top: 0px;
   }
   .example-fill-remaining-space {
     flex: 1 1 auto;
@@ -22,3 +25,7 @@ md-toolbar{
   /* .padding-row{
     margin: auto;
   } */
+
+  #div-nav{
+    min-height: 64px;
+  }

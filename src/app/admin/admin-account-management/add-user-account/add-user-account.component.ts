@@ -31,7 +31,8 @@ export class AddUserAccountComponent implements OnInit {
       firstname: data.firstname.value,
       lastname: data.lastname.value,
       phone: data.mobile_phone.value,
-      email: data.email.value
+      email: data.email.value,
+      position: data.position.value
     }
     console.log(this.manageUserAccount.createUserAccount(param));
     this._router.navigateByUrl('/admin/account-management');

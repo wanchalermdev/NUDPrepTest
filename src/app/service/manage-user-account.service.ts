@@ -53,7 +53,7 @@ export class ManageUserAccountService {
         this.userData = this.userData['body'];
 
         window.sessionStorage.setItem('body', JSON.stringify(this.userData));
-      }
+      } 
     });
   }
 

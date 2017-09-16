@@ -2,28 +2,19 @@
 <div class="container">
   <div class="row topic">
     <div class="col-9">
-      <span class="topic"><i class="material-icons" >location_city</i>  ศูนย์สอบ</span>
+      <span class="topic"><i class="material-icons" style="font-size: 48px;">location_city</i>  ศูนย์สอบ</span>
     </div>
     <div class="col-lg-3" align="right">
-      <button md-raised-button  routerLink="/admin/add-exam-center" color="primary" style="width:auto"><i class="material-icons">add</i> เพิ่มศูนย์สอบ</button>
+      <button md-raised-button routerLink="/admin/add-exam-center" color="primary" style="width:auto"><i class="material-icons">add</i> เพิ่มศูนย์สอบ</button>
     </div>
   </div>
   <hr>
   <div class="row download">
-    <div class="col-1">
-      <button md-icon-button>
-                <md-icon class="md-36" aria-label="Example icon-button with a heart icon">print</md-icon>    พิมพ์
-              </button>
-  
-    </div>
-    <div class="col-1">
-      <button md-icon-button>
-                <md-icon class="md-36" aria-label="Example icon-button with a heart icon">insert_drive_file</md-icon>    ดาวน์โหลด CSV
-              </button>
-    </div>
-    <div class="col-10"></div>
+      <div class="button-row">
+          <button md-button style="color:#e74c3c" ><i class="material-icons">print</i>  พิมพ์</button>
+          <button md-button style="color:#1abc9c"><i class="material-icons">insert_drive_file</i>  ดาวน์โหลด CSV</button>
+      </div>
   </div>
-
   <div class="example-container mat-elevation-z8">
     <md-table #table [dataSource]="dataSource">
 

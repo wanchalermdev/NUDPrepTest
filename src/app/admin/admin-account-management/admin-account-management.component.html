@@ -5,10 +5,16 @@
           <span class="topic">จัดการบัญชีผู้สมัครสอบ</span>
         </div>
         <div class="col-lg-3" align="right">
-          <button md-raised-button routerLink='/admin/add-user-account' color="primary" style="width:auto"><i class="material-icons">add</i> เพิ่มผู้ใช้</button>
+          <button md-raised-button routerLink='/admin/add-user-account' color="primary" style="width:auto"><i class="material-icons">add</i> สร้างบัญชีผู้ใช้</button>
         </div>
       </div>
-
+<hr>
+<div class="row download">
+    <div class="button-row">
+        <button md-button style="color:#e74c3c" ><i class="material-icons">print</i>  พิมพ์</button>
+        <button md-button style="color:#1abc9c"><i class="material-icons">insert_drive_file</i>  ดาวน์โหลด CSV</button>
+    </div>
+</div>
     <div class="example-container mat-elevation-z8">
       <md-table #table [dataSource]="dataSource">
 
