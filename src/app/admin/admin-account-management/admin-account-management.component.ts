@@ -28,10 +28,18 @@ export class AdminAccountManagementComponent implements OnInit {
 
   @ViewChild(MdPaginator) paginator: MdPaginator;
 
-  viewUser(e) {
-    console.log(e);
-    this._router.navigateByUrl('admin/view-user-account/' + e);
+  viewUser(userId) {
+    this._router.navigate(['admin/view-user-account/' + userId]);
   }
+
+  editUser(userId) {
+    this._router.navigate(['admin/edit-user-account/' + userId]);
+  }
+
+  deleteUser(userId) {
+    this._router.navigate(['admin/delete-user-account' + userId]);
+  }
+
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
   }
@@ -43,7 +51,7 @@ export interface UserData {
   firstname: string;
   lastname: string;
   username: string;
-  user_id: string
+  user_id: string;
 }
 
 /** An example database that the data source uses to retrieve data for the table. */

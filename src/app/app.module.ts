@@ -88,8 +88,8 @@ const adminRoutes: Routes = [
   { path: 'account-management', component: AdminAccountManagementComponent },
   { path: 'add-user-account', component: AddUserAccountComponent },
   { path: 'view-user-account/:id', component: ViewUserAccountComponent },
-  { path: 'edit-user-account', component: EditUserAccountComponent },
-  { path: 'delete-user-account', component: DeleteUserAccountComponent },
+  { path: 'edit-user-account/:id', component: EditUserAccountComponent },
+  { path: 'delete-user-account/:id', component: DeleteUserAccountComponent },
   //constructor admin routing :: admin student participating 
   { path: 'student-participating', component: AdminStudentParticipatingComponent },
   { path: 'record-exam-results', component: RecordExamResultsComponent },
