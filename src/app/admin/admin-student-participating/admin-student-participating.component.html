@@ -10,14 +10,16 @@
     </div>
     <hr>
     <div class="row download">
+            <div class="col-md-6">
         <div class="button-row">
             <button md-button style="color:#e74c3c"><i class="material-icons">print</i>  พิมพ์</button>
             <button md-button style="color:#1abc9c"><i class="material-icons">insert_drive_file</i>  ดาวน์โหลด CSV</button>
         </div>
-        <div class="col-md-6">
-            <md-select placeholder="เลือกสนามสอบ" [style.width]="auto" required>
-                <md-option *ngFor="let province of provinces" [value]="province.value">
-                    {{ province.viewValue }}
+        </div>
+        <div class="col-md-6" align="right" style="width:100%;">
+            <md-select placeholder="เลือกสนามสอบ">
+                <md-option *ngFor="let school of schools" [value]="school.value">
+                    {{ school.viewValue }}
                 </md-option>
             </md-select>
         </div>
@@ -35,41 +37,34 @@
             </ng-container>
 
             <!-- Progress Column -->
-            <ng-container mdColumnDef="ศูนย์สอบ">
-                <md-header-cell *mdHeaderCellDef> ศูนย์สอบ </md-header-cell>
-                <md-cell *mdCellDef="let row"> {{row.examCenter}} </md-cell>
+            <ng-container mdColumnDef="ชื่อ">
+                <md-header-cell *mdHeaderCellDef> ชื่อ </md-header-cell>
+                <md-cell *mdCellDef="let row">{{row.firstname}} </md-cell>
             </ng-container>
-
             <!-- Name Column -->
-            <ng-container mdColumnDef="จังหวัด">
-                <md-header-cell *mdHeaderCellDef> จังหวัด </md-header-cell>
-                <md-cell *mdCellDef="let row"> {{row.provice}} </md-cell>
+            <ng-container mdColumnDef="นามสกุล">
+                <md-header-cell *mdHeaderCellDef> นามสกุล </md-header-cell>
+                <md-cell *mdCellDef="let row">{{row.lastname}} </md-cell>
+            </ng-container>
+            <ng-container mdColumnDef="เลขที่นั่งสอบ">
+                <md-header-cell *mdHeaderCellDef> เลขที่นั่งสอบ </md-header-cell>
+                <md-cell *mdCellDef="let row"> {{row.seatNumber}}</md-cell>
+            </ng-container>
+            <ng-container mdColumnDef="ห้องสอบ">
+                <md-header-cell *mdHeaderCellDef> ห้องสอบ </md-header-cell>
+                <md-cell *mdCellDef="let row"> {{row.room}}</md-cell>
+            </ng-container>
+            <ng-container mdColumnDef="อาคาร">
+                <md-header-cell *mdHeaderCellDef> อาคาร </md-header-cell>
+                <md-cell *mdCellDef="let row"> {{row.building}}</md-cell>
             </ng-container>
             <!-- Color Column -->
-            <ng-container mdColumnDef="ข้อมูล">
-                <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
+            <ng-container mdColumnDef="ผลสอบ">
+                <md-header-cell *mdHeaderCellDef> ผลสอบ </md-header-cell>
                 <md-cell *mdCellDef="let row">
                     <button md-icon-button (click)="viewUser(row.user_id)" [id]="row.user_id">
-            <md-icon class="md-24" aria-label="">assignment</md-icon>
+            <md-icon class="md-24" aria-label="">assessment</md-icon>
           </button>
-                </md-cell>
-            </ng-container>
-
-            <ng-container mdColumnDef="แก้ไข">
-                <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
-                <md-cell *mdCellDef="let row">
-                    <button md-icon-button (click)="editUser(row.user_id)" [id]="row.user_id">
-              <md-icon class="md-24" aria-label="">edit</md-icon>
-            </button>
-                </md-cell>
-            </ng-container>
-
-            <ng-container mdColumnDef="ลบ">
-                <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
-                <md-cell *mdCellDef="let row">
-                    <button md-icon-button (click)="deleteUser(row.user_id)" [id]="row.user_id">
-                <md-icon class="md-24" aria-label="">delete</md-icon>
-              </button>
                 </md-cell>
             </ng-container>
 

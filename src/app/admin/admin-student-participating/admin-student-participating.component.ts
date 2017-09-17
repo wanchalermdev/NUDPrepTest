@@ -18,45 +18,40 @@ import { ManageUserAccountService } from '../../service/manage-user-account.serv
 export class AdminStudentParticipatingComponent implements OnInit {
 
   private allAcoount;
-  provinces = [
-    {value: 'province-0', viewValue: 'พิษณุโลก'},
-    {value: 'province-1', viewValue: 'สุโขทัย'},
-    {value: 'province-2', viewValue: 'พิจิตร'},
-    {value: 'province-3', viewValue: 'นครสวรรค์'},
-    {value: 'province-4', viewValue: 'กำแพงเพชร'}
+  schools = [
+    { value: 'school-0', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร 1' },
+    { value: 'school-1', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร 2' },
+    { value: 'school-2', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร 3' },
+    { value: 'school-3', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร 4' },
+    { value: 'school-4', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร 5' }
   ];
-  
-    constructor(private manageAccount: ManageUserAccountService, private _router: Router) {
-    }
-  
-    displayedColumns = ['ลำดับ', 'ศูนย์สอบ', 'จังหวัด', 'ข้อมูล', 'แก้ไข', 'ลบ'];
-    exampleDatabase = new ExampleDatabase(this.manageAccount);
-    dataSource: ExampleDataSource | null;
-  
-    @ViewChild(MdPaginator) paginator: MdPaginator;
-  
-    viewUser(userId) {
-      this._router.navigate(['admin/view-exam-center/' + userId]);
-    }
-  
-    editUser(userId) {
-      this._router.navigate(['admin/edit-exam-center/' + userId]);
-    }
-  
-    deleteUser(userId) {
-      this._router.navigate(['admin/delete-exam-center' + userId]);
-    }
-  
-    ngOnInit() {
-      this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
-    }
+
+  constructor(private manageAccount: ManageUserAccountService, private _router: Router) {
+  }
+
+  // displayedColumns = ['ลำดับ', 'ศูนย์สอบ', 'จังหวัด', 'ข้อมูล', 'แก้ไข', 'ลบ'];
+  displayedColumns = ['ลำดับ', 'ชื่อ', 'นามสกุล', 'เลขที่นั่งสอบ', 'ห้องสอบ', 'อาคาร', 'ผลสอบ'];
+  exampleDatabase = new ExampleDatabase(this.manageAccount);
+  dataSource: ExampleDataSource | null;
+
+  @ViewChild(MdPaginator) paginator: MdPaginator;
+
+  viewUser(userId) {
+    this._router.navigate(['admin/export-pdf/' + userId]);
+  }
+
+  ngOnInit() {
+    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
+  }
 
 }
 export interface UserData {
   number: string;
-  examCenter: string;
-  province: string;
-  username: string;
+  firstname: string;
+  lastname: string;
+  seatNumber: string;
+  room: string;
+  building: string;
   user_id: string;
 }
 
@@ -88,9 +83,11 @@ export class ExampleDatabase {
     const name = acccount[this.data.length + 1]['prename'] + acccount[this.data.length + 1]['firstname'];
     return {
       number: (this.data.length + 1).toString(),
-      examCenter: name,
-      province: acccount[this.data.length + 1]['lastname'],
-      username: acccount[this.data.length + 1]['username'],
+      firstname: name,
+      lastname: acccount[this.data.length + 1]['lastname'],
+      seatNumber: acccount[this.data.length + 1]['username'],
+      room: acccount[this.data.length + 1]['lastname'],
+      building: acccount[this.data.length + 1]['username'],
       user_id: acccount[this.data.length + 1]['user_id']
     };
   }

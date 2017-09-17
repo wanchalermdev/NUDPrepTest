@@ -94,7 +94,7 @@ const adminRoutes: Routes = [
   { path: 'record-exam-results', component: RecordExamResultsComponent },
   { path: 'create-pdf-report', component: CreatePDFReportComponent },
   { path: 'export-csv', component: ExportCSVComponent },
-  { path: 'export-pdf', component: ExportPDFComponent },
+  { path: 'export-pdf/:id', component: ExportPDFComponent },
   //constructor admin routing :: admin exam center
   { path: 'exam-center', component: AdminExamCenterComponent },
   { path: 'add-exam-center', component: AddExamCenterComponent },

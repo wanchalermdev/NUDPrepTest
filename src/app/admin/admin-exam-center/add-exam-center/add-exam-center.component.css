@@ -1,7 +1,12 @@
 md-input-container{
     width: 100%;
-    font-family: SATIT
+    font-family: SATIT;
+    font-weight: bold;
 }
+md-option,md-select{
+    font-family: SATIT;
+    font-weight: bold;
+  }
 
 .example-card {
     width: 100%;
@@ -28,12 +33,7 @@ md-input-container{
       font-family: SATIT;
       font-weight: bold;
   }
-  md-option{
-    font-family: SATIT;
-  }
-  md-select{
-      width: 100%;
-  }
+
   md-radio-group,md-radio-button{
     font-family: SATIT;
     font-weight: bold;

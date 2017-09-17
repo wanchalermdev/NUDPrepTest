@@ -22,10 +22,10 @@ md-toolbar{
   md-menu, button{
     font-family: SATIT;
   }
-  /* .padding-row{
-    margin: auto;
-  } */
-
+  span {
+    font-family: SATIT;
+    font-weight: bold;
+  }
   #div-nav{
     min-height: 64px;
   }

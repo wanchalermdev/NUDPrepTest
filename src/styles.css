@@ -2,7 +2,7 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @font-face {
     font-family: SATIT;
-    src: url('./assets/fonts/sukhumvit-set/SukhumvitSet-Text.ttf');
+    src: url('./assets/fonts/sukhumvit-set/SukhumvitSet-Light.ttf');
 }
 body{
     font-family: SATIT;
