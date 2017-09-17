@@ -62,13 +62,10 @@ export class ExampleDatabase {
   private allAcoount;
   constructor(private manageAccount: ManageUserAccountService) {
     // Fill up the database with 100 users.
-    this.manageAccount.getAllUserAccount();
-    setTimeout(() => {
-      var str = window.sessionStorage.getItem('body');
-      window.sessionStorage.removeItem('body');
-      this.allAcoount = JSON.parse(str);
+    this.manageAccount.getAllUserAccount().then(response => {
+      this.allAcoount = response;
       for (let i = 0; i < Object.keys(this.allAcoount).length; i++) { this.addUser(this.allAcoount); }
-    }, 200);
+    });
   }
 
   /** Adds a new user to the database. */

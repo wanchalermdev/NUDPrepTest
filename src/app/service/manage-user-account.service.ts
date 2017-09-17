@@ -7,41 +7,45 @@ export class ManageUserAccountService {
 
   private allUserData;
   private userData;
+  private _host;
 
   constructor(private _http: Http) {
     this.allUserData = null;
     this.userData = null;
+    this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php';
   }
 
   /*
   *  ขอข้อมูลบัญชีผู้ใช้ทั้งหมด
   */
-  getAllUserAccountFromBackEnd() {
+  private getAllUserAccountFromBackEnd() {
 
-    this._http.get('http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php').subscribe((data) => {
-
-      this.allUserData = data.json();
-
-      if (this.allUserData['operation'] == "success") {
-        this.allUserData = this.allUserData['body'];
-
-        window.sessionStorage.setItem('body', JSON.stringify(this.allUserData));
-      }
-
+    return new Promise((reslove, reject) => {
+      return this._http.get(this._host).map((res: Response) => {
+        var json = res.json();
+        this.allUserData = json.body;
+        return json.body;
+      }).subscribe((data) => {
+        reslove(data);
+      }, error => {
+        reject(error);
+      });
     });
   }
+
   setAllUserData(data) {
     this.allUserData = data;
   }
+
   getAllUserAccount() {
-    this.getAllUserAccountFromBackEnd();
-    return this.allUserData;
+
+    return this.getAllUserAccountFromBackEnd();
   }
 
   /*
   *  ขอข้อมูลบัญชีผู้ใช้รายบุคคล
   */
-  getUserDataFromBackEnd(param){
+  getUserDataFromBackEnd(param) {
 
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
@@ -49,15 +53,15 @@ export class ManageUserAccountService {
 
     this._http.get('http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php?' + _parameter).subscribe((data) => {
       this.userData = data.json();
-      if(this.userData['operation'] == "success"){
+      if (this.userData['operation'] == "success") {
         this.userData = this.userData['body'];
 
         window.sessionStorage.setItem('body', JSON.stringify(this.userData));
-      } 
+      }
     });
   }
 
-  getUserData(param){
+  getUserData(param) {
     this.getUserDataFromBackEnd(param);
     return this.userData;
   }
@@ -66,26 +70,37 @@ export class ManageUserAccountService {
   /*
   * สร้างบัญชีผู้ใช้ใหม่
   */
-  createUserAccount(userAccountData) {
-    /*
+
+  private requestCreateUserAccount(userAccountData) {
+    return new Promise((reslove, reject) => {
+      /*
     * ตั้งค่า Header application/x-www-form-urlencode'
     */
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    /*
+      /*
     * pack parameter สำหรับส่งค่าไปสร้างบัญชีผู้ใช้
     */
-    var _parameter = Object.keys(userAccountData).map(function (key) {
-      return encodeURIComponent(key) + '=' + encodeURIComponent(userAccountData[key]);
-    }).join('&');
+      var _parameter = Object.keys(userAccountData).map(function (key) {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(userAccountData[key]);
+      }).join('&');
 
-    return this._http.post('http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php', _parameter, { headers: headers }).subscribe((data) => {
-      var responseJSON = data.json();
-      console.log(responseJSON);
-      return responseJSON;
+      return this._http.post(this._host, _parameter, { headers: headers }).map((res: Response) => {
+        var json = res.json();
+        json.headers = res.headers;
+        return json.data;
+      }).subscribe((data) => {
+        reslove(data);
+      }, error => {
+        reject(error);
+      });
+
     });
+  }
 
+  createUserAccount(userAccountData) {
+    return this.requestCreateUserAccount(userAccountData);
   }
 
   /*
@@ -116,13 +131,13 @@ export class ManageUserAccountService {
   /*
   * ลบบัญชีผู้ใช้
   */
-  deleteUserAccount(param){
+  deleteUserAccount(param) {
     /*
     * ตั้งค่า Header application/x-www-form-urlencode'
     */
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    
+
 
     /*
     * จัดรูปข้อมูล
@@ -144,7 +159,7 @@ export class ManageUserAccountService {
     });
 
     // tslint:disable-next-line:max-line-length
-    this._http.delete('http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php', arg).subscribe((data)=>{
+    this._http.delete('http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php', arg).subscribe((data) => {
       console.log(data);
       //const _response = data.json();
       //console.log(_response);
