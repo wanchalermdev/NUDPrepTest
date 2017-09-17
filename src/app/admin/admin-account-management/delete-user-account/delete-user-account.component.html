@@ -1,18 +1,20 @@
 <app-nav></app-nav>
 <div class="container">
-    <div class="row topic">
-        <div class="col-lg-9">
-          <i class="material-icons" style="font-size: 48px;">recent_actors </i> จัดการบัญชีผู้ใช้ : <label class="size-label"> ลบบัญชีผู้ใช้</label>
-        </div>
-        <div class="col-lg-3">
-        </div>
-      </div>
-      <hr class="style-hr">
+  <div class="row topic">
+    <div class="col-lg-9">
+      <i class="material-icons" style="font-size: 48px;">recent_actors </i> จัดการบัญชีผู้ใช้ : <label class="size-label"> ลบบัญชีผู้ใช้</label>
+    </div>
+    <div class="col-lg-3">
+    </div>
+  </div>
+  <hr class="style-hr">
   <div class="row">
-      <div class="col-lg-3"></div>
-      <div class="col-lg-6">
-        <br/>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <br/>
+      <form (submit)="deleteAccount($event)">
         <md-card-content>
+<<<<<<< HEAD
             <div class="row">
               <div class="col-4" align="right"><label class="style-label">Username </label></div>
               <div class="col-2" ><label>:</label></div>
@@ -45,14 +47,50 @@
             </div>
           </md-card-content>
           <br />
+=======
+          <div class="row">
+            <div class="col-4" align="right"><label class="style-label">Username </label></div>
+            <div class="col-2"><label>:</label></div>
+            <div class="col-6"><span>{{ userData.username }}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4" align="right"><label class="style-label">ชื่อ - นามสกุล </label></div>
+            <div class="col-2"><label>:</label></div>
+            <div class="col-6"><span>{{ userData.prename }}{{ userData.firstname }}  {{ userData.lastname }}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4" align="right"><label class="style-label">ตำแหน่ง </label></div>
+            <div class="col-2"><label>:</label></div>
+            <div class="col-6"><span></span></div>
+          </div>
+          <div class="row">
+            <div class="col-4" align="right"><label class="style-label">เบอร์โทรศัพท์ </label></div>
+            <div class="col-2"><label>:</label></div>
+            <div class="col-6"><span>{{ userData.phone }}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4" align="right"><label class="style-label">อีเมล์ </label></div>
+            <div class="col-2"><label>:</label></div>
+            <div class="col-6"><span>{{ userData.email }}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4" align="right"><label class="style-label">โรงเรียน </label></div>
+            <div class="col-2"><label>:</label></div>
+            <div class="col-6"><span>{{ userData.schoolname }}</span></div>
+          </div>
+        </md-card-content>
+
+        <br />
+>>>>>>> 6aacf5f830bbbd336a727ed7acb1535c2dca9909
         <div class="row">
           <div class="col-md-6">
-            <button routerLink='' md-raised-button color="primary" style="width:100%"><i class="material-icons">delete_forever</i>    ยืนยัน</button>
+            <button md-raised-button color="primary" style="width:100%"><i class="material-icons">delete_forever</i>    ยืนยัน</button>
           </div>
           <div class="col-md-6">
-            <button routerLink='../../account-management' md-raised-button  color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
+            <button routerLink='../../account-management' md-raised-button color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
           </div>
         </div>
+      </form>
     </div>
     <div class="col-lg-3"></div>
   </div>
