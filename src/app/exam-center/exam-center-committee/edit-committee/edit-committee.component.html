@@ -1,3 +1,66 @@
-<p>
-  edit-committee works!
-</p>
+<app-nav></app-nav>
+<form>
+  <div class="container">
+    <div class="row topic">
+      <div class="col-9">
+        <div class="topic-page"><i class="material-icons" style="font-size: 48px;">group_add </i></div>
+        <div class="topic-page">กรรมการคุมสอบ : <label class="size-label"> แก้ไขข้อมูลกรรมการคุมสอบ</label></div>
+      </div>
+      <div class="col-3">
+      </div>
+    </div>
+    <hr class="style-hr">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <md-card-content>
+          <md-select placeholder="เลือกอาคารสอบ" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+            <md-option *ngFor="let building of buildings" [value]="building.value">
+              {{ building.viewValue }}
+            </md-option>
+          </md-select>
+          <br /><br />
+          <md-select placeholder="คำนำหน้านาม" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+            <md-option *ngFor="let pn of prenames" [value]="pn.value">
+              {{ pn.viewValue }}
+            </md-option>
+          </md-select>
+          <br /><br />
+          <md-input-container>
+            <input type="text" mdInput placeholder="ชื่อ" name="committee_firstname" required>
+          </md-input-container>
+          <md-input-container>
+            <input type="text" mdInput placeholder="นามสกุล" name="committee_lastname" required>
+          </md-input-container>
+          <md-input-container>
+            <input type="text" mdInput placeholder="ตำแหน่ง" name="position_job" required>
+          </md-input-container>
+          <br />
+          <md-select placeholder="เลือกกรรมการคุบสอบคนที่ 1" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+            <md-option *ngFor="let committee1 of committees1" [value]="committee1.value">
+              {{ building.viewValue }}
+            </md-option>
+          </md-select>
+          <br /><br />
+          <md-select placeholder="เลือกกรรมการคุบสอบคนที่ 2" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+            <md-option *ngFor="let committee2 of committees2" [value]="committee2.value">
+              {{ building.viewValue }}
+            </md-option>
+          </md-select>
+          <br />
+        </md-card-content>
+        <br />
+        <br />
+        <div class="row">
+          <div class="col-6">
+            <button md-raised-button color="primary" style="width:100%"><i class="material-icons">edit</i>    แก้ไข</button>
+          </div>
+          <div class="col-6">
+            <button md-raised-button routerLink='../../committee' color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</form>

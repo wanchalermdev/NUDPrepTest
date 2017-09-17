@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-candidate.component.css']
 })
 export class AddCandidateComponent  {
-
+ private selectSchool;
+ private selectPrename;
   constructor() { }
 
   favoritelevels: string;
+  
   
   pre_names = [
     {value: 'เด็กชาย', viewValue: 'เด็กชาย'},
@@ -21,9 +23,9 @@ export class AddCandidateComponent  {
     {value: 'school-2', viewValue: 'โรงเรียนมัธยมสาธิตมหาวิทยาลัยนเรศวร-3'}
   ];
   levels = [
-      'ชั้นประถมศึกษาปีที่ 4',
-      'ชั้นประถมศึกษาปีที่ 5',
-      'ชั้นประถมศึกษาปีที่ 6',
-    ];
+    { value: 'ระดับชั้นประถมศึกษาปีที่ 4', viewValue: 'ระดับชั้นประถมศึกษาปีที่ 4' },
+    { value: 'ระดับชั้นประถมศึกษาปีที่ 5', viewValue: 'ระดับชั้นประถมศึกษาปีที่ 5' },
+    { value: 'ระดับชั้นประถมศึกษาปีที่ 6', viewValue: 'ระดับชั้นประถมศึกษาปีที่ 6' }
+  ];
 
 }
