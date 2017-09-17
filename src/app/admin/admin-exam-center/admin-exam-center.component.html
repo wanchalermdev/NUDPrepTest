@@ -45,7 +45,7 @@
       <ng-container mdColumnDef="ข้อมูล">
         <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
         <md-cell *mdCellDef="let row">
-          <button md-icon-button (click)="viewUser(row.school_id)" [id]="row.school_id">
+          <button style="color:#3498db" md-icon-button (click)="viewUser(row.school_id)" [id]="row.school_id">
             <md-icon class="md-24" aria-label="">assignment</md-icon>
           </button>
         </md-cell>
@@ -54,7 +54,7 @@
       <ng-container mdColumnDef="แก้ไข">
         <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
         <md-cell *mdCellDef="let row">
-          <button md-icon-button (click)="editUser(row.school_id)" [id]="row.school_id">
+          <button style="color:#1abc9c" md-icon-button (click)="editUser(row.school_id)" [id]="row.school_id">
               <md-icon class="md-24" aria-label="">edit</md-icon>
             </button>
         </md-cell>
@@ -63,7 +63,7 @@
       <ng-container mdColumnDef="ลบ">
         <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
         <md-cell *mdCellDef="let row">
-          <button md-icon-button (click)="deleteUser(row.school_id)" [id]="row.school_id">
+          <button style="color:#F44336" md-icon-button (click)="deleteUser(row.school_id)" [id]="row.school_id">
                 <md-icon class="md-24" aria-label="">delete</md-icon>
               </button>
         </md-cell>
