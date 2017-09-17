@@ -47,3 +47,7 @@
     color: #3498db;
     padding-bottom: 1.0rem;
 }
+.topic-page{
+  display: inline-block;
+  vertical-align: middle;
+}

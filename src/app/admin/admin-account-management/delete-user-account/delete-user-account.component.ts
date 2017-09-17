@@ -25,6 +25,16 @@ export class DeleteUserAccountComponent implements OnInit {
       var str = window.sessionStorage.getItem('body');
       window.sessionStorage.removeItem('body');
       this.userData = JSON.parse(str);
-    }, 100);
+    }, 500);
+  }
+
+  deleteAccount(elem){
+    elem.preventDefault(); // คำสั่งไม่ให้รีเฟลชหน้าเพจ 
+    const user_id = this.actRouter.snapshot.params.id;
+    const param = {
+      id: user_id
+    };
+    this.manageUserAccount.deleteUserAccount(param);
+    this._router.navigateByUrl('admin/account-management');
   }
 }

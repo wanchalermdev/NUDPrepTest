@@ -66,3 +66,7 @@ md-input-container{
 .style-hr{
   color: #1abc9c;
 }
+.topic-page{
+  display: inline-block;
+  vertical-align: middle;
+}

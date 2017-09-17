@@ -68,7 +68,7 @@ export class ExampleDatabase {
       window.sessionStorage.removeItem('body');
       this.allAcoount = JSON.parse(str);
       for (let i = 0; i < Object.keys(this.allAcoount).length; i++) { this.addUser(this.allAcoount); }
-    }, 1000);
+    }, 200);
   }
 
   /** Adds a new user to the database. */
