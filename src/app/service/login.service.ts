@@ -6,42 +6,44 @@ import { Response } from '@angular/http';
 export class LoginService {
   private isUserLoggedIn;
   private dataLogin;
+  private _host;
 
   constructor(private _http: Http) {
     this.isUserLoggedIn = false;
+    this._host = "http://10.41.131.180/NUDPrepTestBackEnd/authentication/AuthenticationRequestLogin.php";
   }
 
   authenRequest(_username, _password) {
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    const body = {
-      username: _username,
-      password: _password
-    };
+    return new Promise((reslove, reject) => {
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    var str = Object.keys(body).map(function (key) {
-      return encodeURIComponent(key) + '=' + encodeURIComponent(body[key]);
-    }).join('&');
+      const body = {
+        username: _username,
+        password: _password
+      };
 
-    this._http.post('http://10.41.131.180/NUDPrepTestBackEnd/authentication/AuthenticationRequestLogin.php', str, { headers: headers }).subscribe((data) => {
+      var str = Object.keys(body).map(function (key) {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(body[key]);
+      }).join('&');
 
-      /*
-      * แปลงค่าที่รับมาเป็น JSON string ให้อยู่ในรูปของ array
-      */
-      var login = data.json();
-      /*
-      * ตรวจสอบว่าผลการลงชื่อเข้าใช้สำเร็จหรือไม่
-      */
-      if (login['login'] == 'success') {
-        // ลงชื่อเข้าใช้สำเร็จ
-        this.setUserLoggedIn();
-        this.setDataLogin(login);
-      } else {
-        // ลงชื่อเข้าใช้ไม่สำเร็จ
-        this.setUserLogout();
-        this.setDataLogin(login);
-      }
+      return this._http.post(this._host, str, {headers: headers}).map((res: Response) => {
+        var json = res.json();
+        json.headers = res.headers;
+        if (json['login'] == 'success') {
+          this.setUserLoggedIn();
+          this.setDataLogin(json);
+        }else{
+
+        }
+        return json;
+        
+      }).subscribe((data) => {
+        reslove(data);
+      }, error => {
+        reject(error);
+      });
     });
   }
 

@@ -78,6 +78,7 @@ import { ViewCommitteeComponent } from './exam-center/exam-center-committee/view
 import { EditCommitteeComponent } from './exam-center/exam-center-committee/edit-committee/edit-committee.component';
 import { DeleteCommitteeComponent } from './exam-center/exam-center-committee/delete-committee/delete-committee.component';
 import { PDFReportCommitteeComponent } from './exam-center/exam-center-committee/pdf-report-committee/pdf-report-committee.component';
+import { HeaderComponent } from './header/header.component';
 //constructor admin routing
 const adminRoutes: Routes = [
 
@@ -205,6 +206,7 @@ export const appRoutes: Routes = [
     EditCommitteeComponent,
     DeleteCommitteeComponent,
     PDFReportCommitteeComponent,
+    HeaderComponent,
     
   ],
   imports: [
