@@ -117,29 +117,29 @@ const examCenterRoutes: Routes = [
   //constructor exam center routing :: Exam Center Candidate Account 
   { path: 'candidate', component: ExamCenterCandidateAccountComponent },
   { path: 'add-candidate', component: AddCandidateComponent },
-  { path: 'view-candidate', component: ViewCandidateComponent },
-  { path: 'edit-candidate', component: EditCandidateComponent },
-  { path: 'delete-candidate', component: DeleteCandidateComponent },
+  { path: 'view-candidate/:id', component: ViewCandidateComponent },
+  { path: 'edit-candidate/:id', component: EditCandidateComponent },
+  { path: 'delete-candidate/:id', component: DeleteCandidateComponent },
   //constructor exam center routing :: Exam Center Building
   { path: 'building', component: ExamCenterBuildingComponent },
   { path: 'add-building', component: AddBuildingComponent },
-  { path: 'view-building', component: ViewBuildingComponent },
-  { path: 'edit-building', component: EditBuildingComponent },
-  { path: 'delete-building', component: DeleteBuildingComponent },
+  { path: 'view-building/:id', component: ViewBuildingComponent },
+  { path: 'edit-building/:id', component: EditBuildingComponent },
+  { path: 'delete-building/:id', component: DeleteBuildingComponent },
   { path: 'pdf-report-building', component: PDFReportBuildingComponent },
   //constructor exam center routing :: Exam Center Room
   { path: 'room', component: ExamCenterRoomComponent },
   { path: 'add-room', component: AddRoomComponent },
-  { path: 'view-room', component: ViewRoomComponent },
-  { path: 'edit-room', component: EditRoomComponent },
-  { path: 'delete-room', component: DeleteRoomComponent },
+  { path: 'view-room/:id', component: ViewRoomComponent },
+  { path: 'edit-room/:id', component: EditRoomComponent },
+  { path: 'delete-room/:id', component: DeleteRoomComponent },
   { path: 'pdf-report-room', component: PDFReportRoomComponent },
   //constructor exam center routing :: Exam Center Committee
   { path: 'committee', component: ExamCenterCommitteeComponent },
   { path: 'add-committee', component: AddCommitteeComponent },
-  { path: 'view-committee', component: ViewCommitteeComponent },
-  { path: 'edit-committee', component: EditCommitteeComponent },
-  { path: 'delete-committee', component: DeleteCommitteeComponent },
+  { path: 'view-committee/:id', component: ViewCommitteeComponent },
+  { path: 'edit-committee/:id', component: EditCommitteeComponent },
+  { path: 'delete-committee/:id', component: DeleteCommitteeComponent },
   { path: 'pdf-report-committee', component: PDFReportCommitteeComponent }
 
 ];

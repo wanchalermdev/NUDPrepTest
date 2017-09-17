@@ -29,3 +29,8 @@ md-toolbar{
   #div-nav{
     min-height: 64px;
   }
+  .mg-icon-menu{
+    display: inline-block;
+    vertical-align: middle;
+    min-height: 70px;
+}

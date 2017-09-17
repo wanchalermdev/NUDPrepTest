@@ -2,46 +2,59 @@
   <span>โครงการ NUD PREP TEST 2017</span>
 
   <span class="example-fill-remaining-space"></span>
-
+   <!-- ปุ่ม เมนูการย่อย :: ออกจากรระบบ-->
   <md-menu #appMenu="mdMenu">
     <button *ngIf="loggedIn" md-menu-item (click)="logout()">ลงชื่อออก</button>
-
-
+  </md-menu>
+   <!-- ปุ่ม เมนูการย่อย :: ตั้งค่าระบบ-->
+  <md-menu #menuSetting="mdMenu">
+    <button *ngIf="checkRoleAdmin" routerLink='/admin/add-exam-center' md-menu-item>บันทึกผลสอบของนักเรียน</button>
+    <button *ngIf="checkRoleAdmin" routerLink='/admin/setting' md-menu-item>ตั้งค่าระบบ</button>
   </md-menu>
   <!-- nav menu bar for admin -->
+    <!-- ปุ่มเมนู :: สารสนเทศโครงการ-->
   <button routerLink='/admin/admin-info' *ngIf="checkRoleAdmin" md-button>
     <i class="material-icons">view_quilt</i> สารสนเทศโครงการ
   </button>
+    <!-- ปุ่มเมนู :: จัดการบัญชีผู้ใช้-->
   <button routerLink='/admin/account-management' *ngIf="checkRoleAdmin" md-button>
     <i class="material-icons">recent_actors</i> จัดการบัญชีผู้ใช้
   </button>
+    <!-- ปุ่มเมนู :: นักเรียนเข้าร่วมโครงการ-->
   <button routerLink='/admin/student-participating' *ngIf="checkRoleAdmin" md-button>
     <i class="material-icons">people</i> นักเรียนเข้าร่วมโครงการ
   </button>
+    <!-- ปุ่มเมนู :: ศูนย์สอบ-->
   <button routerLink='/admin/exam-center' *ngIf="checkRoleAdmin" md-button>
     <i class="material-icons">location_city</i> ศูนย์สอบ
   </button>
-  <button routerLink='/admin/setting' *ngIf="checkRoleAdmin" md-button>
-    <i class="material-icons">settings</i> ตั้งค่าระบบ
+    <!-- ปุ่มเมนู :: การตั้งค่าระบบ-->
+  <button [mdMenuTriggerFor]="menuSetting" *ngIf="checkRoleAdmin" md-button>
+    <i class="material-icons">settings</i> การตั้งค่า
   </button>
   <!-- nav menu bar for coordinator committee -->
+    <!-- ปุ่มเมนู :: สารสนเทศโครงการ-->
   <button routerLink='/examCenter/exam-center-info' *ngIf="checkRoleExamCenter" md-button>
     <i class="material-icons">view_quilt</i> สารสนเทศโครงการ
   </button>
+    <!-- ปุ่มเมนู :: จัดการบัญชีผู้สมัครสอบ-->
   <button routerLink='/examCenter/candidate' *ngIf="checkRoleExamCenter" md-button>
     <i class="material-icons">recent_actors</i> จัดการบัญชีผู้สมัครสอบ
   </button>
+    <!-- ปุ่มเมนู :: อาคารสอบ-->
   <button routerLink='/examCenter/building' *ngIf="checkRoleExamCenter" md-button>
     <i class="material-icons">location_city</i> อาคารสอบ
   </button>
+     <!-- ปุ่มเมนู :: ห้องสอบ-->
   <button routerLink='/examCenter/room' *ngIf="checkRoleExamCenter" md-button>
-    <i class="material-icons">room</i> ห้องสอบ
+    <i class="material-icons">store</i> ห้องสอบ
   </button>
+    <!-- ปุ่มเมนู :: กรรมการคุมสอบ-->
   <button routerLink='/examCenter/committee' *ngIf="checkRoleExamCenter" md-button>
-    <i class="material-icons">settings</i> กรรมการคุมสอบ
+    <i class="material-icons">group_add</i> กรรมการคุมสอบ
   </button>
 
-
+  <!-- ปุ่มแสดงชื่อผู้ใช้งาน-->
   <button *ngIf="loggedIn" md-button [mdMenuTriggerFor]="appMenu">
     <i class="material-icons">account_circle</i> {{ nameUser }} 
   </button>

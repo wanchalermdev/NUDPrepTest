@@ -1,6 +1,11 @@
 md-input-container{
-    width: 100%;
-    font-family: SATIT
+  width: 100%;
+  font-family: SATIT;
+  font-weight: bold;
+}
+md-option,md-select{
+  font-family: SATIT;
+  font-weight: bold;
 }
 
 .example-card {
@@ -24,16 +29,11 @@ md-input-container{
   md-card-subtitle{
       font-family: SATIT;
   }
-  md-radio-group,md-radio-button{
-    font-family: SATIT;
-
-
-  }
   md-card-title{
       font-family: SATIT;
       font-weight: bold;
   }
-  md-option{
+md-card-content{
     font-family: SATIT;
   }
   md-select{
@@ -48,17 +48,44 @@ md-input-container{
       margin-bottom: 0px;
       box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
   }
- 
-  .example-radio-button {
-    padding: 20px;
-  
-  }
-  .card-1 {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  .card-content {
+    /* background-color: #e67e22; */
+    box-shadow: 0 1px 3px rgba(173, 168, 168, 0.12), 0 1px 2px rgba(139, 132, 132, 0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
   
-  .card-1:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  .card-content:hover {
+    box-shadow: 0 14px 28px rgba(109, 63, 63, 0.25), 0 10px 10px rgba(197, 195, 195, 0.22);
   }
-  
+  .topic{
+    font-size: 2.0rem;
+    font-weight: bold;
+    color: #3498db;
+    padding-top: 2.0rem;
+    padding-bottom: 0.10rem;
+}
+.size-label{
+  font-size: 1.45rem;
+  color: #f39c12;
+}
+.style-hr{
+  color: #1abc9c;
+}
+.topic-page{
+  display: inline-block;
+  vertical-align: middle;
+}
+.example-section {
+  font-family: SATIT;
+  font-weight: bold;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 50px;
+}
+.example-margin {
+  margin: 0 10px;
+  bottom: 0;
+  font-size: 1.12rem;
+  color: #757575
+}
