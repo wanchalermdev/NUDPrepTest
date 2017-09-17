@@ -10,40 +10,42 @@
       </div>
     </div>
     <hr class="style-hr">
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <md-card-content>
+    <form (submit)="editSchool($event)">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <md-card-content>
+            <md-input-container>
+              <input type="text" mdInput placeholder="ชื่อโรงเรียน" name="school_name" [value]="MyDataSource.school_name" required>
+            </md-input-container>
+            <md-input-container>
+              <input type="text" mdInput placeholder="ที่อยู่" name="school_address" [value]="MyDataSource.school_address" required>
+            </md-input-container>
+            <md-input-container>
+              <input type="text" mdInput placeholder="อำเภอ" name="school_district" [value]="MyDataSource.school_district" required>
+            </md-input-container>
+            <br />
+            <md-select placeholder="เลือกจังหวัด" [style.width]="'100%'" [(ngModel)]="selectCity" [ngModelOptions]="{standalone: true}" required>
+              <md-option *ngFor="let province of provinces" [value]="province.viewValue" ng-selected="MyDataSource.school_city === selectCity? 'selected': ''" >
+                {{ province.viewValue }}
+              </md-option>
+            </md-select>
+          </md-card-content>
           <md-input-container>
-            <input type="text" mdInput placeholder="ชื่อโรงเรียน" name="school" required>
+            <input type="text" maxlength="5" mdInput placeholder="รหัสไปรษณีย์" name="school_postcode" [value]="MyDataSource.school_postcode" required>
           </md-input-container>
-          <md-input-container>
-            <input type="text" mdInput placeholder="ที่อยู่" name="address" required>
-          </md-input-container>
-          <md-input-container>
-            <input type="text" mdInput placeholder="อำเภอ" name="district" required>
-          </md-input-container>
-          <br />
-          <md-select placeholder="เลือกจังหวัด" [style.width]="'100%'" required>
-            <md-option *ngFor="let province of provinces" [value]="province.value">
-              {{ province.viewValue }}
-            </md-option>
-          </md-select>
-        </md-card-content>
-        <md-input-container>
-          <input type="text" maxlength="5" mdInput placeholder="รหัสไปรษณีย์" name="postcode" required>
-        </md-input-container>
-        <br /><br />
-        <div class="row">
-          <div class="col-6">
-            <button md-raised-button color="primary" style="width:100%"><i class="material-icons">edit</i>    บันทึก</button>
-          </div>
-          <div class="col-6">
-            <button routerLink='../../exam-center' md-raised-button color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
+          <br /><br />
+          <div class="row">
+            <div class="col-6">
+              <button md-raised-button color="primary" style="width:100%"><i class="material-icons">edit</i>    บันทึก</button>
+            </div>
+            <div class="col-6">
+              <button routerLink='../../exam-center' md-raised-button color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
+            </div>
           </div>
         </div>
+        <div class="col-md-3"></div>
       </div>
-      <div class="col-md-3"></div>
-    </div>
+    </form>
   </div>
 </form>

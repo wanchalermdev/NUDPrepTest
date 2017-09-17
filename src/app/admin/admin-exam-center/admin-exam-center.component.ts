@@ -38,7 +38,7 @@ export class AdminExamCenterComponent implements OnInit {
     }
   
     deleteUser(userId) {
-      this._router.navigate(['admin/delete-exam-center' + userId]);
+      this._router.navigate(['admin/delete-exam-center/' + userId]);
     }
   
     ngOnInit() {

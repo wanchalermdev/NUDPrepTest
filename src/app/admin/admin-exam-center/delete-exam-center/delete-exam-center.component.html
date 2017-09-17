@@ -17,33 +17,33 @@
             <div class="row">
                 <div class="col-4" align="right"><label class="style-label">ชื่อโรงเรียน </label></div>
                 <div class="col-2" ><label>:</label></div>
-                <div class="col-6" align="left"><span></span></div>
+                <div class="col-6" align="left"><span>{{ MyDataSource.school_name }}</span></div>
               </div>
               <div class="row">
                   <div class="col-4" align="right"><label class="style-label">ที่อยู่ </label></div>
                   <div class="col-2" ><label>:</label></div>
-                  <div class="col-6" align="left"><span></span></div>
+                  <div class="col-6" align="left"><span>{{ MyDataSource.school_address }}</span></div>
                 </div>
                 <div class="row">
                     <div class="col-4" align="right"><label class="style-label">อำเภอ </label></div>
                     <div class="col-2" ><label>:</label></div>
-                    <div class="col-6" align="left"><span></span></div>
+                    <div class="col-6" align="left"><span>{{ MyDataSource.school_district }}</span></div>
                   </div>
                   <div class="row">
                       <div class="col-4" align="right"><label class="style-label">จังหวัด </label></div>
                       <div class="col-2" ><label>:</label></div>
-                      <div class="col-6" align="left"><span></span></div>
+                      <div class="col-6" align="left"><span>{{ MyDataSource.school_city }}</span></div>
                     </div>
                     <div class="row">
                         <div class="col-4" align="right"><label class="style-label">รหัสไปรษณีย์ </label></div>
                         <div class="col-2" ><label>:</label></div>
-                        <div class="col-6" align="left"><span></span></div>
+                        <div class="col-6" align="left"><span>{{ MyDataSource.school_postcode }}</span></div>
                       </div>
           </md-card-content>
           <br />
           <div class="row">
               <div class="col-md-6">
-                <button routerLink='' md-raised-button color="primary" style="width:100%"><i class="material-icons">delete_forever</i>    ยืนยัน</button>
+                <button (click)="deleteSchool()" md-raised-button color="primary" style="width:100%"><i class="material-icons">delete_forever</i>    ยืนยัน</button>
               </div>
               <div class="col-md-6">
                 <button routerLink='../../exam-center' md-raised-button  color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
