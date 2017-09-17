@@ -2,7 +2,12 @@
 <div class="container">
     <div class="row topic">
         <div class="col-9">
-            <span class="topic"><i class="material-icons" style="font-size: 48px;">people</i>  นักเรียนเข้าร่วมโครงการ</span>
+            <span class="topic">
+                <div class="topic-page"><i class="material-icons" style="font-size: 48px;">people</i></div>
+                <div class="topic-page"> 
+                    นักเรียนเข้าร่วมโครงการ
+                    </div>
+             </span>
         </div>
         <div class="col-lg-3" align="right">
             <button md-raised-button routerLink="/admin/add-exam-center" color="primary" style="width:auto"><i class="material-icons">save</i> บันทึกผลการสอบ</button>
@@ -10,14 +15,14 @@
     </div>
     <hr>
     <div class="row download">
-            <div class="col-md-6">
-        <div class="button-row">
-            <button md-button style="color:#e74c3c"><i class="material-icons">print</i>  พิมพ์</button>
-            <button md-button style="color:#1abc9c"><i class="material-icons">insert_drive_file</i>  ดาวน์โหลด CSV</button>
+        <div class="col-md-6">
+            <div class="button-row">
+                <button md-button style="color:#e74c3c"><i class="material-icons">print</i>  พิมพ์</button>
+                <button md-button style="color:#1abc9c"><i class="material-icons">insert_drive_file</i>  ดาวน์โหลด CSV</button>
+            </div>
         </div>
-        </div>
-        <div class="col-md-6" align="right" style="width:100%;">
-            <md-select placeholder="เลือกสนามสอบ">
+        <div class="col-md-6" align="center">
+            <md-select placeholder="เลือกสนามสอบ" [style.width]="'100%'">
                 <md-option *ngFor="let school of schools" [value]="school.value">
                     {{ school.viewValue }}
                 </md-option>

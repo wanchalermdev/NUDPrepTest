@@ -1,8 +1,12 @@
 md-input-container{
-    width: 100%;
-    font-family: SATIT
+  width: 100%;
+  font-family: SATIT;
+  font-weight: bold;
 }
-
+md-option,md-select{
+  font-family: SATIT;
+  font-weight: bold;
+}
 .example-card {
     width: 100%;
     padding-bottom: 2.5rem;
