@@ -57,7 +57,7 @@ md-card-content{
   .card-content:hover {
     box-shadow: 0 14px 28px rgba(109, 63, 63, 0.25), 0 10px 10px rgba(197, 195, 195, 0.22);
   }
-  .topic{
+  .topic{ 
     font-size: 2.0rem;
     font-weight: bold;
     color: #3498db;

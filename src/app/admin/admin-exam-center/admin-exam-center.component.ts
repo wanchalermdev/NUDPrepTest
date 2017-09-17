@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
-import { ManageUserAccountService } from '../../service/manage-user-account.service';
+import { SchoolManagementService } from '../../service/school-management.service';
 
 
 @Component({
@@ -20,11 +20,11 @@ export class AdminExamCenterComponent implements OnInit {
 
   private allAcoount;
   
-    constructor(private manageAccount: ManageUserAccountService, private _router: Router) {
+    constructor(private scholManagement: SchoolManagementService, private _router: Router) {
     }
   
     displayedColumns = ['ลำดับ', 'ศูนย์สอบ', 'จังหวัด', 'ข้อมูล', 'แก้ไข', 'ลบ'];
-    exampleDatabase = new ExampleDatabase(this.manageAccount);
+    exampleDatabase = new ExampleDatabase(this.scholManagement);
     dataSource: ExampleDataSource | null;
   
     @ViewChild(MdPaginator) paginator: MdPaginator;
@@ -42,52 +42,51 @@ export class AdminExamCenterComponent implements OnInit {
     }
   
     ngOnInit() {
+      /*
+      * binding data to table
+      */
       this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
     }
 
 }
-export interface UserData {
+
+export interface MyDataSource {
   number: string;
   examCenter: string;
   province: string;
-  username: string;
-  user_id: string;
+  school_id: string;
 }
 
 /** An example database that the data source uses to retrieve data for the table. */
 export class ExampleDatabase {
   /** Stream that emits whenever the data has been modified. */
-  dataChange: BehaviorSubject<UserData[]> = new BehaviorSubject<UserData[]>([]);
-  get data(): UserData[] { return this.dataChange.value; }
+  dataChange: BehaviorSubject<MyDataSource[]> = new BehaviorSubject<MyDataSource[]>([]);
+  get data(): MyDataSource[] { return this.dataChange.value; }
   private allAcoount;
-  constructor(private manageAccount: ManageUserAccountService) {
+
+
+  constructor(private schoolManagement: SchoolManagementService) {
     // Fill up the database with 100 users.
-    this.manageAccount.getAllUserAccount();
-    setTimeout(() => {
-      var str = window.sessionStorage.getItem('body');
-      this.allAcoount = JSON.parse(str);
-      for (let i = 0; i < Object.keys(this.allAcoount).length; i++) { this.addUser(this.allAcoount); }
-    }, 100);
+    this.schoolManagement.getAllSchool().then((response) =>{
+      for (let i = 0; i < Object.keys(response).length; i++) { this.addRow(response); }
+    });
   }
 
-  /** Adds a new user to the database. */
-  addUser(acccount) {
+  addRow(row) {
     const copiedData = this.data.slice();
-    copiedData.push(this.createNewUser(acccount));
+    copiedData.push(this.createNewRow(row));
     this.dataChange.next(copiedData);
   }
 
-  /** Builds and returns a new User. */
-  private createNewUser(acccount) {
-    const name = acccount[this.data.length + 1]['prename'] + acccount[this.data.length + 1]['firstname'];
+  private createNewRow(row) {
     return {
       number: (this.data.length + 1).toString(),
-      examCenter: name,
-      province: acccount[this.data.length + 1]['lastname'],
-      username: acccount[this.data.length + 1]['username'],
-      user_id: acccount[this.data.length + 1]['user_id']
+      examCenter: row[this.data.length + 1]['school_name'],
+      province: row[this.data.length + 1]['school_city'],
+      school_id: row[this.data.length + 1]['school_id']
     };
   }
+
 }
 
 /**
@@ -103,7 +102,7 @@ export class ExampleDataSource extends DataSource<any> {
   }
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<UserData[]> {
+  connect(): Observable<MyDataSource[]> {
     const displayDataChanges = [
       this._exampleDatabase.dataChange,
       this._paginator.page,

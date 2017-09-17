@@ -52,3 +52,10 @@
     color: #3498db;
     padding-bottom: 1.0rem;
 }
+.mat-column-nameExamCenter{
+  width: 30%;
+}
+.classNameExamCenter{
+  width: 30%;
+  flex: 0 0 30%;
+}

@@ -21,6 +21,7 @@ import { NotFound404Component } from './not-found404/not-found404.component';
 
 import { LoginService } from './service/login.service';
 import { ManageUserAccountService } from './service/manage-user-account.service';
+import { SchoolManagementService } from './service/school-management.service';
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { Http, Headers, HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -215,7 +216,11 @@ export const appRoutes: Routes = [
     MdCardModule, BrowserAnimationsModule, MdTableModule, MdMenuModule, MdIconModule,
     MdTabsModule,MdRadioModule,MdSelectModule,FormsModule,MdNativeDateModule
   ],
-  providers: [LoginService, AuthenticationGuard,ManageUserAccountService],
+  providers: [
+    LoginService, 
+    AuthenticationGuard,
+    ManageUserAccountService,
+    SchoolManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

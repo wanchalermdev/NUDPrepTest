@@ -25,27 +25,27 @@
             The actual rendered columns are set as a property on the row definition" -->
 
       <!-- ID Column -->
-      <ng-container mdColumnDef="ลำดับ">
-        <md-header-cell *mdHeaderCellDef> ลำดับ </md-header-cell>
+      <ng-container mdColumnDef="ลำดับ" >
+        <md-header-cell *mdHeaderCellDef > ลำดับ </md-header-cell>
         <md-cell *mdCellDef="let row"> {{row.number}} </md-cell>
       </ng-container>
 
       <!-- Progress Column -->
-      <ng-container mdColumnDef="ศูนย์สอบ">
-        <md-header-cell *mdHeaderCellDef> ศูนย์สอบ </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{row.examCenter}} </md-cell>
+      <ng-container mdColumnDef="ศูนย์สอบ" cdkColumnDef="nameExamCenter">
+        <md-header-cell *mdHeaderCellDef [ngClass]="'classNameExamCenter'"> ศูนย์สอบ </md-header-cell>
+        <md-cell *mdCellDef="let row" [ngClass]="'classNameExamCenter'"> {{row.examCenter}} </md-cell>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container mdColumnDef="จังหวัด">
         <md-header-cell *mdHeaderCellDef> จังหวัด </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{row.provice}} </md-cell>
+        <md-cell *mdCellDef="let row"> {{row.province}} </md-cell>
       </ng-container>
       <!-- Color Column -->
       <ng-container mdColumnDef="ข้อมูล">
         <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
         <md-cell *mdCellDef="let row">
-          <button md-icon-button (click)="viewUser(row.user_id)" [id]="row.user_id">
+          <button md-icon-button (click)="viewUser(row.school_id)" [id]="row.school_id">
             <md-icon class="md-24" aria-label="">assignment</md-icon>
           </button>
         </md-cell>
@@ -54,7 +54,7 @@
       <ng-container mdColumnDef="แก้ไข">
         <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
         <md-cell *mdCellDef="let row">
-          <button md-icon-button (click)="editUser(row.user_id)" [id]="row.user_id">
+          <button md-icon-button (click)="editUser(row.school_id)" [id]="row.school_id">
               <md-icon class="md-24" aria-label="">edit</md-icon>
             </button>
         </md-cell>
@@ -63,7 +63,7 @@
       <ng-container mdColumnDef="ลบ">
         <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
         <md-cell *mdCellDef="let row">
-          <button md-icon-button (click)="deleteUser(row.user_id)" [id]="row.user_id">
+          <button md-icon-button (click)="deleteUser(row.school_id)" [id]="row.school_id">
                 <md-icon class="md-24" aria-label="">delete</md-icon>
               </button>
         </md-cell>
