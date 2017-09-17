@@ -25,7 +25,7 @@ export class DeleteUserAccountComponent implements OnInit {
       var str = window.sessionStorage.getItem('body');
       window.sessionStorage.removeItem('body');
       this.userData = JSON.parse(str);
-    }, 500);
+    }, 1000);
   }
 
   deleteAccount(elem){
@@ -34,7 +34,9 @@ export class DeleteUserAccountComponent implements OnInit {
     const param = {
       id: user_id
     };
-    this.manageUserAccount.deleteUserAccount(param);
-    this._router.navigateByUrl('admin/account-management');
+    this.manageUserAccount.deleteUserAccount(param).then(response => {
+      this._router.navigateByUrl('admin/account-management');
+    });
+
   }
 }

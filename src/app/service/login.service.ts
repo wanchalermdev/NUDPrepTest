@@ -10,7 +10,8 @@ export class LoginService {
 
   constructor(private _http: Http) {
     this.isUserLoggedIn = false;
-    this._host = "http://10.41.131.180/NUDPrepTestBackEnd/authentication/AuthenticationRequestLogin.php";
+    //this._host = "http://10.41.131.180/NUDPrepTestBackEnd/authentication/AuthenticationRequestLogin.php";
+    this._host = "http://localhost/NUDPrepTestBackEnd/authentication/AuthenticationRequestLogin.php";
   }
 
   authenRequest(_username, _password) {
@@ -32,6 +33,7 @@ export class LoginService {
         var json = res.json();
         json.headers = res.headers;
         if (json['login'] == 'success') {
+          window.sessionStorage.setItem('login', 'true');
           this.setUserLoggedIn();
           this.setDataLogin(json);
         }else{

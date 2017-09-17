@@ -11,8 +11,6 @@ export class LoginComponent implements OnInit {
 
   error_message = "";
   constructor(private router: Router, private login: LoginService) {
-    console.log(window.sessionStorage.getItem('login'));
-    console.log(window.sessionStorage.getItem('roleOfUser'));
     if (window.sessionStorage.getItem('login') == "true") {
       if (window.sessionStorage.getItem('roleOfUser') == 'Administrator') {
         this.router.navigateByUrl('/admin');
