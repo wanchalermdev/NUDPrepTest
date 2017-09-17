@@ -71,7 +71,7 @@ export class ExamCenterBuildingComponent implements OnInit {
       setTimeout(() => {
         var str = window.sessionStorage.getItem('body');
         this.allAcoount = JSON.parse(str);
-        for (let i = 0; i < Object.keys(this.allAcoount).length; i++) { this.addUser(this.allAcoount); }
+        //for (let i = 0; i < Object.keys(this.allAcoount).length; i++) { this.addUser(this.allAcoount); }
       }, 100);
     }
   

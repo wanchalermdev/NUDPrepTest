@@ -141,7 +141,6 @@ export class SchoolManagementService {
         /*
         * ส่งค่า data ไปให้ method .map ด้านบน
         */
-        console.log(data);
         reslove(data);
       }, error => {
         return reject(error);

@@ -7,10 +7,10 @@ import 'hammerjs';
 //Import the component modules
 import {
   MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdMenuModule, MdGridListModule,
-  MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule, MdTabsModule,MdRadioModule,
-  MdSelectModule,MdNativeDateModule
+  MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule, MdTabsModule, MdRadioModule,
+  MdSelectModule, MdNativeDateModule
 } from '@angular/material';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -19,9 +19,14 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 
+/*
+* Service
+*/
 import { LoginService } from './service/login.service';
 import { ManageUserAccountService } from './service/manage-user-account.service';
 import { SchoolManagementService } from './service/school-management.service';
+import { BuildingManagementService } from './service/building-management.service';
+
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { Http, Headers, HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -147,9 +152,9 @@ const examCenterRoutes: Routes = [
 export const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   //app routing :: admin
-{ path: 'admin', canActivate: [AuthenticationGuard], children: adminRoutes },
+  { path: 'admin', canActivate: [AuthenticationGuard], children: adminRoutes },
 
-//app routing :: exam center
+  //app routing :: exam center
   { path: 'examCenter', children: examCenterRoutes },
   { path: 'login', component: LoginComponent },
   { path: '**', component: NotFound404Component }
@@ -207,7 +212,7 @@ export const appRoutes: Routes = [
     DeleteCommitteeComponent,
     PDFReportCommitteeComponent,
     HeaderComponent,
-    
+
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: false }),
@@ -216,13 +221,14 @@ export const appRoutes: Routes = [
     MdButtonModule, MdCheckboxModule, MdInputModule, MdPaginatorModule,
     MdAutocompleteModule, MdGridListModule, MdDatepickerModule, MdToolbarModule,
     MdCardModule, BrowserAnimationsModule, MdTableModule, MdMenuModule, MdIconModule,
-    MdTabsModule,MdRadioModule,MdSelectModule,FormsModule,MdNativeDateModule
+    MdTabsModule, MdRadioModule, MdSelectModule, FormsModule, MdNativeDateModule
   ],
   providers: [
-    LoginService, 
+    LoginService,
     AuthenticationGuard,
     ManageUserAccountService,
-    SchoolManagementService],
+    SchoolManagementService,
+    BuildingManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
