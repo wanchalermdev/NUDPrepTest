@@ -2,25 +2,33 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
-export class BuildingManagementService {
+export class CommitteeManagementService {
 
   private _host;
   constructor(private _http: Http) {
-    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
-    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/Committee/CommitteeModel.php';
+    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/committee/committeeModel.php';
   }
 
-  /*
-  * ขอข้อมูลอาคารครั้งละ 1 อาคาร
-  */
-  getBuilding(param) {
+  private convertParam(param){
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestBuilding('?' + _parameter);
+    return _parameter;
   }
 
-  private requestBuilding(param) {
+  
+  /*
+  * ขอข้อมูลกรรมการครั้งละ 1 กรรมการ
+  */
+  getCommittee(param) {
+    var _parameter = Object.keys(param).map(function (key) {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
+    }).join('&');
+    return this.requestCommittee('?' + _parameter);
+  }
+
+  private requestCommittee(param) {
     return new Promise((reslove, reject) => {
       return this._http.get(this._host + param)
         .map((res: Response) => {
@@ -40,15 +48,15 @@ export class BuildingManagementService {
   }
 
   /*
-  * ขอข้อมูลอาคารทั้งหมด
+  * ขอข้อมูลกรรมการทั้งหมด
   */
-  getAllBuilding() {
-    return this.requestAllBuilding();
+  getAllCommittee(param) {
+    return this.requestAllCommittee(this.convertParam(param));
   }
 
-  private requestAllBuilding() {
+  private requestAllCommittee(param) {
     return new Promise((reslove, reject) => {
-      return this._http.get(this._host)
+      return this._http.get(this._host + '?' + param)
         .map((res: Response) => {
           var json = res.json();
           if (json['operation'] === 'success') {
@@ -66,17 +74,17 @@ export class BuildingManagementService {
   }
 
   /*
-  * สร้างขัอมูลอาคารใหม่
+  * สร้างขัอมูลกรรมการใหม่
   */
-  createBuilding(param) {
+  createCommittee(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestCreateBuilding(_parameter);
+    return this.requestCreateCommittee(_parameter);
   }
 
 
-  private requestCreateBuilding(param) {
+  private requestCreateCommittee(param) {
     return new Promise((reslove, reject) => {
       /*
       * ตั้งค่า Header application/x-www-form-urlencode'
@@ -103,16 +111,16 @@ export class BuildingManagementService {
   }
 
   /*
-  * แก้ไขข้อมูลอาคาร
+  * แก้ไขข้อมูลกรรมการ
   */
-  editBuilding(param) {
+  editCommittee(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestEditBuilding(_parameter);
+    return this.requestEditCommittee(_parameter);
   }
 
-  private requestEditBuilding(param) {
+  private requestEditCommittee(param) {
     return new Promise((reslove, reject) => {
       /*
       * ตั้งค่า Header application/x-www-form-urlencode'
@@ -147,17 +155,17 @@ export class BuildingManagementService {
   }
 
   /*
-  * ลบข้อมูลอาคาร
+  * ลบข้อมูลกรรมการ
   */
 
-  deleteBuilding(param) {
+  deleteCommittee(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestDeleteBuilding(_parameter);
+    return this.requestDeleteCommittee(_parameter);
   }
 
-  private requestDeleteBuilding(param) {
+  private requestDeleteCommittee(param) {
     return new Promise((reslove, reject) => {
       /*
       * ตั้งค่า Header application/x-www-form-urlencode'
@@ -185,4 +193,6 @@ export class BuildingManagementService {
       });
     });
   }
+
+
 }

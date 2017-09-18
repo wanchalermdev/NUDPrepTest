@@ -10,7 +10,6 @@ export class AddBuildingComponent implements OnInit {
   private selectSchool;
 
   constructor(private buildingManagement: BuildingManagementService, private _router: Router) {
-    this.selectSchool = null;
     this.selectSchool = window.sessionStorage.getItem('PSN_SCHOOL_ID');
 
    }
@@ -23,7 +22,7 @@ export class AddBuildingComponent implements OnInit {
 
     const dataForm = elem.target.elements;
     console.log(dataForm);
-    let preParam = {
+    const preParam = {
       building_name: dataForm.building_name.value,
       school_id: this.selectSchool
     };

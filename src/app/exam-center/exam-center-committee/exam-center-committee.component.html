@@ -33,30 +33,22 @@
             <!-- ID Column -->
             <ng-container mdColumnDef="ลำดับ">
                 <md-header-cell *mdHeaderCellDef> ลำดับ </md-header-cell>
-                <md-cell *mdCellDef="let row"> </md-cell>
+                <md-cell *mdCellDef="let row"> {{ row.number }}</md-cell>
             </ng-container>
             <!-- Progress Column -->
             <ng-container mdColumnDef="ชื่อ">
                 <md-header-cell *mdHeaderCellDef > ชื่อ </md-header-cell>
-                <md-cell *mdCellDef="let row" ></md-cell>
+                <md-cell *mdCellDef="let row" >{{ row.committee_name }}</md-cell>
             </ng-container>
             <ng-container mdColumnDef="นามสกุล">
                 <md-header-cell *mdHeaderCellDef> นามสกุล </md-header-cell>
-                <md-cell *mdCellDef="let row"></md-cell>
+                <md-cell *mdCellDef="let row">{{ row.committee_lastname }}</md-cell>
             </ng-container>
-            <ng-container mdColumnDef="ตำแหน่ง">
-                    <md-header-cell *mdHeaderCellDef> ตำแหน่ง </md-header-cell>
-                    <md-cell *mdCellDef="let row"></md-cell>
-                </ng-container>
-            <ng-container mdColumnDef="อาคารสอบ">
-                    <md-header-cell *mdHeaderCellDef> อาคารสอบ </md-header-cell>
-                    <md-cell *mdCellDef="let row"></md-cell>
-                </ng-container>
             <!-- Color Column -->
             <ng-container mdColumnDef="ข้อมูล">
                 <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
                 <md-cell *mdCellDef="let row">
-                    <button style="color:#3498db" md-icon-button (click)="viewUser(row.user_id)" [id]="row.user_id">
+                    <button style="color:#3498db" md-icon-button (click)="viewCommittee(row.user_id)" [id]="row.user_id">
             <md-icon class="md-24" aria-label="">toc</md-icon>
           </button>
                 </md-cell>
@@ -64,7 +56,7 @@
             <ng-container mdColumnDef="แก้ไข">
                 <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
                 <md-cell *mdCellDef="let row">
-                    <button  style="color:#1abc9c" md-icon-button (click)="editUser(row.user_id)" [id]="row.user_id">
+                    <button  style="color:#1abc9c" md-icon-button (click)="editCommittee(row.user_id)" [id]="row.user_id">
             <md-icon class="md-24" aria-label="">edit</md-icon>
           </button>
                 </md-cell>
@@ -72,7 +64,7 @@
             <ng-container mdColumnDef="ลบ">
                 <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
                 <md-cell *mdCellDef="let row">
-                    <button style="color:#F44336" md-icon-button (click)="deleteUser(row.user_id)" [id]="row.user_id">
+                    <button style="color:#F44336" md-icon-button (click)="deleteCommittee(row.user_id)" [id]="row.user_id">
             <md-icon class="md-24" aria-label="">delete</md-icon>
           </button>
                 </md-cell>

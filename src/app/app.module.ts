@@ -26,6 +26,9 @@ import { ManageUserAccountService } from './service/manage-user-account.service'
 import { SchoolManagementService } from './service/school-management.service';
 import { BuildingManagementService } from './service/building-management.service';
 import { RoomManagementService } from './service/room-management.service';
+import { CommitteeManagementService } from './service/committee-management.service';
+import { TesterManagementService } from './service/tester-management.service';
+import { FileManagementService } from './service/file-management.service';
 
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { Http, Headers, HttpModule } from '@angular/http';
@@ -229,7 +232,11 @@ export const appRoutes: Routes = [
     ManageUserAccountService,
     SchoolManagementService,
     BuildingManagementService,
-    RoomManagementService],
+    RoomManagementService,
+    CommitteeManagementService,
+    TesterManagementService,
+    FileManagementService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
