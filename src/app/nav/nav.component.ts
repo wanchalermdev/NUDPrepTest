@@ -18,27 +18,31 @@ export class NavComponent implements OnInit {
 
   constructor(private login: LoginService, private _router: Router) {
     //this.loggedIn = this.login.getUserLoggedIn();
-   
 
-      //console.log("สถานะการลงชื่อเข้าใช้ " + window.sessionStorage.getItem('login'));
-      if(window.sessionStorage.getItem('login') == 'true'){
-         this.loggedIn = true;
-      }else{
-        this.loggedIn = false;
-      }   
-      //console.log("บทบาทของ : user " + window.sessionStorage.getItem('roleOfUser'));
-      if (this.roleUser == 'Administrator') {
-        this.checkRoleAdmin = true;
-        this.checkRoleExamCenter = false;
-      } else if (this.roleUser == 'coordinator_committee'){
-        this.checkRoleAdmin = false;
-        this.checkRoleExamCenter = true;
-      }
+
+    //console.log("สถานะการลงชื่อเข้าใช้ " + window.sessionStorage.getItem('login'));
+    if (window.sessionStorage.getItem('login') === 'true') {
+      this.loggedIn = true;
+    } else {
+      this.loggedIn = false;
+    }
+    //console.log("บทบาทของ : user " + window.sessionStorage.getItem('roleOfUser'));
+    if (this.roleUser == 'Administrator') {
+      this.checkRoleAdmin = true;
+      this.checkRoleExamCenter = false;
+    } else if (this.roleUser === 'coordinator_committee') {
+      this.checkRoleAdmin = false;
+      this.checkRoleExamCenter = true;
+    }
+
+    console.log("มีการลงชื่อใช้ใช้หรือไม่ "+window.sessionStorage.getItem('login'));
+    console.log('บทบาทของบัญชีผู้ใช้ ' + window.sessionStorage.getItem('PSN_ROLE'));
+    console.log('school_id ' + window.sessionStorage.getItem('PSN_SCHOOL_ID'));
   }
 
   ngOnInit() {
   }
- //ปุ่ม logout
+  //ปุ่ม logout
   logout() {
     this.login.setUserLogout();
     window.sessionStorage.clear();

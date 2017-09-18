@@ -17,8 +17,6 @@ import { SchoolManagementService } from '../../service/school-management.service
   styleUrls: ['./admin-exam-center.component.css']
 })
 export class AdminExamCenterComponent implements OnInit {
-
-  private allAcoount;
   
     constructor(private scholManagement: SchoolManagementService, private _router: Router) {
     }

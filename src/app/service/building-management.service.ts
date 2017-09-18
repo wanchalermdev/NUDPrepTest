@@ -6,8 +6,8 @@ export class BuildingManagementService {
 
   private _host;
   constructor(private _http: Http) {
-    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
-    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    //this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
   }
 
   /*
@@ -22,7 +22,7 @@ export class BuildingManagementService {
 
   private requestBuilding(param) {
     return new Promise((reslove, reject) => {
-      return this._http.get(this._host, param)
+      return this._http.get(this._host + param)
         .map((res: Response) => {
           var json = res.json();
           if (json['operation'] === 'success') {
@@ -121,12 +121,16 @@ export class BuildingManagementService {
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
       return this._http.put(this._host, param, { headers: headers }).map((res: Response) => {
+        console.log(res);
         /*
         *   รับค่า data มาเก็บไว้ใน res
         */
         var json = res.json();
         if (json['operation'] === 'success') {
-          return json.body;
+          console.log(json);
+          const abc = {'operation': 'fail'};
+          return abc;
+          //return json.body;
         } else {
           console.log(res);
         }
@@ -167,10 +171,11 @@ export class BuildingManagementService {
       });
 
       this._http.delete(this._host, arg).map((res: Response) => {
+        console.log(res);
         const json = res.json();
-        if(json['operation'] === 'success'){
+        if (json['operation'] === 'success') {
           return json.body;
-        }else{
+        } else {
           console.log(res);
         }
       }).subscribe((data) => {
