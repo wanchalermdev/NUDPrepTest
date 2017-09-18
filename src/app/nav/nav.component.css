@@ -1,36 +1,37 @@
 md-toolbar{
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
-    padding-right: 3rem;
-    position: fixed;
-    z-index: 99;
-    margin-top: 0px;
-  }
-  .example-fill-remaining-space {
-    flex: 1 1 auto;
-  }
-  .navbar {
-    overflow: hidden;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+  padding-right: 3rem;
+  position: fixed;
+  z-index: 99;
+  margin-top: 0px;
+  font-family: SATIT;
 }
-  label{
-    font-size: 1rem;
-    vertical-align: middle;
-    border: solid 1px;
-  }
-  md-menu, button{
-    font-family: SATIT;
-  }
-  span {
-    font-family: SATIT;
-    font-weight: bold;
-  }
-  #div-nav{
-    min-height: 64px;
-  }
-  .mg-icon-menu{
-    display: inline-block;
-    vertical-align: middle;
-    min-height: 70px;
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+.navbar {
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+label{
+  font-size: 1rem;
+  vertical-align: middle;
+  border: solid 1px;
+}
+md-menu, button{
+  font-family: SATIT;
+}
+span {
+  font-family: SATIT;
+  font-weight: bold;
+}
+#div-nav{
+  min-height: 64px;
+}
+a.title-web{
+  color: #ffffff;
+  text-decoration: none; 
+  font-weight: bold;
 }

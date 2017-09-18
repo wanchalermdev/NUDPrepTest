@@ -1,7 +1,5 @@
 <md-toolbar color="primary">
-  <span>โครงการ NUD PREP TEST 2017</span>
-
-  <span class="example-fill-remaining-space"></span>
+  <a class="title-web" href="#">โครงการ NUD PREP TEST 2017</a>
   <!-- ปุ่ม เมนูการย่อย :: ออกจากรระบบ-->
   <md-menu #appMenu="mdMenu">
     <button *ngIf="loggedIn" md-menu-item (click)="logout()">ลงชื่อออก</button>
@@ -58,7 +56,5 @@
   <button *ngIf="loggedIn" md-button [mdMenuTriggerFor]="appMenu">
       <i class="material-icons">account_circle</i> {{ nameUser }} 
     </button>
-
-
 </md-toolbar>
 <div id="div-nav"> </div>

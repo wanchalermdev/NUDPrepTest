@@ -24,7 +24,11 @@ footer{
   }
   .footer-middle{
      /* background: #3d6277; */
-     background-image: linear-gradient(-60deg, #E74D00 0%, #f09819 100%);
+     /* background-image: linear-gradient(-60deg, #F76628 0%, #E74D00 100%); */
+     /* background: #DB4602; 
+     background: -webkit-linear-gradient(to right, #FD743E, #E74D00);  
+     background: linear-gradient(to right, #FD743E, #E74D00);  */
+     background-image: linear-gradient(45deg, #FA6634 0%, #E74D00 100%);
     padding-top: 2em;
     color: white;
   }
@@ -65,4 +69,16 @@ footer{
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+  }
+  hr.vertical{ 
+    
+      border:         0;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+      height:         auto;
+      width:          1px;       
+  }
+  .topic-footer{
+    display: inline-block;
+    vertical-align: middle;
+    min-height: 5px;
   }
