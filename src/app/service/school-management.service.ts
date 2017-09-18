@@ -10,6 +10,7 @@ export class SchoolManagementService {
 
   constructor(private _http: Http, _router: Router) {
     this._host = "http://10.41.131.180/NUDPrepTestBackEnd/school/schoolManagement.php";
+    //this._host = "http://localhost/NUDPrepTestBackEnd/school/schoolManagement.php";
     this.responseAllSchool = null;
   }
 
@@ -140,7 +141,6 @@ export class SchoolManagementService {
         /*
         * ส่งค่า data ไปให้ method .map ด้านบน
         */
-        console.log(data);
         reslove(data);
       }, error => {
         return reject(error);

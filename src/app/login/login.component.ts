@@ -11,8 +11,6 @@ export class LoginComponent implements OnInit {
 
   error_message = "";
   constructor(private router: Router, private login: LoginService) {
-    console.log(window.sessionStorage.getItem('login'));
-    console.log(window.sessionStorage.getItem('roleOfUser'));
     if (window.sessionStorage.getItem('login') == "true") {
       if (window.sessionStorage.getItem('roleOfUser') == 'Administrator') {
         this.router.navigateByUrl('/admin');
@@ -41,9 +39,13 @@ export class LoginComponent implements OnInit {
         /*
         * เมื่อลงชื่อเข้าใช้สำเร็จแล้วให้ตรวจสอบว่าเป็นผู้ใช้ประเภทใด
         */
-        window.sessionStorage.setItem('login', 'true');
+        
 
         var dataUser = this.login.getDataLogin();
+
+        window.sessionStorage.setItem('login', 'true');
+        window.sessionStorage.setItem('school_id', dataUser['school_id']);
+
         var _name = dataUser['prename'] + dataUser['firstname'] + "   " + dataUser['lastname'];
         window.sessionStorage.setItem('nameOfUser', _name.toString());
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BuildingManagementService } from '../../../service/building-management.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-delete-building',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteBuildingComponent implements OnInit {
 
-  constructor() { }
+  private myId;
+  buildingData;
+  constructor(private buildingManagement: BuildingManagementService, private _router: Router, private activatedRoute: ActivatedRoute) {
+    this.myId = this.activatedRoute.snapshot.params.id;
+    const preParam = {
+      id: this.myId
+    };
+    this.buildingData = this.buildingManagement.getBuilding(preParam).then(response => {
+      this.buildingData = response['building_name'];
+    });
+   }
 
   ngOnInit() {
+  }
+
+  deleteBuilding(elem) {
+    elem.preventDefault();
+    const preParam = {
+      id: this.myId
+    };
+    this.buildingManagement.deleteBuilding(preParam).then(response => {
+      this._router.navigateByUrl('/examCenter/building');
+    });
   }
 
 }

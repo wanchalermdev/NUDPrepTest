@@ -35,19 +35,6 @@
           <md-input-container>
             <input type="text" mdInput placeholder="ตำแหน่ง" name="position_job" required>
           </md-input-container>
-          <br />
-          <md-select placeholder="เลือกกรรมการคุบสอบคนที่ 1" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let committee1 of committees1" [value]="committee1.value">
-              {{ building.viewValue }}
-            </md-option>
-          </md-select>
-          <br /><br />
-          <md-select placeholder="เลือกกรรมการคุบสอบคนที่ 2" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let committee2 of committees2" [value]="committee2.value">
-              {{ building.viewValue }}
-            </md-option>
-          </md-select>
-          <br />
         </md-card-content>
         <br />
         <br />
