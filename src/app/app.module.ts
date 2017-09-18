@@ -26,6 +26,7 @@ import { LoginService } from './service/login.service';
 import { ManageUserAccountService } from './service/manage-user-account.service';
 import { SchoolManagementService } from './service/school-management.service';
 import { BuildingManagementService } from './service/building-management.service';
+import { RoomManagementService } from './service/room-management.service';
 
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { Http, Headers, HttpModule } from '@angular/http';
@@ -228,7 +229,8 @@ export const appRoutes: Routes = [
     AuthenticationGuard,
     ManageUserAccountService,
     SchoolManagementService,
-    BuildingManagementService],
+    BuildingManagementService,
+    RoomManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

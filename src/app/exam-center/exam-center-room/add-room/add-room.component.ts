@@ -18,4 +18,8 @@ export class AddRoomComponent implements OnInit {
   ngOnInit() {
   }
 
+  createExamRoom(){
+    
+  }
+
 }
