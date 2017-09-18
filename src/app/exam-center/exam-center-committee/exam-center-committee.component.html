@@ -10,8 +10,8 @@
              </span>
         </div>
         <div class="col-lg-3" align="right">
-            <button md-raised-button routerLink="/examCenter/add-committee"  style="width:auto;color:#ffffff;background-color:#2ecc71; "><i class="material-icons">add</i> เพิ่มกรรมการคุมสอบ</button>
-          </div>
+            <button md-raised-button routerLink="/examCenter/add-committee" style="width:auto;color:#ffffff;background-color:#2ecc71; "><i class="material-icons">add</i> เพิ่มกรรมการคุมสอบ</button>
+        </div>
     </div>
     <hr>
     <div class="row download">
@@ -37,8 +37,8 @@
             </ng-container>
             <!-- Progress Column -->
             <ng-container mdColumnDef="ชื่อ">
-                <md-header-cell *mdHeaderCellDef > ชื่อ </md-header-cell>
-                <md-cell *mdCellDef="let row" >{{ row.committee_name }}</md-cell>
+                <md-header-cell *mdHeaderCellDef> ชื่อ </md-header-cell>
+                <md-cell *mdCellDef="let row">{{ row.committee_name }}</md-cell>
             </ng-container>
             <ng-container mdColumnDef="นามสกุล">
                 <md-header-cell *mdHeaderCellDef> นามสกุล </md-header-cell>
@@ -56,7 +56,7 @@
             <ng-container mdColumnDef="แก้ไข">
                 <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
                 <md-cell *mdCellDef="let row">
-                    <button  style="color:#1abc9c" md-icon-button (click)="editCommittee(row.user_id)" [id]="row.user_id">
+                    <button style="color:#1abc9c" md-icon-button (click)="editCommittee(row.user_id)" [id]="row.user_id">
             <md-icon class="md-24" aria-label="">edit</md-icon>
           </button>
                 </md-cell>

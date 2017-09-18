@@ -10,6 +10,13 @@ export class TesterManagementService {
     this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/tester/testerModel.php';
   }
 
+  private converParam(param){
+    var _parameter = Object.keys(param).map(function (key) {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
+    }).join('&');
+    return _parameter;
+  }
+
   
   /*
   * ขอข้อมูลกรรมการครั้งละ 1 กรรมการ
@@ -43,13 +50,13 @@ export class TesterManagementService {
   /*
   * ขอข้อมูลกรรมการทั้งหมด
   */
-  getAllTester() {
-    return this.requestAllTester();
+  getAllTester(param) {
+    return this.requestAllTester(this.converParam(param));
   }
 
-  private requestAllTester() {
+  private requestAllTester(param) {
     return new Promise((reslove, reject) => {
-      return this._http.get(this._host)
+      return this._http.get(this._host + '?' + param)
         .map((res: Response) => {
           var json = res.json();
           if (json['operation'] === 'success') {
@@ -86,6 +93,7 @@ export class TesterManagementService {
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
       this._http.post(this._host, param, { headers: headers }).map((res: Response) => {
+        console.log(res);
         var json = res.json();
         if (json['operation'] === 'success') {
           return json.body;

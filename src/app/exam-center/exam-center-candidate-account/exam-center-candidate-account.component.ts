@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
-import { ManageUserAccountService } from '../../service/manage-user-account.service';
+import { TesterManagementService } from '../../service/tester-management.service';
 
 
 @Component({
@@ -25,12 +25,12 @@ export class ExamCenterCandidateAccountComponent implements OnInit {
       { value: 'ระดับชั้นประถมศึกษาปีที่ 6', viewValue: 'ระดับชั้นประถมศึกษาปีที่ 6' }
     ];
   
-    constructor(private manageAccount: ManageUserAccountService, private _router: Router) {
+    constructor(private testerManagement: TesterManagementService, private _router: Router) {
     }
   
     // displayedColumns = ['ลำดับ', 'ศูนย์สอบ', 'จังหวัด', 'ข้อมูล', 'แก้ไข', 'ลบ'];
-    displayedColumns = ['ลำดับ','เลขประจำตัวประชาชน', 'ชื่อ', 'นามสกุล', 'โรงเรียน', 'ข้อมูล', 'แก้ไข', 'ลบ'];
-    exampleDatabase = new ExampleDatabase(this.manageAccount);
+    displayedColumns = ['ลำดับ','เลขประจำตัวประชาชน', 'ชื่อ', 'นามสกุล', 'หมายเลขโทรศัพท์', 'ข้อมูล', 'แก้ไข', 'ลบ'];
+    exampleDatabase = new ExampleDatabase(this.testerManagement);
     dataSource: ExampleDataSource | null;
   
     @ViewChild(MdPaginator) paginator: MdPaginator;
@@ -57,8 +57,8 @@ export class ExamCenterCandidateAccountComponent implements OnInit {
     id_code:string;
     firstname: string;
     lastname: string;
-    school: string;
-    user_id: string;
+    phone: string;
+    tester_id: string;
   }
   
   /** An example database that the data source uses to retrieve data for the table. */
@@ -67,18 +67,20 @@ export class ExamCenterCandidateAccountComponent implements OnInit {
     dataChange: BehaviorSubject<UserData[]> = new BehaviorSubject<UserData[]>([]);
     get data(): UserData[] { return this.dataChange.value; }
     private allAcoount;
-    constructor(private manageAccount: ManageUserAccountService) {
-      // Fill up the database with 100 users.
-      this.manageAccount.getAllUserAccount();
-      setTimeout(() => {
-        var str = window.sessionStorage.getItem('body');
-        this.allAcoount = JSON.parse(str);
-        for (let i = 0; i < Object.keys(this.allAcoount).length; i++) { this.addUser(this.allAcoount); }
-      }, 100);
+    testerDataSource = [];
+    constructor(private testerManagement: TesterManagementService) {
+      const _school_id = window.sessionStorage.getItem('PSN_SCHOOL_ID');
+      const preParam = {
+        school_id: _school_id
+      };
+      
+      this.testerManagement.getAllTester(preParam).then(response => {
+        for (let i = 0; i < Object.keys(response).length; i++) { this.addRow(response); }
+      });
     }
   
     /** Adds a new user to the database. */
-    addUser(acccount) {
+    addRow(acccount) {
       const copiedData = this.data.slice();
       copiedData.push(this.createNewUser(acccount));
       this.dataChange.next(copiedData);
@@ -86,14 +88,14 @@ export class ExamCenterCandidateAccountComponent implements OnInit {
   
     /** Builds and returns a new User. */
     private createNewUser(acccount) {
-      const name = acccount[this.data.length + 1]['prename'] + acccount[this.data.length + 1]['firstname'];
+      const name =  acccount[this.data.length + 1]['tester_firstname'] + acccount[this.data.length + 1]['tester_firstname'];
       return {
         number: (this.data.length + 1).toString(),
-        id_code :name,
+        id_code : acccount[this.data.length + 1]['tester_personal_code'],
         firstname: name,
-        lastname: acccount[this.data.length + 1]['lastname'],
-        school: acccount[this.data.length + 1]['username'],
-        user_id: acccount[this.data.length + 1]['user_id']
+        lastname: acccount[this.data.length + 1]['tester_lastname'],
+        phone: acccount[this.data.length + 1]['tester_phone'],
+        tester_id: acccount[this.data.length + 1]['tester_id']
       };
     }
   }
