@@ -27,6 +27,19 @@
             <md-input-container>
               <input type="text" mdInput placeholder="รองรับที่นั่งสอบจำนวน" name="exam_room_capacity" required>
             </md-input-container>
+            <br />
+            <md-select placeholder="เลือกกรรมการคุมสอบคนที่ 1" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+              <md-option *ngFor="let com1 of committee1" [value]="com1.value">
+                {{ com1.viewValue }}
+              </md-option>
+            </md-select>
+            <br /><br />
+            <md-select placeholder="เลือกกรรมการคุมสอบคนที่ " [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+                <md-option *ngFor="let com2 of committee2" [value]="com2.value">
+                  {{ com2.viewValue }}
+                </md-option>
+              </md-select>
+              <br />
           </md-card-content>
           <br />
           <br />

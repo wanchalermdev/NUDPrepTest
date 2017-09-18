@@ -8,8 +8,7 @@ import 'hammerjs';
 import {
   MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdMenuModule, MdGridListModule,
   MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule, MdTabsModule, MdRadioModule,
-  MdSelectModule, MdNativeDateModule
-} from '@angular/material';
+  MdSelectModule, MdNativeDateModule} from '@angular/material';
 import { FormControl, Validators } from '@angular/forms';
 
 import { AppComponent } from './app.component';
