@@ -13,6 +13,18 @@ export class AddRoomComponent implements OnInit {
     { value: 'อาคาร 2', viewValue: 'อาคาร 2' },
     { value: 'อาคาร 3', viewValue: 'อาคาร 3' }
   ];
+  commits1 = [
+    { value: 'นาย ก', viewValue: 'นาย ก' },
+    { value: 'นาย ข', viewValue: 'นาย ข' },
+    { value: 'นาง ค', viewValue: 'นาง ค' }
+  ];
+ 
+  commits2 = [
+    { value: 'นาย ก', viewValue: 'นาย ก' },
+    { value: 'นาย ข', viewValue: 'นาย ข' },
+    { value: 'นาง ค', viewValue: 'นาง ค' }
+  ];
+ 
  
 
   ngOnInit() {

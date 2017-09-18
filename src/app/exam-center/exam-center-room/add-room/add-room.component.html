@@ -10,6 +10,49 @@
       </div>
     </div>
     <hr class="style-hr">
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <md-card-content>
+          <md-select placeholder="เลือกอาคารสอบ" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+            <md-option *ngFor="let building of buildings" [value]="building.value">
+              {{ building.viewValue }}
+            </md-option>
+          </md-select>
+          <br /><br />
+          <md-input-container>
+            <input type="text" mdInput placeholder="ชื่อห้องสอบ" name="room_name" required>
+          </md-input-container>
+          <md-input-container>
+            <input type="text" mdInput placeholder="รองรับที่นั่งสอบจำนวน" name="support_total" required>
+          </md-input-container>
+          <br />
+          <md-select placeholder="เลือกกรรมการคุบสอบคนที่ 1" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+            <md-option *ngFor="let committee1 of commits1" [value]="committee1.value">
+              {{ committee1.viewValue }}
+            </md-option>
+          </md-select>
+          <br /><br />
+          <md-select placeholder="เลือกกรรมการคุบสอบคนที่ 2" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+            <md-option *ngFor="let committee2 of commits2" [value]="committee2.value">
+              {{ committee2.viewValue }}
+            </md-option>
+          </md-select>
+          <br />
+        </md-card-content>
+        <br />
+        <br />
+        <div class="row">
+          <div class="col-6">
+            <button md-raised-button color="primary" style="width:100%"><i class="material-icons">add</i>    บันทึก</button>
+          </div>
+          <div class="col-6">
+            <button md-raised-button routerLink='../room' color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
+=======
+=======
+>>>>>>> 2834aa769c0d3e81da8d62c0142a3cf3f7befe30
     <form (submit)="createExamRoom($event)">
       <div class="row">
         <div class="col-md-3"></div>
@@ -37,6 +80,10 @@
             <div class="col-6">
               <button md-raised-button routerLink='../room' color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
             </div>
+<<<<<<< HEAD
+>>>>>>> 2834aa769c0d3e81da8d62c0142a3cf3f7befe30
+=======
+>>>>>>> 2834aa769c0d3e81da8d62c0142a3cf3f7befe30
           </div>
         </div>
         <div class="col-md-3"></div>

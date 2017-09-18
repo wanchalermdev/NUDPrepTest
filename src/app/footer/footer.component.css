@@ -1,3 +1,68 @@
-#div-footer{
-    min-height: 50px;
-}
+/* #div-footer{
+    min-height: 200px;
+} */
+footer{
+    color: white;
+    font-family: SATIT;
+    /* font-weight: bold; */
+  }
+  footer a{
+    color: #bfffff;
+    font-family: SATIT;
+    /* font-weight: bold; */
+  }
+  footer a:hover{
+    color: white;
+    font-family: SATIT;
+    font-weight: bold;
+  }
+  h4{
+      font-weight: bold;
+  }
+  a{
+    text-decoration: none; 
+  }
+  .footer-middle{
+     /* background: #3d6277; */
+     background-image: linear-gradient(-60deg, #E74D00 0%, #f09819 100%);
+    padding-top: 2em;
+    color: white;
+  }
+  /**Sub Navigation**/
+  .subnavigation-container{
+    background-image: linear-gradient(-60deg, #FF6464 0%, #f09819 100%);
+  }
+  .subnavigation .nav-link{
+    color: white;
+    font-weight: bold;
+  }
+  .subnavigation-container{
+    text-align: center;
+  }
+  .subnavigation-container .navbar{
+    display: inline-block;
+    margin-bottom: -6px; /* Inline-block margin offffset HACK -Gilron */
+  }
+  .col-subnav a{
+    padding: 1rem 1rem;
+    color: white;
+    font-weight: bold;
+  }
+  .col-subnav .active{
+    border-top:5px solid orange;
+   background: white;
+    color: black;
+  }
+  /* hr.style-one {
+
+    background-image: #ffffff;
+  } */
+.text{
+      text-align: center;
+      padding: 10px;
+  }
+  hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+  }

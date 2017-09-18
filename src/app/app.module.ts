@@ -9,6 +9,13 @@ import {
   MdButtonModule, MdCheckboxModule, MdInputModule, MdAutocompleteModule, MdMenuModule, MdGridListModule,
   MdDatepickerModule, MdToolbarModule, MdCardModule, MdTableModule, MdPaginatorModule, MdIconModule, MdTabsModule, MdRadioModule,
   MdSelectModule, MdNativeDateModule
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2834aa769c0d3e81da8d62c0142a3cf3f7befe30
+=======
+>>>>>>> 2834aa769c0d3e81da8d62c0142a3cf3f7befe30
 } from '@angular/material';
 import { FormControl, Validators } from '@angular/forms';
 
