@@ -32,7 +32,7 @@ export class AddCandidateComponent  {
       tester_level: this.selectLevel
     };
     this.testerManagement.createTester(preParam).then(response => {
-      console.log(response);
+      this._router.navigateByUrl('/examCenter/candidate');
     });
   }
   
