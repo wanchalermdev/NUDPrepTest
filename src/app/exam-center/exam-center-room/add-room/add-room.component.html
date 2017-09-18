@@ -16,8 +16,8 @@
         <div class="col-md-6">
           <md-card-content>
             <md-select placeholder="เลือกอาคารสอบ" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-              <md-option *ngFor="let building of buildings" [value]="building.value">
-                {{ building.viewValue }}
+              <md-option *ngFor="let building of buildingData" [value]="building.building_id">
+                {{ building.building_name }}
               </md-option>
             </md-select>
             <br /><br />
