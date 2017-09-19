@@ -1,35 +1,37 @@
 <app-nav></app-nav>
-<br />
+<body class="bg">
 <div class="container">
-  <div class="row text-center">
+  <br />
+  <div class="row text-center" align="center">
     <div class="col-md-4"></div>
     <div class="col-md-4">
       <h2><i class="material-icons">lock_outline</i> กรุณาลงชื่อเข้าใช้</h2>
       <md-card class="example-card">
-          <form (submit)="loginSubmit($event)">
-        <md-card-header>
-          <md-card-title>
-          </md-card-title>
-          <md-card-subtitle>ระบบจัดการข้อมูลโครงการ NUD PREP TEST ยินดีต้อนรับ กรุณากรอกข้อมูล username และ password ให้ถูกต้อง
-            
-          </md-card-subtitle>
-        </md-card-header>
-        <md-card-content>
-          <md-input-container>
-            <input type="text" mdInput placeholder="Username" value="wanchalermj" name="username" required>
-          </md-input-container>
-          <md-input-container>
-            <input type="password" mdInput placeholder="Password" value="tLSyqID3uW" name="password" required>
-          </md-input-container>
-        </md-card-content>
-        <md-card-actions>
-          <button md-raised-button color="primary"><i class="material-icons">vpn_key</i> ลงชื่อเข้าใช้</button>
-          <a md-raised-button routerLink=".">ลืมรหัสผ่าน</a><br /><br />
-          <label id="message-error">{{ error_message }}</label>
-        </md-card-actions>
-      </form>
+        <form (submit)="loginSubmit($event)">
+          <md-card-header>
+            <md-card-title>
+            </md-card-title>
+            <md-card-subtitle>ระบบจัดการข้อมูลโครงการ NUD PREP TEST ยินดีต้อนรับ กรุณากรอกข้อมูล username และ password ให้ถูกต้อง
+
+            </md-card-subtitle>
+          </md-card-header>
+          <md-card-content>
+            <md-input-container>
+              <input type="text" mdInput placeholder="Username" value="wanchalermj" name="username" required>
+            </md-input-container>
+            <md-input-container>
+              <input type="password" mdInput placeholder="Password" value="tLSyqID3uW" name="password" required>
+            </md-input-container>
+          </md-card-content>
+          <md-card-actions>
+            <button md-raised-button color="primary"><i class="material-icons">vpn_key</i> ลงชื่อเข้าใช้</button>
+            <a md-raised-button routerLink=".">ลืมรหัสผ่าน</a><br /><br />
+            <label id="message-error">{{ error_message }}</label>
+          </md-card-actions>
+        </form>
       </md-card>
     </div>
     <div class="col-md-4"></div>
   </div>
 </div>
+</body>
