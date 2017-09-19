@@ -57,6 +57,7 @@ export interface CommitteeData {
   number: string;
   committee_name: string;
   committee_lastname: string;
+  committee_id: string;
 }
 
 /** An example database that the data source uses to retrieve data for the table. */
@@ -89,6 +90,7 @@ export class ExampleDatabase {
       number: (this.data.length + 1).toString(),
       committee_name: name,
       committee_lastname: committee[this.data.length + 1]['committee_lastname'],
+      committee_id: committee[this.data.length + 1]['committee_id']
     };
   }
 }

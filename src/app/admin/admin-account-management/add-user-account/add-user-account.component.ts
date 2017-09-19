@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgModel } from '@angular/forms';
 import {MdSelectModule} from '@angular/material';
 import { ManageUserAccountService } from '../../../service/manage-user-account.service';
+import { SchoolManagementService } from '../../../service/school-management.service';
 
 
 @Component({
@@ -17,7 +18,16 @@ export class AddUserAccountComponent implements OnInit {
   selectSchool: String;
   _email: String;
 
-  constructor(private _router: Router, private manageUserAccount: ManageUserAccountService) { }
+  private SchoolDataSource = [];
+
+  constructor(private _router: Router, private manageUserAccount: ManageUserAccountService, private schoolManagement: SchoolManagementService) {
+    this.schoolManagement.getAllSchool().then(response => {
+      for (var i = 1; response[i] != undefined; i++) {
+        this.SchoolDataSource.push(response[i]);
+      }
+    });
+    console.log(this.SchoolDataSource);
+   }
 
   submitCreateuser(elem){
     elem.preventDefault(); // คำสั่งไม่ให้รีเฟลชหน้าเพจ 

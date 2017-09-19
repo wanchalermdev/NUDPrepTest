@@ -18,22 +18,22 @@
           <div class="row">
             <div class="col-4" align="right"><label class="style-label">ชื่ออาคาร </label></div>
             <div class="col-2"><label>:</label></div>
-            <div class="col-6"><span></span></div>
+            <div class="col-6"><span>{{ myBuildingName }}</span></div>
           </div>
           <div class="row">
             <div class="col-4" align="right"><label class="style-label">ชื่อห้องสอบ </label></div>
             <div class="col-2"><label>:</label></div>
-            <div class="col-6"><span></span></div>
+            <div class="col-6"><span>{{ myRoomName }}</span></div>
           </div>
           <div class="row">
             <div class="col-4" align="right"><label class="style-label">จำนวนที่นั่งสอบ </label></div>
             <div class="col-2"><label>:</label></div>
-            <div class="col-6"><span></span></div>
+            <div class="col-6"><span>{{ myCapacity }}</span></div>
           </div>
           <hr>
           <div class="row">
             <div class="col-md-6">
-              <button md-raised-button color="primary" style="width:100%"><i class="material-icons">delete_forever</i>    ยืนยัน</button>
+              <button md-raised-button (click)="deleteExamRoom($event)" color="primary" style="width:100%"><i class="material-icons">delete_forever</i>    ยืนยัน</button>
             </div>
             <div class="col-md-6">
               <button routerLink='../../room' md-raised-button color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>

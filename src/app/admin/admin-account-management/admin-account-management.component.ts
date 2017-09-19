@@ -9,6 +9,7 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 import { ManageUserAccountService } from '../../service/manage-user-account.service';
+import { SchoolManagementService } from '../../service/school-management.service';
 
 @Component({
   selector: 'app-admin-account-management',
@@ -18,8 +19,10 @@ import { ManageUserAccountService } from '../../service/manage-user-account.serv
 export class AdminAccountManagementComponent implements OnInit {
 
   private allAcoount;
+  private SchoolDataSource = [];
 
-  constructor(private manageAccount: ManageUserAccountService, private _router: Router) {
+  constructor(private manageAccount: ManageUserAccountService, private _router: Router, private schoolManagement: SchoolManagementService) {
+    
   }
 
   displayedColumns = ['ลำดับ', 'ชื่อ', 'นามสกุล', 'ชื่อผู้ใช้', 'ข้อมูล', 'แก้ไข', 'ลบ'];
