@@ -29,14 +29,14 @@
           </md-input-container>
           <br />
           <md-select placeholder="เลือกกรรมการคุมสอบคนที่ 1" [(ngModel)]="selectCommittee1" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let com1 of committee1DataSource" [value]="com1.value">
-              {{ com1.viewValue }}
+            <md-option *ngFor="let com1 of committee1DataSource" [value]="com1.committee_id">
+              {{ com1.committee_prename }}{{ com1.committee_firstname }}     {{ com1.committee_lastname }}  
             </md-option>
           </md-select>
           <br /><br />
           <md-select placeholder="เลือกกรรมการคุมสอบคนที่ 2" [(ngModel)]="selectCommittee2" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let com2 of committee2DataSource" [value]="com2.value">
-              {{ com2.viewValue }}
+            <md-option *ngFor="let com2 of committee2DataSource" [value]="com2.committee_id">
+              {{ com2.committee_prename }}{{ com2.committee_firstname }}    {{ com2.committee_lastname }}
             </md-option>
           </md-select>
           <br />
