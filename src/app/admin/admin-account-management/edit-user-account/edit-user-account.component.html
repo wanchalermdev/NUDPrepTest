@@ -44,8 +44,8 @@
             </div>
           </div>
           <md-select placeholder="เลือกโรงเรียน" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let school of SchoolDataSource" [value]="school.value" ng-selected="school.value === selectSchool? 'selected': ''">
-              {{ school.viewValue }}
+            <md-option *ngFor="let school of SchoolDataSource" [value]="school.school_id" ng-selected="school.school_id === selectSchool? 'selected': ''">
+              {{ school.school_name }}
             </md-option>
           </md-select>
         </md-card-content>
