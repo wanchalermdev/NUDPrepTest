@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BuildingManagementService } from '../../../service/building-management.service';
 import { RoomManagementService } from '../../../service/room-management.service'
 import { Router, ActivatedRoute } from '@angular/router';
+import { CommitteeManagementService } from '../../../service/committee-management.service';
 
 
 @Component({
@@ -12,22 +13,35 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AddRoomComponent implements OnInit {
 
   buildingDataSource = [];
+  committee1DataSource = [];
+  committee2DataSource = [];
   selectBuilding;
-  selectCommitee1: String;
-  selectCommitee2: String;
+  selectCommitee1;
+  selectCommitee2;
+
 
   constructor(
     private roomManagement: RoomManagementService,
     private buildingManagement: BuildingManagementService,
     private _router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private committeeManagement: CommitteeManagementService
   ) {
-    this.buildingManagement.getAllBuilding().then(response => {
+    const _school_id = window.sessionStorage.getItem('PSN_SCHOOL_ID');
+    const preParam = {
+      school_id : _school_id
+    };
+    this.buildingManagement.getAllBuilding(preParam).then(response => {
       for (var i = 1; response[i] != undefined; i++) {
         this.buildingDataSource.push(response[i]);
       }
     });
-    console.log(this.buildingDataSource);
+    this.committeeManagement.getAllCommittee(preParam).then(response => {
+      for(var i = 1; response[i] != undefined; i++){
+        this.committee1DataSource.push(response[i]);
+        this.committee2DataSource.push(response[i]);
+      }
+    });
   }
 
   committee1 = [

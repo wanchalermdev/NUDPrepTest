@@ -67,7 +67,11 @@ export class ExamCenterBuildingComponent implements OnInit {
     get data(): buildingData[] { return this.dataChange.value; }
     private allBuilding;
     constructor(private buildingManagement: BuildingManagementService) {
-      this.buildingManagement.getAllBuilding().then(response => {
+      const _school_id = window.sessionStorage.getItem('PSN_SCHOOL_ID');
+      const preParam = {
+        school_id: _school_id
+      };
+      this.buildingManagement.getAllBuilding(preParam).then(response => {
         this.allBuilding = response;
         for (let i = 0; i < Object.keys(response).length; i++) { this.addRow(response); }
       });
