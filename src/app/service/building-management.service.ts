@@ -6,8 +6,8 @@ export class BuildingManagementService {
 
   private _host;
   constructor(private _http: Http) {
-    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
-    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    //this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
   }
 
   /*
@@ -128,7 +128,7 @@ export class BuildingManagementService {
         var json = res.json();
         if (json['operation'] === 'success') {
           console.log(json);
-          const abc = {'operation': 'fail'};
+          const abc = { 'operation': 'fail' };
           return abc;
           //return json.body;
         } else {
