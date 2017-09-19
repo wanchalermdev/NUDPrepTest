@@ -1,9 +1,10 @@
 <app-nav></app-nav>
-<form (submit)="submitEdituser($event)"> 
+<form (submit)="submitEdituser($event)">
   <div class="container">
     <div class="row topic">
       <div class="col-9">
-        <div class="topic-page"><i class="material-icons" style="font-size: 48px; margin-bottom: -10px;">recent_actors </i></div> <div  class="topic-page">จัดการบัญชีผู้ใช้ : <label class="size-label"> แก้ไขบัญชีผู้ใช้</label></div>
+        <div class="topic-page"><i class="material-icons" style="font-size: 48px; margin-bottom: -10px;">recent_actors </i></div>
+        <div class="topic-page">จัดการบัญชีผู้ใช้ : <label class="size-label"> แก้ไขบัญชีผู้ใช้</label></div>
       </div>
       <div class="col-3">
       </div>
@@ -13,7 +14,7 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <md-card-content>
-          <md-input-container> 
+          <md-input-container>
             <input type="text" mdInput placeholder="Username" name="username" [value]="param.username" required>
           </md-input-container>
           <md-input-container>
@@ -29,9 +30,6 @@
           </md-input-container>
           <md-input-container>
             <input type="text" mdInput placeholder="นามสกุล" name="lastname" [value]="param.lastname" required>
-          </md-input-container>
-          <md-input-container>
-            <input type="text" mdInput placeholder="ตำแหน่ง" name="position_job" [value]="param.position" >
           </md-input-container>
           <div class="row">
             <div class="col-6">
