@@ -12,8 +12,10 @@ export class ViewBuildingComponent implements OnInit {
   building_name;
   constructor(private buildingManagement: BuildingManagementService, private activatedRoute: ActivatedRoute) {
     const myId = this.activatedRoute.snapshot.params.id;
+    const _school_id = window.sessionStorage.getItem('PSN_SCHOOL_ID');
     const preParam = {
-      id: myId
+      id: myId,
+      school_id: _school_id
     };
     this.buildingManagement.getBuilding(preParam).then(response => {
       this.building_name = response['building_name'];
