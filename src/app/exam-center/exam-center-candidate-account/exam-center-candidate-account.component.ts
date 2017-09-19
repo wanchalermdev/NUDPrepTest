@@ -89,7 +89,7 @@ export class ExamCenterCandidateAccountComponent implements OnInit {
   
     /** Builds and returns a new User. */
     private createNewUser(acccount) {
-      const name =  acccount[this.data.length + 1]['tester_firstname'] + acccount[this.data.length + 1]['tester_firstname'];
+      const name =  acccount[this.data.length + 1]['tester_prename'] + acccount[this.data.length + 1]['tester_firstname'];
       return {
         number: (this.data.length + 1).toString(),
         id_code : acccount[this.data.length + 1]['tester_personal_code'],

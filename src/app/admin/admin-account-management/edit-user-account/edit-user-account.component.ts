@@ -4,6 +4,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { NgModel } from '@angular/forms';
 import {MdSelectModule} from '@angular/material';
 import { ManageUserAccountService } from '../../../service/manage-user-account.service';
+import { SchoolManagementService } from '../../../service/school-management.service';
 
 @Component({
   selector: 'app-edit-user-account',
@@ -26,9 +27,17 @@ export class EditUserAccountComponent implements OnInit {
     phone: ' ',
     email: ' ',
     id: ''
-  }
+  };
+  private SchoolDataSource = [];
 
-  constructor(private manageUserAccount: ManageUserAccountService, private _router: Router, private actRouter: ActivatedRoute) { }
+  constructor(private manageUserAccount: ManageUserAccountService, private _router: Router, private actRouter: ActivatedRoute, private schoolManagement: SchoolManagementService) {
+    this.schoolManagement.getAllSchool().then(response => {
+      for (var i = 1; response[i] != undefined; i++) {
+        this.SchoolDataSource.push(response[i]);
+      }
+    });
+    console.log(this.SchoolDataSource);
+   }
 
   ngOnInit() {
     const user_id = this.actRouter.snapshot.params.id;
