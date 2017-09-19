@@ -10,6 +10,13 @@ export class BuildingManagementService {
     //this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
   }
 
+  private convertParam(param){
+    var _parameter = Object.keys(param).map(function (key) {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
+    }).join('&');
+    return _parameter;
+  }
+
   /*
   * ขอข้อมูลอาคารครั้งละ 1 อาคาร
   */
@@ -42,13 +49,14 @@ export class BuildingManagementService {
   /*
   * ขอข้อมูลอาคารทั้งหมด
   */
-  getAllBuilding() {
-    return this.requestAllBuilding();
+  getAllBuilding(param) {
+    
+    return this.requestAllBuilding(this.convertParam(param));
   }
 
-  private requestAllBuilding() {
+  private requestAllBuilding(param) {
     return new Promise((reslove, reject) => {
-      return this._http.get(this._host)
+      return this._http.get(this._host + '?' + param)
         .map((res: Response) => {
           var json = res.json();
           if (json['operation'] === 'success') {
