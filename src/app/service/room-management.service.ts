@@ -34,6 +34,7 @@ export class RoomManagementService {
     return new Promise((reslove, reject) => {
       return this._http.get(this._host + param)
         .map((res: Response) => {
+          console.log(res);
           var json = res.json();
           if (json['operation'] === 'success') {
             return json.body;

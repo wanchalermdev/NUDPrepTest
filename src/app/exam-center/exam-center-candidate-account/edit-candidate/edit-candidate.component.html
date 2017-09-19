@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<form >
+<form (submit)="editTester($event)">
     <div class="container">
       <div class="row topic">
         <div class="col-9">
@@ -14,39 +14,33 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
           <md-card-content>
-            <md-select placeholder="คำนำหน้านาม" required name="prename" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectPrename">
+            <md-select placeholder="คำนำหน้านาม" required [ngModelOptions]="{standalone: true}" [(ngModel)]="selectPrename">
               <md-option *ngFor="let pn of pre_names" [value]="pn.value">
                 {{ pn.viewValue }}
               </md-option>
             </md-select>
             <br/><br />
             <md-input-container>
-              <input type="text" mdInput placeholder="ชื่อ" name="firstname" required>
+              <input type="text" mdInput placeholder="ชื่อ" [value]="testerDataSource.tester_firstname" name="firstname" required>
             </md-input-container>
             <md-input-container>
-              <input type="text" mdInput placeholder="นามสกุล" name="lastname" required>
+              <input type="text" mdInput placeholder="นามสกุล" [value]="testerDataSource.tester_lastname" name="lastname" required>
             </md-input-container>
             <md-input-container>
-              <input type="text" maxlength="13" required mdInput placeholder="หมายเลขประจำตัวประชาชน" name="id_code" value="">
+              <input type="text" mdInput placeholder="หมายเลขประจำตัวประชาชน" [value] = "testerDataSource.tester_personal_code" name="id_code" required>
             </md-input-container>
-            <md-select placeholder="เลือกระดับชั้นของนักเรียน" [style.width]="'100%'">
-                <md-option *ngFor="let level of levels" [value]="level.value">
+            <md-select placeholder="เลือกระดับชั้นของนักเรียน"  [ngModelOptions]="{standalone: true}" [(ngModel)]="selectLevel"  [style.width]="'100%'">
+                <md-option *ngFor="let level of levels" [value]="level.value" ng-selected="level.value === selectLevel? 'selected':''">
                     {{ level.viewValue }}
                 </md-option>
             </md-select>
-            <br /><br />
-            <md-select placeholder="เลือกโรงเรียน" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-                <md-option *ngFor="let school of schools" [value]="school.value">
-                  {{ school.viewValue }}
-                </md-option>
-              </md-select>
               <br /><br />
               <md-input-container>
-                  <input type="text"  mdInput placeholder="หมายเลขโทรศัพท์" name="mobile_phone" required>
+                  <input type="text"  mdInput placeholder="หมายเลขโทรศัพท์" [value]="testerDataSource.tester_phone" name="mobile_phone" required>
                 </md-input-container>
               </md-card-content><br />
               <section class="example-section">
-                  <md-radio-group [(ngModel)]="belongTo">
+                  <md-radio-group [(ngModel)]="selectType"  [ngModelOptions]="{standalone: true}" >
                     <md-radio-button class="example-margin" value="ในสังกัด">นักเรียนในสังกัด</md-radio-button>
                     <md-radio-button class="example-margin" value="นอกสังกัด">นักเรียนนอกสังกัด</md-radio-button>
                   </md-radio-group>

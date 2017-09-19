@@ -4,11 +4,12 @@ import { MdPaginator } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 import { TesterManagementService } from '../../service/tester-management.service';
+import { SchoolManagementService } from '../../service/school-management.service';
 
 
 @Component({
@@ -19,13 +20,22 @@ import { TesterManagementService } from '../../service/tester-management.service
 export class ExamCenterCandidateAccountComponent implements OnInit {
   
     private allAcoount;
+    private schoolName;
     levels = [
       { value: 'ระดับชั้นประถมศึกษาปีที่ 4', viewValue: 'ระดับชั้นประถมศึกษาปีที่ 4' },
       { value: 'ระดับชั้นประถมศึกษาปีที่ 5', viewValue: 'ระดับชั้นประถมศึกษาปีที่ 5' },
       { value: 'ระดับชั้นประถมศึกษาปีที่ 6', viewValue: 'ระดับชั้นประถมศึกษาปีที่ 6' }
     ];
   
-    constructor(private testerManagement: TesterManagementService, private _router: Router) {
+    constructor(private testerManagement: TesterManagementService, private _router: Router,private schoolManagement:SchoolManagementService, private activated:ActivatedRoute) {
+      const _school_id = window.sessionStorage.getItem('PSN_SCHOOL_ID');
+      const myId = activated.snapshot.params.id;
+      const preParam = {
+        id: _school_id
+      };
+      this.schoolManagement.getSchool(preParam).then(response => {
+        this.schoolName = response['school_name'];
+      });
     }
   
     // displayedColumns = ['ลำดับ', 'ศูนย์สอบ', 'จังหวัด', 'ข้อมูล', 'แก้ไข', 'ลบ'];

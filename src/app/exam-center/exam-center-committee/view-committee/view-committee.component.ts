@@ -36,6 +36,7 @@ export class ViewCommitteeComponent implements OnInit {
     this.committeeManagement.getCommittee(preParamCommittee).then(response => {
       console.log(response);
       this.responseCommittee = response;
+      this.name = this.responseCommittee['committee_prename'] + this.responseCommittee['committee_firstname'] + ' ' + this.responseCommittee['committee_lastname'];
     });
     // const _building_id = this.responseBuilding['building_id'];
     // const preParamBuilding = {
@@ -46,7 +47,7 @@ export class ViewCommitteeComponent implements OnInit {
     //   this.responseBuilding = response;
     // });
 
-    //this.name = this.responseCommittee['committee_prename'] + this.responseCommittee['committee_firstname'];
+    
   }
 
   ngOnInit() {

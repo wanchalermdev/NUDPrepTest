@@ -35,6 +35,7 @@ export class ViewRoomComponent implements OnInit {
 
     this.roomMmanagement.getExamRoom(preParam).then(response => {
       const room = response;
+      console.log(response);
       this.myCapacity = response['exam_room_capacity'];
       this.myRoomName = response['exam_room_name'];
 
