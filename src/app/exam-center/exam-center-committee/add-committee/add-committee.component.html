@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<form>
+<form (submit)="createCommittee($event)">
   <div class="container">
     <div class="row topic">
       <div class="col-9">
@@ -14,13 +14,7 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <md-card-content>
-          <md-select placeholder="เลือกอาคารสอบ" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let building of buildings" [value]="building.value">
-              {{ building.viewValue }}
-            </md-option>
-          </md-select>
-          <br /><br />
-          <md-select placeholder="คำนำหน้านาม" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+          <md-select placeholder="คำนำหน้านาม" [(ngModel)]="selectPrename" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
             <md-option *ngFor="let pn of prenames" [value]="pn.value">
               {{ pn.viewValue }}
             </md-option>

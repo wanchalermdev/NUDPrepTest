@@ -1,66 +1,61 @@
 <app-nav></app-nav>
-        <div class="container">
-          <div class="row topic">
-            <div class="col-9">
-              <div class="topic-page"><i class="material-icons" style="font-size: 48px;">recent_actors </i></div>
-              <div class="topic-page">จัดการบัญชีผู้สมัครสอบ : <label class="size-label"> เพิ่มบัญชีผู้สมัครสอบ</label></div>
-            </div>
-            <div class="col-3">
-            </div>
+<div class="container">
+  <div class="row topic">
+    <div class="col-9">
+      <div class="topic-page"><i class="material-icons" style="font-size: 48px;">recent_actors </i></div>
+      <div class="topic-page">จัดการบัญชีผู้สมัครสอบ : <label class="size-label"> เพิ่มบัญชีผู้สมัครสอบ</label></div>
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+  <hr class="style-hr">
+  <form (submit) = "createTester($event)">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <md-card-content>
+          <md-select placeholder="คำนำหน้านาม" [(ngModel)]="selectPrename" [ngModelOptions]="{standalone: true}" required>
+            <md-option *ngFor="let pn of pre_names" [value]="pn.value">
+              {{ pn.viewValue }}
+            </md-option>
+          </md-select>
+          <br/><br />
+          <md-input-container>
+            <input type="text" mdInput placeholder="ชื่อ" name="firstname" required>
+          </md-input-container>
+          <md-input-container>
+            <input type="text" mdInput placeholder="นามสกุล" name="lastname" required>
+          </md-input-container>
+          <md-input-container>
+            <input type="text" maxlength="13" required mdInput placeholder="หมายเลขประจำตัวประชาชน" name="id_code" value="">
+          </md-input-container>
+          <md-select placeholder="เลือกระดับชั้นของนักเรียน" [(ngModel)]="selectLevel" [ngModelOptions]="{standalone: true}" required>
+            <md-option *ngFor="let level of levels" [value]="level.value">
+              {{ level.viewValue }}
+            </md-option>
+          </md-select>
+          <br /><br />
+          <md-input-container>
+            <input type="text" mdInput placeholder="หมายเลขโทรศัพท์" name="mobile_phone" required>
+          </md-input-container>
+        </md-card-content><br />
+        <section class="example-section">
+          <md-radio-group [(ngModel)]="selectUnder" [ngModelOptions]="{standalone: true}">
+            <md-radio-button class="example-margin" value="ในสังกัด">นักเรียนในสังกัด</md-radio-button>
+            <md-radio-button class="example-margin" value="นอกสังกัด">นักเรียนนอกสังกัด</md-radio-button>
+          </md-radio-group>
+        </section>
+        <hr><br />
+        <div class="row">
+          <div class="col-6">
+            <button md-raised-button color="primary" style="width:100%"><i class="material-icons">person_add</i>    เพิ่มบัญชีผู้สมัครสอบ</button>
           </div>
-          <hr class="style-hr">
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-              <md-card-content>
-                <md-select placeholder="คำนำหน้านาม" required name="prename" >
-                  <md-option *ngFor="let pn of pre_names" [value]="pn.value">
-                    {{ pn.viewValue }}
-                  </md-option>
-                </md-select>
-                <br/><br />
-                <md-input-container>
-                  <input type="text" mdInput placeholder="ชื่อ" name="firstname" required>
-                </md-input-container>
-                <md-input-container>
-                  <input type="text" mdInput placeholder="นามสกุล" name="lastname" required>
-                </md-input-container>
-                <md-input-container>
-                  <input type="text" maxlength="13" required mdInput placeholder="หมายเลขประจำตัวประชาชน" name="id_code" value="">
-                </md-input-container>
-                <md-select placeholder="เลือกระดับชั้นของนักเรียน"   >
-                    <md-option *ngFor="let level of levels" [value]="level.value">
-                        {{ level.viewValue }}
-                    </md-option>
-                </md-select>
-                <br /><br />
-                <md-select placeholder="เลือกโรงเรียน">
-                    <md-option *ngFor="let school of schools" [value]="school.value">
-                      {{ school.viewValue }}
-                    </md-option>
-                  </md-select>
-                  <br /><br />
-                  <md-input-container>
-                      <input type="text"  mdInput placeholder="หมายเลขโทรศัพท์" name="mobile_phone" required>
-                    </md-input-container>
-              </md-card-content><br />
-              <section class="example-section">
-                  <md-radio-group [(ngModel)]="belongTo">
-                    <md-radio-button class="example-margin" value="ในสังกัด">นักเรียนในสังกัด</md-radio-button>
-                    <md-radio-button class="example-margin" value="นอกสังกัด">นักเรียนนอกสังกัด</md-radio-button>
-                  </md-radio-group>
-                </section>
-              <hr><br />
-              <div class="row">
-                <div class="col-6">
-                  <button md-raised-button color="primary" style="width:100%"><i class="material-icons">person_add</i>    เพิ่มบัญชีผู้สมัครสอบ</button>
-                </div>
-                <div class="col-6">
-                  <button md-raised-button routerLink='../candidate' color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3"></div>
+          <div class="col-6">
+            <button md-raised-button routerLink='../candidate' color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>
           </div>
         </div>
-    
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </form>
+</div>

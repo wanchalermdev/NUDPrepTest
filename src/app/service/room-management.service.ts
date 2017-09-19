@@ -7,11 +7,19 @@ export class RoomManagementService {
 
   private _host;
 
-  constructor(private _http: Http) { 
-    this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/room/roomModel.php';
+  constructor(private _http: Http) {
+    // this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/room/roomModel.php';
+    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/room/roomModel.php';
   }
 
-  
+  private convertParam(param) {
+    var _parameter = Object.keys(param).map(function (key) {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
+    }).join('&');
+    return _parameter;
+  }
+
+
   /*
   * ขอข้อมูลอาคารครั้งละ 1 อาคาร
   */
@@ -44,14 +52,15 @@ export class RoomManagementService {
   /*
   * ขอข้อมูลอาคารทั้งหมด
   */
-  getAllExamRoom() {
-    return this.requestAllExamRoom();
+  getAllExamRoom(param) {
+    return this.requestAllExamRoom(this.convertParam(param));
   }
 
-  private requestAllExamRoom() {
+  private requestAllExamRoom(param) {
     return new Promise((reslove, reject) => {
-      return this._http.get(this._host)
+      return this._http.get(this._host + '?' + param)
         .map((res: Response) => {
+          console.log(res);
           var json = res.json();
           if (json['operation'] === 'success') {
             return json.body;
@@ -87,6 +96,7 @@ export class RoomManagementService {
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
       this._http.post(this._host, param, { headers: headers }).map((res: Response) => {
+        console.log(res);
         var json = res.json();
         if (json['operation'] === 'success') {
           return json.body;
@@ -130,7 +140,7 @@ export class RoomManagementService {
         var json = res.json();
         if (json['operation'] === 'success') {
           console.log(json);
-          const abc = {'operation': 'fail'};
+          const abc = { 'operation': 'fail' };
           return abc;
           //return json.body;
         } else {

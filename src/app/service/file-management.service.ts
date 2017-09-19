@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
 @Injectable()
-export class BuildingManagementService {
+export class FileManagementService {
 
   private _host;
   constructor(private _http: Http) {
-    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
-    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/file/fileModel.php';
+    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/file/fileModel.php';
   }
 
+  
   /*
-  * ขอข้อมูลอาคารครั้งละ 1 อาคาร
+  * ขอข้อมูลกรรมการครั้งละ 1 กรรมการ
   */
-  getBuilding(param) {
+  getFile(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestBuilding('?' + _parameter);
+    return this.requestFile('?' + _parameter);
   }
 
-  private requestBuilding(param) {
+  private requestFile(param) {
     return new Promise((reslove, reject) => {
       return this._http.get(this._host + param)
         .map((res: Response) => {
@@ -40,13 +40,13 @@ export class BuildingManagementService {
   }
 
   /*
-  * ขอข้อมูลอาคารทั้งหมด
+  * ขอข้อมูลกรรมการทั้งหมด
   */
-  getAllBuilding() {
-    return this.requestAllBuilding();
+  getAllFile() {
+    return this.requestAllFile();
   }
 
-  private requestAllBuilding() {
+  private requestAllFile() {
     return new Promise((reslove, reject) => {
       return this._http.get(this._host)
         .map((res: Response) => {
@@ -66,17 +66,17 @@ export class BuildingManagementService {
   }
 
   /*
-  * สร้างขัอมูลอาคารใหม่
+  * สร้างขัอมูลกรรมการใหม่
   */
-  createBuilding(param) {
+  createFile(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestCreateBuilding(_parameter);
+    return this.requestCreateFile(_parameter);
   }
 
 
-  private requestCreateBuilding(param) {
+  private requestCreateFile(param) {
     return new Promise((reslove, reject) => {
       /*
       * ตั้งค่า Header application/x-www-form-urlencode'
@@ -103,16 +103,16 @@ export class BuildingManagementService {
   }
 
   /*
-  * แก้ไขข้อมูลอาคาร
+  * แก้ไขข้อมูลกรรมการ
   */
-  editBuilding(param) {
+  editFile(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestEditBuilding(_parameter);
+    return this.requestEditFile(_parameter);
   }
 
-  private requestEditBuilding(param) {
+  private requestEditFile(param) {
     return new Promise((reslove, reject) => {
       /*
       * ตั้งค่า Header application/x-www-form-urlencode'
@@ -147,17 +147,17 @@ export class BuildingManagementService {
   }
 
   /*
-  * ลบข้อมูลอาคาร
+  * ลบข้อมูลกรรมการ
   */
 
-  deleteBuilding(param) {
+  deleteFile(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestDeleteBuilding(_parameter);
+    return this.requestDeleteFile(_parameter);
   }
 
-  private requestDeleteBuilding(param) {
+  private requestDeleteFile(param) {
     return new Promise((reslove, reject) => {
       /*
       * ตั้งค่า Header application/x-www-form-urlencode'
@@ -185,4 +185,5 @@ export class BuildingManagementService {
       });
     });
   }
+
 }

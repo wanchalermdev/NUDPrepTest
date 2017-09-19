@@ -1,26 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
 @Injectable()
-export class BuildingManagementService {
+export class TesterManagementService {
 
+  
   private _host;
   constructor(private _http: Http) {
-    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
-    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/exam_center/testerModel.php';
+    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/tester/testerModel.php';
   }
 
-  /*
-  * ขอข้อมูลอาคารครั้งละ 1 อาคาร
-  */
-  getBuilding(param) {
+  private converParam(param){
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestBuilding('?' + _parameter);
+    return _parameter;
   }
 
-  private requestBuilding(param) {
+  
+  /*
+  * ขอข้อมูลกรรมการครั้งละ 1 กรรมการ
+  */
+  getTester(param) {
+    var _parameter = Object.keys(param).map(function (key) {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
+    }).join('&');
+    return this.requestTester('?' + _parameter);
+  }
+
+  private requestTester(param) {
     return new Promise((reslove, reject) => {
       return this._http.get(this._host + param)
         .map((res: Response) => {
@@ -40,15 +48,15 @@ export class BuildingManagementService {
   }
 
   /*
-  * ขอข้อมูลอาคารทั้งหมด
+  * ขอข้อมูลกรรมการทั้งหมด
   */
-  getAllBuilding() {
-    return this.requestAllBuilding();
+  getAllTester(param) {
+    return this.requestAllTester(this.converParam(param));
   }
 
-  private requestAllBuilding() {
+  private requestAllTester(param) {
     return new Promise((reslove, reject) => {
-      return this._http.get(this._host)
+      return this._http.get(this._host + '?' + param)
         .map((res: Response) => {
           var json = res.json();
           if (json['operation'] === 'success') {
@@ -66,17 +74,17 @@ export class BuildingManagementService {
   }
 
   /*
-  * สร้างขัอมูลอาคารใหม่
+  * สร้างขัอมูลกรรมการใหม่
   */
-  createBuilding(param) {
+  createTester(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestCreateBuilding(_parameter);
+    return this.requestCreateTester(_parameter);
   }
 
 
-  private requestCreateBuilding(param) {
+  private requestCreateTester(param) {
     return new Promise((reslove, reject) => {
       /*
       * ตั้งค่า Header application/x-www-form-urlencode'
@@ -85,6 +93,7 @@ export class BuildingManagementService {
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
       this._http.post(this._host, param, { headers: headers }).map((res: Response) => {
+        console.log(res);
         var json = res.json();
         if (json['operation'] === 'success') {
           return json.body;
@@ -103,16 +112,16 @@ export class BuildingManagementService {
   }
 
   /*
-  * แก้ไขข้อมูลอาคาร
+  * แก้ไขข้อมูลกรรมการ
   */
-  editBuilding(param) {
+  editTester(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestEditBuilding(_parameter);
+    return this.requestEditTester(_parameter);
   }
 
-  private requestEditBuilding(param) {
+  private requestEditTester(param) {
     return new Promise((reslove, reject) => {
       /*
       * ตั้งค่า Header application/x-www-form-urlencode'
@@ -147,17 +156,17 @@ export class BuildingManagementService {
   }
 
   /*
-  * ลบข้อมูลอาคาร
+  * ลบข้อมูลกรรมการ
   */
 
-  deleteBuilding(param) {
+  deleteTester(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
-    return this.requestDeleteBuilding(_parameter);
+    return this.requestDeleteTester(_parameter);
   }
 
-  private requestDeleteBuilding(param) {
+  private requestDeleteTester(param) {
     return new Promise((reslove, reject) => {
       /*
       * ตั้งค่า Header application/x-www-form-urlencode'
@@ -185,4 +194,5 @@ export class BuildingManagementService {
       });
     });
   }
+
 }

@@ -38,25 +38,25 @@
             <!-- ID Column -->
             <ng-container mdColumnDef="ลำดับ">
                 <md-header-cell *mdHeaderCellDef> ลำดับ </md-header-cell>
-                <md-cell *mdCellDef="let row"> </md-cell>
+                <md-cell *mdCellDef="let row"> {{ row.number }} </md-cell>
             </ng-container>
             <!-- Progress Column -->
             <ng-container mdColumnDef="เลขประจำตัวประชาชน">
                 <md-header-cell *mdHeaderCellDef [ngClass]="'customWidthClass'"> เลขประจำตัวประชาชน </md-header-cell>
-                <md-cell *mdCellDef="let row" [ngClass]="'customWidthClass'"></md-cell>
+                <md-cell *mdCellDef="let row" [ngClass]="'customWidthClass'">{{ row.id_code }}</md-cell>
             </ng-container>
             <ng-container mdColumnDef="ชื่อ">
                 <md-header-cell *mdHeaderCellDef> ชื่อ </md-header-cell>
-                <md-cell *mdCellDef="let row"></md-cell>
+                <md-cell *mdCellDef="let row">{{ row.firstname }}</md-cell>
             </ng-container>
             <!-- Name Column -->
             <ng-container mdColumnDef="นามสกุล">
                 <md-header-cell *mdHeaderCellDef> นามสกุล </md-header-cell>
-                <md-cell *mdCellDef="let row"></md-cell>
+                <md-cell *mdCellDef="let row">{{ row.lastname }}</md-cell>
             </ng-container>
-            <ng-container mdColumnDef="โรงเรียน">
-                <md-header-cell *mdHeaderCellDef [ngClass]="'customWidthClass'"> โรงเรียน </md-header-cell>
-                <md-cell *mdCellDef="let row" [ngClass]="'customWidthClass'"> </md-cell>
+            <ng-container mdColumnDef="หมายเลขโทรศัพท์">
+                <md-header-cell *mdHeaderCellDef [ngClass]="'customWidthClass'"> หมายเลขโทรศัพท์ </md-header-cell>
+                <md-cell *mdCellDef="let row" [ngClass]="'customWidthClass'"> {{ row.phone }}</md-cell>
             </ng-container>
             <!-- Color Column -->
             <ng-container mdColumnDef="ข้อมูล">
