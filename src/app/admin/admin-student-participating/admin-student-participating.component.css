@@ -17,7 +17,6 @@
   }
   .mat-table {
     overflow: auto;
-    max-height: 500px;
   }
   md-card,md-table,md-paginator,md-paginator,md-header-row,md-row,md-select,md-option{
     font-family: SATIT;
