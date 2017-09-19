@@ -25,16 +25,23 @@ footer{
     text-decoration: none; 
   }
   .footer-middle{
-     background: #3d6277;
+     /* background: #3d6277; */
      /* background-image: linear-gradient(-60deg, #F76628 0%, #E74D00 100%); */
      /* background: #DB4602; 
      background: -webkit-linear-gradient(to right, #FD743E, #E74D00);  
      background: linear-gradient(to right, #FD743E, #E74D00);  */
      /* background-image: linear-gradient(45deg, #FA6634 0%, #E74D00 100%); */
-     background-image: linear-gradient(-120deg, #FD6D45 0%, #E74D00 100%);
+     background-image: linear-gradient(120deg, #FD7345 0%, #E74D00 100%);
     padding-top: 2em;
-    color: white;
-    bottom: 0;
+    /*color: white;
+    bottom: 0; */
+    position: relative; 
+    bottom: 0; 
+    left: 0; 
+    /* background: yellow; */
+    height: auto;
+    line-height: 40px;
+    width: 100%;
   }
   /**Sub Navigation**/
   .subnavigation-container{
