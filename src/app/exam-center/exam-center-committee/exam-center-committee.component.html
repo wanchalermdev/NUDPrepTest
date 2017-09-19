@@ -48,7 +48,7 @@
             <ng-container mdColumnDef="ข้อมูล">
                 <md-header-cell *mdHeaderCellDef> ข้อมูล </md-header-cell>
                 <md-cell *mdCellDef="let row">
-                    <button style="color:#3498db" md-icon-button (click)="viewCommittee(row.user_id)" [id]="row.user_id">
+                    <button style="color:#3498db" md-icon-button (click)="viewCommittee(row.committee_id)" [id]="row.committee_id">
             <md-icon class="md-24" aria-label="">toc</md-icon>
           </button>
                 </md-cell>
@@ -56,7 +56,7 @@
             <ng-container mdColumnDef="แก้ไข">
                 <md-header-cell *mdHeaderCellDef> แก้ไข </md-header-cell>
                 <md-cell *mdCellDef="let row">
-                    <button style="color:#1abc9c" md-icon-button (click)="editCommittee(row.user_id)" [id]="row.user_id">
+                    <button style="color:#1abc9c" md-icon-button (click)="editCommittee(row.committee_id)" [id]="row.committee_id">
             <md-icon class="md-24" aria-label="">edit</md-icon>
           </button>
                 </md-cell>
@@ -64,7 +64,7 @@
             <ng-container mdColumnDef="ลบ">
                 <md-header-cell *mdHeaderCellDef> ลบ </md-header-cell>
                 <md-cell *mdCellDef="let row">
-                    <button style="color:#F44336" md-icon-button (click)="deleteCommittee(row.user_id)" [id]="row.user_id">
+                    <button style="color:#F44336" md-icon-button (click)="deleteCommittee(row.committee_id)" [id]="row.committee_id">
             <md-icon class="md-24" aria-label="">delete</md-icon>
           </button>
                 </md-cell>
