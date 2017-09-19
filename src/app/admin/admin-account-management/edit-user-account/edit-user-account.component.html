@@ -46,7 +46,7 @@
             </div>
           </div>
           <md-select placeholder="เลือกโรงเรียน" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let school of schools" [value]="school.value" ng-selected="school.value === selectSchool? 'selected': ''">
+            <md-option *ngFor="let school of SchoolDataSource" [value]="school.value" ng-selected="school.value === selectSchool? 'selected': ''">
               {{ school.viewValue }}
             </md-option>
           </md-select>
