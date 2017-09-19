@@ -46,10 +46,16 @@ export class ViewCandidateComponent implements OnInit {
       this.level = response['tester_level'];
       this.under = response['tester_type'];
       this.phone = response['tester_phone'];
-      this.personal_code = response[''];
-      this.personal_code = response[''];
-      this.personal_code = response[''];
-      this.personal_code = response[''];
+      this.tester_code = response['tester_code'];
+      this.tester_number = response['tester_number'];
+      this.tester_exam_room = response['exam_room_id'];
+      this.buildingName = response['building_id'];
+      const preParamSchool = {
+        id: response['school_id']
+      };
+      this.schoolManagement.getSchool(preParamSchool).then(responseSchool => {
+        this.schoolName = responseSchool['school_name'];
+      });
     });
   }
 

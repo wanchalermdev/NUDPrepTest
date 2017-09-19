@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CommitteeManagementService } from '../../../service/committee-management.service';
 
 @Component({
   selector: 'app-edit-committee',
@@ -7,13 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditCommitteeComponent implements OnInit {
 
-  constructor() { }
+  private myId;
+  private _school_id;
 
-  buildings = [
-    { value: 'อาคาร 1', viewValue: 'อาคาร 1' },
-    { value: 'อาคาร 2', viewValue: 'อาคาร 2' },
-    { value: 'อาคาร 3', viewValue: 'อาคาร 3' }
-  ];
+  private selectPrename;
+  private firstname;
+  private lastname;
+  constructor(
+    private committeeManagement: CommitteeManagementService,
+    private _router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { 
+    this.myId = activatedRoute.snapshot.params.id;
+    this._school_id = window.sessionStorage.getItem('PSN_SCHOOL_ID');
+    const preParam = {
+      id: this.myId,
+      school_id: this._school_id
+    };
+    this.committeeManagement.getCommittee(preParam).then(response => {
+      this.selectPrename = response['committee_prename'];
+      this.firstname = response['committee_firstname'];
+      this.lastname = response['committee_lastname'];
+    });
+  }
+
   prenames = [
     { value: 'นาย', viewValue: 'นาย' },
     { value: 'นางสาว', viewValue: 'นางสาว' },
@@ -21,6 +40,21 @@ export class EditCommitteeComponent implements OnInit {
   ];
 
   ngOnInit() {
+  }
+
+  editCommittee(elem){
+    elem.preventDefault();
+    const formData = elem.target.elements;
+    const preParam = {
+      id: this.myId,
+      school_id: this._school_id,
+      committee_prename: this.selectPrename,
+      committee_firstname: formData.firstname.value,
+      committee_lastname: formData.lastname.value
+    };
+    this.committeeManagement.editCommittee(preParam).then(response => {
+      this._router.navigateByUrl('/examCenter/committee');
+    });
   }
 
 }

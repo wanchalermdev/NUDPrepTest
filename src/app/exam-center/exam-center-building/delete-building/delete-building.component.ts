@@ -13,8 +13,10 @@ export class DeleteBuildingComponent implements OnInit {
   buildingData;
   constructor(private buildingManagement: BuildingManagementService, private _router: Router, private activatedRoute: ActivatedRoute) {
     this.myId = this.activatedRoute.snapshot.params.id;
+    const _school_id = window.sessionStorage.getItem('PSN_SCHOOL_ID');
     const preParam = {
-      id: this.myId
+      id: this.myId,
+      school_id: _school_id
     };
     this.buildingData = this.buildingManagement.getBuilding(preParam).then(response => {
       this.buildingData = response['building_name'];

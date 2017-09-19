@@ -18,62 +18,57 @@
                     <div class="row">
                         <div class="col-4" align="right"><label class="style-label">เลขประตัวประชาชน </label></div>
                         <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-6"><span>{{ personal_code }}</span></div>
                     </div>
                     <div class="row">
                         <div class="col-4" align="right"><label class="style-label">ชื่อ - นามสกุล </label></div>
                         <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-6"><span>{{ name }}</span></div>
                     </div>
                     <div class="row">
                         <div class="col-4" align="right"><label class="style-label">ระดับชั้น </label></div>
                         <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4" align="right"><label class="style-label">โรงเรียน </label></div>
-                        <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4" align="right"><label class="style-label">สังกัด </label></div>
-                        <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-6"><span>{{ level }}</span></div>
                     </div>
                     <div class="row">
                         <div class="col-4" align="right"><label class="style-label">หมายเลขโทรศัพท์ </label></div>
                         <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-6"><span>{{ phone }}</span></div>
                     </div>
                     <div class="row">
                         <div class="col-4" align="right"><label class="style-label">รหัสประจำตัวผู้สอบ </label></div>
                         <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-6"><span>{{ tester_code }}</span></div>
                     </div>
                     <div class="row">
                         <div class="col-4" align="right"><label class="style-label">เลขที่นั่งสอบ </label></div>
                         <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-6"><span>{{ tester_number }}</span></div>
                     </div>
                     <div class="row">
                         <div class="col-4" align="right"><label class="style-label"> ห้องสอบ</label></div>
                         <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-6"><span>{{ tester_exam_room }}</span></div>
                     </div>
                     <div class="row">
                         <div class="col-4" align="right"><label class="style-label">อาคารสอบ </label></div>
                         <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-6"><span>{{ buildingName }}</span></div>
                     </div>
                     <div class="row">
-                        <div class="col-4" align="right"><label class="style-label">สนามสอบ </label></div>
+                        <div class="col-4" align="right"><label class="style-label">ศูนย์สอบ </label></div>
                         <div class="col-2"><label>:</label></div>
-                        <div class="col-6"><span></span></div>
+                        <div class="col-6"><span>{{ schoolName }}</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4" align="right"><label class="style-label">สังกัด </label></div>
+                        <div class="col-2"><label>:</label></div>
+                        <div class="col-6"><span>{{ under }}</span></div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
-                            <button md-raised-button color="primary" style="width:100%"><i class="material-icons">delete_forever</i>    ยืนยัน</button>
+                            <button (click)="deleteTester($event)" md-raised-button color="primary" style="width:100%"><i class="material-icons">delete_forever</i>    ยืนยัน</button>
                         </div>
                         <div class="col-md-6">
                             <button routerLink='../../candidate' md-raised-button color="Secondary" style="width:100%"><i class="material-icons">cancel</i>   ยกเลิก</button>

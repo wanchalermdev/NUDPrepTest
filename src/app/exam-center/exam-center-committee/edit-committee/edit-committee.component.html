@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<form>
+<form (submit)="editCommittee($event)">
   <div class="container">
     <div class="row topic">
       <div class="col-9">
@@ -14,39 +14,18 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <md-card-content>
-          <md-select placeholder="เลือกอาคารสอบ" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let building of buildings" [value]="building.value">
-              {{ building.viewValue }}
-            </md-option>
-          </md-select>
-          <br /><br />
-          <md-select placeholder="คำนำหน้านาม" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let pn of prenames" [value]="pn.value">
+          <md-select placeholder="คำนำหน้านาม" [(ngModel)]="selectPrename" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
+            <md-option *ngFor="let pn of prenames" [value]="pn.value" ng-selected="pn.value === selectPrename? 'selected':''">
               {{ pn.viewValue }}
             </md-option>
           </md-select>
           <br /><br />
           <md-input-container>
-            <input type="text" mdInput placeholder="ชื่อ" name="committee_firstname" required>
+            <input type="text" mdInput placeholder="ชื่อ" name="firstname" [value]="firstname" required>
           </md-input-container>
           <md-input-container>
-            <input type="text" mdInput placeholder="นามสกุล" name="committee_lastname" required>
+            <input type="text" mdInput placeholder="นามสกุล" name="lastname" [value]="lastname" required>
           </md-input-container>
-          <md-input-container>
-            <input type="text" mdInput placeholder="ตำแหน่ง" name="position_job" required>
-          </md-input-container>
-          <br />
-          <md-select placeholder="เลือกกรรมการคุบสอบคนที่ 1" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let committee1 of committees1" [value]="committee1.value">
-              {{ building.viewValue }}
-            </md-option>
-          </md-select>
-          <br /><br />
-          <md-select placeholder="เลือกกรรมการคุบสอบคนที่ 2" [(ngModel)]="selectSchool" [ngModelOptions]="{standalone: true}" [style.width]="'100%'">
-            <md-option *ngFor="let committee2 of committees2" [value]="committee2.value">
-              {{ building.viewValue }}
-            </md-option>
-          </md-select>
           <br />
         </md-card-content>
         <br />
