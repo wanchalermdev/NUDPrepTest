@@ -20,7 +20,9 @@ export class AddExamCenterComponent implements OnInit {
     {value: 'สุโขทัย', viewValue: 'สุโขทัย'},
     {value: 'พิจิตร', viewValue: 'พิจิตร'},
     {value: 'นครสวรรค์', viewValue: 'นครสวรรค์'},
-    {value: 'กำแพงเพชร', viewValue: 'กำแพงเพชร'}
+    {value: 'กำแพงเพชร', viewValue: 'กำแพงเพชร'},
+    {value: 'เพชรบูรณ์', viewValue: 'เพชรบูรณ์'},
+    {value: 'อุตรดิตถ์', viewValue: 'อุตรดิตถ์'}
   ];
 
   ngOnInit() {

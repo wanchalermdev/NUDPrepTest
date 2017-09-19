@@ -29,7 +29,7 @@ export class ExamCenterCandidateAccountComponent implements OnInit {
     }
   
     // displayedColumns = ['ลำดับ', 'ศูนย์สอบ', 'จังหวัด', 'ข้อมูล', 'แก้ไข', 'ลบ'];
-    displayedColumns = ['ลำดับ','เลขประจำตัวประชาชน', 'ชื่อ', 'นามสกุล', 'หมายเลขโทรศัพท์', 'ข้อมูล', 'แก้ไข', 'ลบ'];
+    displayedColumns = ['ลำดับ','เลขประจำตัวประชาชน', 'ชื่อ', 'นามสกุล', 'โทรศัพท์','ระดับชั้น', 'ข้อมูล', 'แก้ไข', 'ลบ'];
     exampleDatabase = new ExampleDatabase(this.testerManagement);
     dataSource: ExampleDataSource | null;
   
@@ -58,6 +58,7 @@ export class ExamCenterCandidateAccountComponent implements OnInit {
     firstname: string;
     lastname: string;
     phone: string;
+    level:string;
     tester_id: string;
   }
   
@@ -95,6 +96,7 @@ export class ExamCenterCandidateAccountComponent implements OnInit {
         firstname: name,
         lastname: acccount[this.data.length + 1]['tester_lastname'],
         phone: acccount[this.data.length + 1]['tester_phone'],
+        level:acccount[this.data.length + 1]['tester_level'],
         tester_id: acccount[this.data.length + 1]['tester_id']
       };
     }

@@ -21,13 +21,13 @@
                 <!-- <button md-button style="color:#1abc9c"><i class="material-icons">insert_drive_file</i>  ดาวน์โหลด CSV</button> -->
             </div>
         </div>
-        <div class="col-md-6" align="center">
+        <!-- <div class="col-md-6" align="center">
             <md-select placeholder="เลือกระดับชั้นที่ต้องการดูข้อมูลของนักเรียน" [style.width]="'100%'">
                 <md-option *ngFor="let level of levels" [value]="level.value">
                     {{ level.viewValue }}
                 </md-option>
             </md-select>
-        </div>
+        </div> -->
     </div>
     <div class="example-container mat-elevation-z8">
         <md-table #table [dataSource]="dataSource">
@@ -54,9 +54,13 @@
                 <md-header-cell *mdHeaderCellDef> นามสกุล </md-header-cell>
                 <md-cell *mdCellDef="let row">{{ row.lastname }}</md-cell>
             </ng-container>
-            <ng-container mdColumnDef="หมายเลขโทรศัพท์">
-                <md-header-cell *mdHeaderCellDef [ngClass]="'customWidthClass'"> หมายเลขโทรศัพท์ </md-header-cell>
+            <ng-container mdColumnDef="โทรศัพท์">
+                <md-header-cell *mdHeaderCellDef > โทรศัพท์ </md-header-cell>
                 <md-cell *mdCellDef="let row" [ngClass]="'customWidthClass'"> {{ row.phone }}</md-cell>
+            </ng-container>
+            <ng-container mdColumnDef="ระดับชั้น">
+                <md-header-cell *mdHeaderCellDef> ระดับชั้น </md-header-cell>
+                <md-cell *mdCellDef="let row"> {{ row.level }}</md-cell>
             </ng-container>
             <!-- Color Column -->
             <ng-container mdColumnDef="ข้อมูล">
