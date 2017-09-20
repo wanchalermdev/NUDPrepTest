@@ -6,8 +6,8 @@ export class CommitteeManagementService {
 
   private _host;
   constructor(private _http: Http) {
-    this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/Committee/CommitteeModel.php';
-    //this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/committee/committeeModel.php';
+    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/Committee/CommitteeModel.php';
+    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/committee/committeeModel.php';
   }
 
   private convertParam(param){

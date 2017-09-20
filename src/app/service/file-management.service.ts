@@ -5,8 +5,8 @@ export class FileManagementService {
 
   private _host;
   constructor(private _http: Http) {
-    this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/file/fileModel.php';
-    //this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/file/fileModel.php';
+    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/file/fileModel.php';
+    this._host = 'http://localhost/NUDPrepTestBackEnd/exam_center/file/fileModel.php';
   }
 
   

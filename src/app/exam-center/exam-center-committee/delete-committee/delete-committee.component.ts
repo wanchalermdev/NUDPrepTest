@@ -34,7 +34,7 @@ export class DeleteCommitteeComponent implements OnInit {
       this.lastname = response['committee_lastname'];
       this.name = response['committee_prename'] + this.firstname + " " + this.lastname;
     });
-    
+
   }
 
   prenames = [
@@ -46,7 +46,7 @@ export class DeleteCommitteeComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteCommittee(elem){
+  deleteCommittee(elem) {
     elem.preventDefault();
     const formData = elem.target.elements;
     const preParam = {
