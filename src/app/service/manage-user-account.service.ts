@@ -13,7 +13,7 @@ export class ManageUserAccountService {
     this.allUserData = null;
     this.userData = null;
     //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/user_account/UserAccountManagement.php';
-     this._host = 'http://localhost/NUDPrepTestBackEnd/user_account/UserAccountManagement.php';
+     this._host = 'http://www.satit.nu.ac.th/NUDPrepTestBackEnd/user_account/UserAccountManagement.php';
   }
 
   /*

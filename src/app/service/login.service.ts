@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private _http: Http) {
     this.isUserLoggedIn = false;
     //this._host = "http://10.41.131.180/NUDPrepTestBackEnd/authentication/AuthenticationRequestLogin.php";
-    this._host = "http://localhost/NUDPrepTestBackEnd/authentication/AuthenticationRequestLogin.php";
+    this._host = "http://www.satit.nu.ac.th/NUDPrepTestBackEnd/authentication/AuthenticationRequestLogin.php";
   }
 
   checkLogin(_username, _password) {
