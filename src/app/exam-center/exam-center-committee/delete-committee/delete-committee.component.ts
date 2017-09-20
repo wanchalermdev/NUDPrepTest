@@ -15,6 +15,8 @@ export class DeleteCommitteeComponent implements OnInit {
   private selectPrename;
   private firstname;
   private lastname;
+  private name;
+
   constructor(
     private committeeManagement: CommitteeManagementService,
     private _router: Router,
@@ -30,7 +32,9 @@ export class DeleteCommitteeComponent implements OnInit {
       this.selectPrename = response['committee_prename'];
       this.firstname = response['committee_firstname'];
       this.lastname = response['committee_lastname'];
+      this.name = response['committee_prename'] + this.firstname + " " + this.lastname;
     });
+    
   }
 
   prenames = [

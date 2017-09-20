@@ -18,7 +18,7 @@ export class AddUserAccountComponent implements OnInit {
   selectSchool: String;
   _email: String;
 
-  private SchoolDataSource = [];
+  public SchoolDataSource = [];
 
   constructor(private _router: Router, private manageUserAccount: ManageUserAccountService, private schoolManagement: SchoolManagementService) {
     this.schoolManagement.getAllSchool().then(response => {
