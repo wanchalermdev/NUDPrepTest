@@ -6,8 +6,8 @@ export class BuildingManagementService {
 
   private _host;
   constructor(private _http: Http) {
-    this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
-    //this._host = 'http://www.satit.nu.ac.th/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    this._host = 'http://www.satit.nu.ac.th/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
   }
 
   private convertParam(param) {

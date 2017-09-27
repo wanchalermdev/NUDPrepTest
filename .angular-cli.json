@@ -22,7 +22,6 @@
         "styles.css"
       ],
       "scripts": [
-        "assets/chart/chart.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -88,6 +88,7 @@ import { EditCommitteeComponent } from './exam-center/exam-center-committee/edit
 import { DeleteCommitteeComponent } from './exam-center/exam-center-committee/delete-committee/delete-committee.component';
 import { PDFReportCommitteeComponent } from './exam-center/exam-center-committee/pdf-report-committee/pdf-report-committee.component';
 import { HeaderComponent } from './header/header.component';
+import { NumberOfTesterEachExamCenterBarChartComponent } from './chart/number-of-tester-each-exam-center-bar-chart/number-of-tester-each-exam-center-bar-chart.component';
 //constructor admin routing
 const adminRoutes: Routes = [
 
@@ -216,6 +217,7 @@ export const appRoutes: Routes = [
     DeleteCommitteeComponent,
     PDFReportCommitteeComponent,
     HeaderComponent,
+    NumberOfTesterEachExamCenterBarChartComponent,
 
   ],
   imports: [

@@ -9,8 +9,8 @@ export class SchoolManagementService {
   private responseAllSchool;
 
   constructor(private _http: Http, _router: Router) {
-    this._host = "http://10.41.131.180/NUDPrepTestBackEnd/school/schoolManagement.php";
-    //this._host = "http://www.satit.nu.ac.th/NUDPrepTestBackEnd/school/schoolManagement.php";
+    //this._host = "http://10.41.131.180/NUDPrepTestBackEnd/school/schoolManagement.php";
+    this._host = "http://www.satit.nu.ac.th/NUDPrepTestBackEnd/school/schoolManagement.php";
     this.responseAllSchool = null;
   }
 
