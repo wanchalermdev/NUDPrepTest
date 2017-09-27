@@ -6,11 +6,11 @@ export class BuildingManagementService {
 
   private _host;
   constructor(private _http: Http) {
-    //this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
-    this._host = 'http://www.satit.nu.ac.th/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    this._host = 'http://10.41.131.180/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
+    //this._host = 'http://www.satit.nu.ac.th/NUDPrepTestBackEnd/exam_center/building/buildingModel.php';
   }
 
-  private convertParam(param){
+  private convertParam(param) {
     var _parameter = Object.keys(param).map(function (key) {
       return encodeURIComponent(key) + '=' + encodeURIComponent(param[key]);
     }).join('&');
@@ -50,7 +50,7 @@ export class BuildingManagementService {
   * ขอข้อมูลอาคารทั้งหมด
   */
   getAllBuilding(param) {
-    
+
     return this.requestAllBuilding(this.convertParam(param));
   }
 

@@ -16,7 +16,7 @@ import 'rxjs/add/operator/map';
 })
 export class AdminInfoComponent implements OnInit {
 
-  
+
 
   constructor(private login:LoginService) { }
 

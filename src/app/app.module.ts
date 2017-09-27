@@ -29,6 +29,7 @@ import { RoomManagementService } from './service/room-management.service';
 import { CommitteeManagementService } from './service/committee-management.service';
 import { TesterManagementService } from './service/tester-management.service';
 import { FileManagementService } from './service/file-management.service';
+import { RESTService } from './service/rest.service';
 
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { Http, Headers, HttpModule } from '@angular/http';
@@ -235,7 +236,8 @@ export const appRoutes: Routes = [
     RoomManagementService,
     CommitteeManagementService,
     TesterManagementService,
-    FileManagementService
+    FileManagementService,
+    RESTService
   ],
   bootstrap: [AppComponent]
 })
