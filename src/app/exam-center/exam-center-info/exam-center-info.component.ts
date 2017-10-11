@@ -9,6 +9,7 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 import { ManageUserAccountService } from '../../service/manage-user-account.service';
+import { Chart } from 'chart.js/dist/Chart.js';
 
 @Component({
   selector: 'app-exam-center-info',
@@ -26,6 +27,8 @@ export class ExamCenterInfoComponent implements OnInit {
   
     constructor(private manageAccount: ManageUserAccountService, private _router: Router) {
     }
+
+    
   
     // displayedColumns = ['ลำดับ', 'ศูนย์สอบ', 'จังหวัด', 'ข้อมูล', 'แก้ไข', 'ลบ'];
     displayedColumns = ['ลำดับ','ชื่ออาคาร', 'จำนวนห้อง', 'รองรับผู้สอบ', 'ข้อมูล', 'แก้ไข', 'ลบ'];
@@ -48,6 +51,39 @@ export class ExamCenterInfoComponent implements OnInit {
   
     ngOnInit() {
       this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
+
+      var canvas : any = document.getElementById("myChart");
+      var ctx = canvas.getContext("2d");
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ["ป.4", "ป.5", "ป.6"],
+          datasets: [{
+            label: 'สถิติจำนวนนักเรียนที่สมัครเข้าร่วมโครงการ NUD PREP TEST 2017',
+            data: [15, 149, 250],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
     }
   
   }

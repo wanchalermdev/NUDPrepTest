@@ -30,6 +30,9 @@ import { CommitteeManagementService } from './service/committee-management.servi
 import { TesterManagementService } from './service/tester-management.service';
 import { FileManagementService } from './service/file-management.service';
 import { RESTService } from './service/rest.service';
+import { UploadFileService } from './service/upload-file.service';
+import { Angular2TokenService } from 'angular2-token';
+
 
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { Http, Headers, HttpModule } from '@angular/http';
@@ -88,6 +91,7 @@ import { EditCommitteeComponent } from './exam-center/exam-center-committee/edit
 import { DeleteCommitteeComponent } from './exam-center/exam-center-committee/delete-committee/delete-committee.component';
 import { PDFReportCommitteeComponent } from './exam-center/exam-center-committee/pdf-report-committee/pdf-report-committee.component';
 import { HeaderComponent } from './header/header.component';
+import { UploadFileTransferSlipComponent } from './exam-center/upload-file-transfer-slip/upload-file-transfer-slip.component';
 //constructor admin routing
 const adminRoutes: Routes = [
 
@@ -149,7 +153,8 @@ const examCenterRoutes: Routes = [
   { path: 'view-committee/:id', component: ViewCommitteeComponent },
   { path: 'edit-committee/:id', component: EditCommitteeComponent },
   { path: 'delete-committee/:id', component: DeleteCommitteeComponent },
-  { path: 'pdf-report-committee', component: PDFReportCommitteeComponent }
+  { path: 'pdf-report-committee', component: PDFReportCommitteeComponent },
+  { path: 'upload-transfer-slip', component: UploadFileTransferSlipComponent }
 
 ];
 //constructor app routing
@@ -216,6 +221,7 @@ export const appRoutes: Routes = [
     DeleteCommitteeComponent,
     PDFReportCommitteeComponent,
     HeaderComponent,
+    UploadFileTransferSlipComponent,
 
   ],
   imports: [
@@ -237,7 +243,8 @@ export const appRoutes: Routes = [
     CommitteeManagementService,
     TesterManagementService,
     FileManagementService,
-    RESTService
+    RESTService,
+    UploadFileService
   ],
   bootstrap: [AppComponent]
 })
